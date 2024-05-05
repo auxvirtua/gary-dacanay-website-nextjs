@@ -28,17 +28,23 @@ function getThumbnail(videoId: string, quality: VideoQuality): string | null {
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col justify-between lg:justify-normal lg:gap-4 p-24">
+    <main className="max-w-screen flex max-h-screen flex-col justify-between gap-4 overflow-hidden p-12 lg:max-h-none lg:justify-normal lg:p-24">
       {/* Header */}
-      <div className="z-10 w-full items-center justify-between text-sm lg:flex">
+      <div className="z-10 flex w-full flex-col items-center justify-between gap-4 text-sm lg:flex lg:flex-row">
         {/* Left */}
-        <div className="flex flex-col lg:flex-row w-full items-center justify-center lg:static lg:w-auto gap-2">
-          <p className="text-2xl font-black uppercase bg-[#FFD700] bg-clip-text text-transparent">${data.name}</p>
-
-          <p className="font-semibold">For bookings, contact <a href={`mailto:${data.email}`}>{data.email}</a></p>
+        <div className="flex w-full flex-col items-center justify-center gap-2 lg:w-auto lg:flex-row">
+          {/* Name */}
+          <p className="bg-[#FFD700] bg-clip-text text-2xl font-black uppercase text-transparent">
+            {data.name}
+          </p>
+          {/* Bookings Link */}
+          <p className="text-center font-semibold lg:text-left">
+            For bookings, contact{" "}
+            <a href={`mailto:${data.email}`}>{data.email}</a>
+          </p>
         </div>
         {/* Right */}
-        <div className="flex gap-3 w-full items-center justify-center lg:size-auto">
+        <div className="flex w-full items-center justify-center gap-3 lg:size-auto">
           {["instagram", "youtube", "spotify", "apple_music"].map((social) => (
             <Image
               key={social}
@@ -49,46 +55,60 @@ export default function Home() {
               height={24}
               priority
             />
-          ))
-          }
-        </div>
-      </div>
-
-      {/* Bio */}
-      <div className="lg:w-1/3 leading-loose">
-        <p>{data.bio}</p>
-      </div>
-
-      {/* Modules */}
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        {/* Videos */}
-        <div
-          className="group border border-transparent px-4 py-2 bg-stone-100 dark:bg-stone-900"
-        >
-          <h2 className="flex items-center mb-3 text-2xl font-semibold uppercase gap-2">
-            <span className="text-xl font-black uppercase bg-[#FFD700] bg-clip-text text-transparent">Videos</span>
-            <span className="block h-1 w-8 bg-[#FFD700] flex-1" />
-          </h2>
-          {data.videos.map(([title, videoId]) => (
-            <div key={videoId} className="flex flex-col gap-2">
-              <a
-                href={`https://www.youtube.com/watch?v=${videoId}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group"
-              >
-                <Image
-                  src={getThumbnail(videoId, VideoQuality.Medium)}
-                  alt={title}
-                  width={640}
-                  height={360}
-                  priority
-                />
-              </a>
-              <p className="font-semibold">{title}</p>
-            </div>
           ))}
         </div>
+      </div>
+
+      <div className="h-screen overflow-auto lg:h-auto lg:overflow-visible">
+        {/* Bio */}
+        <div className="self-center text-justify lg:w-1/2">
+          <p>{data.bio}</p>
+        </div>
+
+        {/* Modules */}
+        <div className="mb-32 flex text-center lg:text-left">
+          {/* Videos Container */}
+          <div className="group overflow-x-hidden border border-transparent bg-stone-100 px-4 py-2 dark:bg-stone-900">
+            <h2 className="mb-3 flex items-center gap-2 text-2xl font-semibold uppercase">
+              <span className="bg-[#FFD700] bg-clip-text text-xl font-black uppercase text-transparent">
+                Videos
+              </span>
+              <span className="block h-1 w-8 flex-1 bg-[#FFD700]" />
+            </h2>
+            {/* Videos List */}
+            <div className="grid snap-both snap-mandatory grid-flow-col gap-4 overflow-x-auto overscroll-contain">
+              {data.videos.map(([title, videoId]) => (
+                <div key={videoId} className="snap-center">
+                  <a
+                    href={`https://www.youtube.com/watch?v=${videoId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className=""
+                  >
+                    <div className="w-fit overflow-hidden bg-black">
+                      <Image
+                        src={getThumbnail(videoId, VideoQuality.Medium)}
+                        alt={title}
+                        width={240}
+                        height={135}
+                        priority
+                      />
+                    </div>
+                    {/* <Image
+                    src={getThumbnail(videoId, VideoQuality.Medium)}
+                    alt={title}
+                    width={640}
+                    height={360}
+                    priority
+                  /> */}
+                  </a>
+                  <p className="font-semibold">{title}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        {/*  */}
       </div>
     </main>
   );
