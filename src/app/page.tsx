@@ -1,34 +1,11 @@
 import Image from "next/image";
 import data from "./data.json";
-
-enum VideoQuality {
-  Low = "low",
-  Medium = "medium",
-  High = "high",
-  Max = "max",
-}
-
-function getThumbnail(videoId: string, quality: VideoQuality): string | null {
-  // iterate through the quality options
-  // and return the first one that is available
-  // in the order of max, high, medium, low
-  // if none are available, return null
-
-  const qualities = Object.values(VideoQuality);
-  const index = qualities.indexOf(quality);
-
-  for (let i = index; i < qualities.length; i++) {
-    const quality = qualities[i];
-    const thumbnail = `https://img.youtube.com/vi/${videoId}/${quality}default.jpg`;
-    return thumbnail;
-  }
-
-  return null; // Return null if no thumbnail is found
-}
+import { getVideoThumbnail } from "./utilities/video";
+import { VideoQuality } from "./enums";
 
 export default function Home() {
   return (
-    <main className="max-w-screen flex max-h-screen flex-col justify-between gap-4 overflow-hidden p-12 lg:max-h-none lg:justify-normal lg:p-24">
+    <main className="max-w-screen flex max-h-screen flex-col justify-between gap-4 overflow-hidden p-12 lg:min-h-screen lg:justify-normal lg:p-24">
       {/* Header */}
       <div className="z-10 flex w-full flex-col items-center justify-between gap-4 text-sm lg:flex lg:flex-row">
         {/* Left */}
@@ -87,7 +64,7 @@ export default function Home() {
                   >
                     <div className="w-fit overflow-hidden bg-black">
                       <Image
-                        src={getThumbnail(videoId, VideoQuality.Medium)}
+                        src={getVideoThumbnail(videoId, VideoQuality.Medium)}
                         alt={title}
                         width={240}
                         height={135}
