@@ -5,55 +5,51 @@ import { VideoQuality } from "./enums";
 
 export default function Home() {
   return (
-    <main className="max-w-screen flex max-h-screen flex-col justify-between gap-4 overflow-hidden p-12 lg:min-h-screen lg:justify-normal lg:p-24">
+    <main className="max-w-screen lg:p-18 flex max-h-screen flex-col justify-between gap-2 overflow-hidden bg-stone-900 p-12 lg:min-h-screen lg:justify-normal">
       {/* Header */}
-      <div className="z-10 flex w-full flex-col items-center justify-between gap-4 text-sm lg:flex lg:flex-row">
-        {/* Left */}
-        <div className="flex w-full flex-col items-center justify-center gap-2 lg:w-auto lg:flex-row">
-          {/* Name */}
-          <p className="bg-[#FFD700] bg-clip-text text-2xl font-black uppercase text-transparent">
-            {data.name}
-          </p>
-          {/* Bookings Link */}
-          <p className="text-center font-semibold lg:text-left">
-            For bookings, contact{" "}
-            <a href={`mailto:${data.email}`}>{data.email}</a>
-          </p>
-        </div>
+      <div className="flex w-full flex-col items-center justify-between gap-4 text-sm lg:flex lg:flex-row">
+        {/* Name */}
+        <p className="bg-[hsl(45,68%,50%)] bg-clip-text text-4xl font-black uppercase text-transparent">
+          {data.name}
+        </p>
         {/* Right */}
-        <div className="flex w-full items-center justify-center gap-3 lg:size-auto">
+        <div className="flex w-full items-center justify-center gap-6 lg:size-auto">
           {["instagram", "youtube", "spotify", "apple_music"].map((social) => (
             <Image
               key={social}
               src={`/${social}.svg`}
               alt={`${social} logo`}
               className=""
-              width={24}
-              height={24}
+              width={32}
+              height={32}
               priority
             />
           ))}
         </div>
       </div>
 
-      <div className="h-screen overflow-auto lg:h-auto lg:overflow-visible">
+      <div className="flex h-screen flex-col gap-8 overflow-auto lg:h-auto lg:w-1/2 lg:overflow-visible">
         {/* Bio */}
-        <div className="self-center text-justify lg:w-1/2">
-          <p>{data.bio}</p>
+        <div className="self-center text-justify leading-8">
+          Singing and playing your favorite Jazz Standards and songs from The
+          Great American Songbook in Northeast Ohio for over 20 years. Available
+          for private or corporate events, weddings, dinners, and parties. For
+          bookings, contact <a href={`mailto:${data.email}`}>{data.email}</a>
         </div>
 
         {/* Modules */}
-        <div className="mb-32 flex text-center lg:text-left">
-          {/* Videos Container */}
-          <div className="group overflow-x-hidden border border-transparent bg-stone-100 px-4 py-2 dark:bg-stone-900">
-            <h2 className="mb-3 flex items-center gap-2 text-2xl font-semibold uppercase">
-              <span className="bg-[#FFD700] bg-clip-text text-xl font-black uppercase text-transparent">
+        <div className="flex text-center lg:text-left">
+          {/* Videos */}
+          <div className="group flex flex-col gap-4 overflow-x-hidden bg-stone-800 p-4">
+            <h2 className="flex items-center gap-2 text-2xl font-semibold uppercase">
+              <span className="bg-[hsl(45,68%,50%)] bg-clip-text text-xl font-black uppercase text-transparent">
                 Videos
               </span>
-              <span className="block h-1 w-8 flex-1 bg-[#FFD700]" />
+              {/* span with gold gradient */}
+              {/* <span className="block h-0.5 w-8 flex-1 bg-[hsl(45,68%,50%)] opacity-25" /> */}
             </h2>
-            {/* Videos List */}
-            <div className="grid snap-both snap-mandatory grid-flow-col gap-4 overflow-x-auto overscroll-contain">
+            {/* Video List */}
+            <div className="grid snap-both snap-mandatory grid-flow-row grid-cols-3 gap-4 overflow-x-auto overscroll-contain">
               {data.videos.map(([title, videoId]) => (
                 <div key={videoId} className="snap-center">
                   <a
@@ -62,26 +58,33 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className=""
                   >
-                    <div className="w-fit overflow-hidden bg-black">
+                    <div className="overflow-hidden bg-black">
                       <Image
                         src={getVideoThumbnail(videoId, VideoQuality.Medium)}
                         alt={title}
-                        width={240}
-                        height={135}
+                        width={160}
+                        height={90}
                         priority
                       />
                     </div>
-                    {/* <Image
-                    src={getThumbnail(videoId, VideoQuality.Medium)}
-                    alt={title}
-                    width={640}
-                    height={360}
-                    priority
-                  /> */}
+                    <p className="font-semibold">{title}</p>
                   </a>
-                  <p className="font-semibold">{title}</p>
                 </div>
               ))}
+            </div>
+            {/* Mailing list signup */}
+            <div className="mt-4 flex gap-2">
+              <p className="font-semibold">Sign up for my mailing list</p>
+              <form className="flex gap-2">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="border border-black dark:border-white"
+                />
+                <button className="border border-black dark:border-white">
+                  Sign up
+                </button>
+              </form>
             </div>
           </div>
         </div>
