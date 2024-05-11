@@ -8,6 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        "gold": "hsl(45,90%,70%)",
+        "gold-dark": "hsl(45,90%,40%)",
+        "gold-light": "hsl(45,90%,80%)",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

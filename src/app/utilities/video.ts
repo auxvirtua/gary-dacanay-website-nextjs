@@ -18,7 +18,7 @@ export default function getVideoThumbnail(
     return thumbnail;
   }
 
-  return null; // Return null if no thumbnail is found
+  return "https://via.placeholder.com/160x90?text=No+thumbnail";
 }
 
 export { getVideoThumbnail };

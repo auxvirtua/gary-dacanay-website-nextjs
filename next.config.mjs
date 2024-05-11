@@ -4,7 +4,10 @@ const nextConfig = {
         remotePatterns: [
             {
                 hostname: "img.youtube.com"
-            }
+            },
+            {
+                hostname: "via.placeholder.com"
+            },
         ],
     }
 };
