@@ -3,30 +3,26 @@ import data from "../../data.json";
 import { Video } from "../index";
 import Image from "next/image";
 
-function Bio() {
+export function Hero() {
   return (
-    <div className="flex gap-5 font-black flex-col">
-        <div className="text-gold-light text-4xl uppercase italic">
+    <div className="flex gap-5 flex-col text-center w-3/4 items-center mx-auto">
+        <div className="text-gold-light font-bold text-2xl italic">
           Sings and plays...
         </div>
-        <div className="text-gold text-7xl uppercase">Jazz Standards</div>
-        <div className="text-gold-light text-4xl uppercase">
-          from The Great American Songbook
+        <div className="text-gold text-7xl font-black uppercase">Jazz Standards</div>
+        <div className="text-gold-light font-bold text-2xl italic">
+          from
         </div>
-      <div className="flex gap-10 font-black">
-        <div className="text-gold text-2xl">
-          ...at private and corporate events, weddings, dinners and parties
+        <div className="text-gold text-5xl uppercase font-black">
+          The Great American Songbook
         </div>
-      </div>
-    </div>
-  );
-}
-
-export function Venues() {
-  return (
-    <div className="flex gap-10 font-black">
-      <div className="text-gold text-2xl">
-        ...at private and corporate events, weddings, dinners and parties
+      <div className="flex flex-col items-center gap-10">
+        <div className="text-gold-light text-xl italic font-bold">
+          Available for your private corporate events, weddings, dinners and parties
+        </div>
+        <button type="button" className="text-gold-light text-1xl italic font-bold border-gold border-2 px-8 py-4">
+        Book Now
+      </button>
       </div>
     </div>
   );
@@ -82,11 +78,12 @@ export function BackgroundImage() {
 
 export function Body() {
   return (
-    <div className="flex h-screen flex-col gap-8 overflow-auto p-12 lg:h-auto lg:overflow-visible">
-      <div className="flex gap-4">
-        <Bio />
-        {/* <hr className="border-gold-light" /> */}
-        <BackgroundImage />
+    <div className="flex h-screen flex-col gap-8 overflow-auto lg:h-auto lg:overflow-visible">
+      <hr className="border-gold-light border-2 mx-10" />
+      <div className="flex flex-col gap-4">
+        <Hero />
+        <hr className="border-gold-light border-2 mx-10" />
+        {/* <BackgroundImage /> */}
       </div>
       <Videos />
     </div>

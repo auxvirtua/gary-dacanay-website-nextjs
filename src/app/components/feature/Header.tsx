@@ -2,7 +2,7 @@ import data from "../../data.json";
 
 export function Header() {
   return (
-    <div className="flex w-full flex-col lg:flex-row items-center justify-between gap-4 p-12">
+    <div className="flex flex-col lg:flex-row items-center justify-between gap-4 p-12">
       <div className="text-gold text-7xl font-black uppercase px-[5%]">
         <div className="ml-[-10%]">{data.name.split(" ")[0]}</div>
         <div className="ml-[10%]">{data.name.split(" ")[1]}</div>

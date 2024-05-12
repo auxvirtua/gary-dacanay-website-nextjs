@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="flex flex-col items-center justify-center p-12">
       <SocialMedia />
       <MailingListSignup />
-      <div className="text-sm">
+      <div className="text-sm uppercase font-bold text-gold-light">
         &copy; {new Date().getFullYear()} {data.name}
       </div>
     </footer>
