@@ -4,7 +4,7 @@ import { VideoQuality } from "../../enums";
 
 export function Video({ title, videoId }) {
   return (
-    <div>
+    <div className="flex-shrink-0 w-1/3 snap-start">
       <a
         href={`https://www.youtube.com/watch?v=${videoId}`}
         target="_blank"

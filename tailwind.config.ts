@@ -13,11 +13,6 @@ const config: Config = {
         "gold-dark": "hsl(45,90%,40%)",
         "gold-light": "hsl(45,90%,80%)",
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
     },
   },
   plugins: [],
