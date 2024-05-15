@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		// format on save
+		"editor.formatOnSave": true,
+	}
+}

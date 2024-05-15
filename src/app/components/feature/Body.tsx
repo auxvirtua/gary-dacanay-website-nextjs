@@ -4,46 +4,54 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <div className="mx-auto flex w-3/4 flex-col items-center gap-5 text-center">
-      <div className="text-gold-light text-2xl font-bold italic">
-        ~ Sings and plays ~
-      </div>
-      <div className="text-gold text-8xl font-black uppercase">
-        Jazz Standards
-      </div>
-      <div className="text-gold-light text-2xl font-bold italic">~ and more from ~</div>
-      <div className="text-gold text-5xl font-black uppercase">
-        The Great American Songbook
-      </div>
-      <div className="flex flex-col items-center gap-10">
-        <div className="text-gold-light text-xl font-bold italic">
-          Available for your private corporate events, weddings, dinners and
-          parties
+    <>
+      <Divider />
+      <div className="mx-auto flex w-3/4 flex-col items-center gap-5 text-center">
+        <div className="text-2xl font-bold italic text-gold-light">
+          ~ Sings and plays ~
         </div>
-        <div>
-          <button
-            type="button"
-            className="bg-gold flex flex-col items-center gap-2 px-8 py-4 text-2xl font-bold text-stone-950"
-          >
-            <span className="uppercase">Click here to book</span>
-          </button>
-          <span className="text-sm font-medium">
-            or email Gary directly at{" "}
-            <a className="underline" href="mailto:info@garydacanay.com">
-              info@garydacanay.com
-            </a>
-          </span>
+        <div className="text-3xl font-black uppercase text-gold md:text-8xl">
+          Jazz Standards
+        </div>
+        <div className="text-xl font-bold italic text-gold-light md:text-2xl">
+          ~ and more from ~
+        </div>
+        <div className="text-2xl font-black uppercase text-gold md:text-5xl">
+          The Great American Songbook
+        </div>
+        <div className="flex flex-col items-center gap-5 md:gap-10">
+          <div className="text-md font-bold italic text-gold-light md:text-xl">
+            Available for your private corporate events, weddings, dinners and
+            parties
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <button
+              type="button"
+              className="text-md align-center flex flex-col gap-2 bg-gold px-8 py-4 text-center font-bold text-stone-950 md:text-2xl"
+            >
+              <span className="flex uppercase">Click here to book</span>
+            </button>
+            <span className="text-xs font-medium md:text-sm">
+              or email Gary directly at{" "}
+              <a className="underline" href="mailto:info@garydacanay.com">
+                info@garydacanay.com
+              </a>
+            </span>
+          </div>
         </div>
       </div>
-    </div>
+      <Divider />
+    </>
   );
 }
 
 export function Videos() {
   return (
-    <div className="flex flex-col gap-4 p-12">
-      <span className="text-gold text-3xl font-black uppercase">Videos</span>
-      <div className="flex snap-both snap-mandatory flex-nowrap gap-4 overflow-x-auto overscroll-contain p-12">
+    <div className="flex flex-col gap-4 md:p-12">
+      {/* <span className="text-center text-xl font-black uppercase text-gold">
+        Videos
+      </span> */}
+      <div className="flex snap-both snap-mandatory flex-nowrap gap-2 overflow-x-auto overscroll-contain p-6 md:p-12">
         {data.videos.map(([title, videoId]) => (
           <Video key={videoId} title={title} videoId={videoId} />
         ))}
@@ -54,30 +62,34 @@ export function Videos() {
 
 export function Video({ title, videoId }: { title: string; videoId: string }) {
   return (
-    <div className="w-full lg:w-1/3 flex-shrink-0 snap-center" key={videoId}>
-    <a
-      href={`https://www.youtube.com/watch?v=${videoId}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="cursor-pointer flex flex-col gap-4"
+    <div
+      className="w-full flex-shrink-0 snap-center sm:w-1/2 lg:w-1/4"
+      key={videoId}
     >
-      <div className="overflow-hidden bg-black">
-        <Image
-          src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
-          alt={title}
-          width={160}
-          height={90}
-          className="object-contain w-full h-full"
-          priority />
-      </div>
-      {/* <div className="flex aspect-video items-center justify-center overflow-hidden bg-black text-2xl font-black uppercase">
+      <a
+        href={`https://www.youtube.com/watch?v=${videoId}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex cursor-pointer flex-col gap-4"
+      >
+        <div className="overflow-hidden bg-black">
+          <Image
+            src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+            alt={title}
+            width={160}
+            height={90}
+            className="h-full w-full object-cover"
+            priority
+          />
+        </div>
+        {/* <div className="flex aspect-video items-center justify-center overflow-hidden bg-black text-2xl font-black uppercase">
         Play
       </div> */}
-      <p className="line-clamp-1 cursor-pointer font-semibold underline underline-offset-2 text-center">
-        {title}
-      </p>
-    </a>
-  </div>
+        <p className="line-clamp-1 cursor-pointer text-center text-lg font-semibold underline underline-offset-2">
+          {title}
+        </p>
+      </a>
+    </div>
   );
 }
 
@@ -117,18 +129,13 @@ export function BackgroundImage() {
 }
 
 export const Divider = () => (
-  <hr className="border-gold-light mx-10 border-2" />
+  <hr className="mx-10 border-2 border-gold-light" />
 );
 
 export function Body() {
   return (
-    <div className="flex h-screen flex-col overflow-auto lg:h-auto lg:overflow-visible">
-      <div className="flex flex-col gap-12">
-        <Divider />
-        <Hero />
-        <Divider />
-        {/* <BackgroundImage /> */}
-      </div>
+    <div className="flex flex-col gap-6 md:gap-12">
+      <Hero />
       <Videos />
     </div>
   );

@@ -4,7 +4,7 @@ import { Footer } from "./components/feature/Footer";
 
 export default function Page() {
   return (
-    <main className="min-h-screen flex flex-col bg-stone-950 border-gold-light border-[40px]">
+    <main className="flex min-h-screen flex-col border-gold-light bg-stone-950 md:border-[40px]">
       <Header />
       <Body />
       <Footer />
