@@ -1,19 +1,18 @@
 import React from "react";
 import data from "../../data.json";
-import { Video } from "../index";
 import Image from "next/image";
 
 export function Hero() {
   return (
     <div className="mx-auto flex w-3/4 flex-col items-center gap-5 text-center">
       <div className="text-gold-light text-2xl font-bold italic">
-        Sings and plays...
+        ~ Sings and plays ~
       </div>
       <div className="text-gold text-8xl font-black uppercase">
         Jazz Standards
       </div>
-      <div className="text-gold-light text-2xl font-bold italic">from</div>
-      <div className="text-gold text-6xl font-black uppercase">
+      <div className="text-gold-light text-2xl font-bold italic">~ and more from ~</div>
+      <div className="text-gold text-5xl font-black uppercase">
         The Great American Songbook
       </div>
       <div className="flex flex-col items-center gap-10">
@@ -44,41 +43,47 @@ export function Videos() {
   return (
     <div className="flex flex-col gap-4 p-12">
       <span className="text-gold text-3xl font-black uppercase">Videos</span>
-      <div className="flex snap-both snap-mandatory flex-nowrap gap-4 overflow-x-auto overscroll-contain py-6 px-12">
+      <div className="flex snap-both snap-mandatory flex-nowrap gap-4 overflow-x-auto overscroll-contain p-12">
         {data.videos.map(([title, videoId]) => (
-          <div className="w-1/3 flex-shrink-0 snap-start" key={videoId}>
-            <a
-              href={`https://www.youtube.com/watch?v=${videoId}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cursor-pointer flex flex-col gap-4"
-            >
-              {/* <div className="overflow-hidden bg-black">
-                <Image
-                  src="https://via.placeholder.com/160x90?text=No+thumbnail"
-                  alt={title}
-                  width={160}
-                  height={90}
-                  layout="responsive"
-                  priority />
-              </div> */}
-              <div className="flex aspect-video items-center justify-center overflow-hidden bg-black text-2xl font-black uppercase">
-                Play
-              </div>
-              <p className="line-clamp-1 cursor-pointer font-semibold underline underline-offset-2">
-                {title}
-              </p>
-            </a>
-          </div>
+          <Video key={videoId} title={title} videoId={videoId} />
         ))}
       </div>
     </div>
   );
 }
 
+export function Video({ title, videoId }: { title: string; videoId: string }) {
+  return (
+    <div className="w-full lg:w-1/3 flex-shrink-0 snap-center" key={videoId}>
+    <a
+      href={`https://www.youtube.com/watch?v=${videoId}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="cursor-pointer flex flex-col gap-4"
+    >
+      <div className="overflow-hidden bg-black">
+        <Image
+          src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+          alt={title}
+          width={160}
+          height={90}
+          className="object-contain w-full h-full"
+          priority />
+      </div>
+      {/* <div className="flex aspect-video items-center justify-center overflow-hidden bg-black text-2xl font-black uppercase">
+        Play
+      </div> */}
+      <p className="line-clamp-1 cursor-pointer font-semibold underline underline-offset-2 text-center">
+        {title}
+      </p>
+    </a>
+  </div>
+  );
+}
+
 export function BackgroundImage() {
   return (
-    <figure className="relative h-[600px] overflow-hidden">
+    <figure className="relative overflow-hidden">
       <Image
         src="/bg.png"
         alt="Picture of Gary Dacanay holding a guitar in a park with the Orton Effect applied"
