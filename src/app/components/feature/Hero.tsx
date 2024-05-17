@@ -4,8 +4,7 @@ import { Divider } from "../ui/Divider";
 export function Hero() {
   return (
     <>
-      <Divider />
-      <div className="mx-auto flex w-3/4 flex-col items-center gap-5 text-center">
+      <div className="mx-auto flex w-3/4 flex-col items-center gap-3 text-center">
         <div className="text-2xl font-bold italic text-gold-light md:text-3xl">
           ~ Sings and plays ~
         </div>
@@ -36,7 +35,6 @@ export function Hero() {
           </div>
         </div>
       </div>
-      <Divider />
     </>
   );
 }

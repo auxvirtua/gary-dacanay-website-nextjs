@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export function Video({ title, videoId }) {
+export function Video({ title, videoId }: { title: string; videoId: string }) {
   return (
     <div className="w-full flex-shrink-0 snap-center md:w-1/3 lg:w-1/5 landscape:w-1/3">
       <a
