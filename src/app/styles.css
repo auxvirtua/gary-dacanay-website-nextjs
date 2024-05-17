@@ -20,14 +20,11 @@
   background-color: rgb(var(--background-rgb));
 } */
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  button {
+    /* @apply bg-gold px-8 py-4 text-center font-bold text-stone-950 md:text-2xl; */
   }
-}
-
-@layer components {
-  .btn {
-    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+  input {
+    /* @apply bg-stone-800 px-8 py-4 text-center text-gold-light placeholder:text-gold md:text-2xl; */
   }
 }

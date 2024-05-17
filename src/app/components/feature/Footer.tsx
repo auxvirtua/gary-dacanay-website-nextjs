@@ -4,10 +4,10 @@ import { SocialMedia } from "../ui/SocialMedia";
 
 export function Footer() {
   return (
-    <footer className="flex flex-col items-center justify-center gap-3 p-6 md:p-12">
+    <footer className="m-6 flex flex-col items-center justify-center gap-3 p-6 md:p-12">
       <SocialMedia />
       <MailingListSignup />
-      <div className="text-sm font-bold uppercase text-gold-light">
+      <div className="font-bold uppercase text-gold-light lg:text-sm">
         &copy; {new Date().getFullYear()} {data.name}
       </div>
     </footer>
