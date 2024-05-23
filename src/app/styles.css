@@ -22,7 +22,11 @@
 
 @layer base {
   button {
-    /* @apply bg-gold px-8 py-4 text-center font-bold text-stone-950 md:text-2xl; */
+    @apply bg-gold px-8 py-4 text-center font-bold uppercase text-stone-950 md:text-2xl;
+  }
+
+  button.secondary {
+    @apply border-2 border-gold-light bg-transparent text-gold-light focus:border-gold focus:text-gold;
   }
   input {
     /* @apply bg-stone-800 px-8 py-4 text-center text-gold-light placeholder:text-gold md:text-2xl; */

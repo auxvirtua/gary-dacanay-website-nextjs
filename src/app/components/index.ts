@@ -1,5 +1,5 @@
 import { Video } from "./ui/Video";
-import { MailingListSignup } from "./ui/MailingListSignup";
+import { MailingListSignup } from "./ui/Newsletter";
 import { SocialMedia } from "./ui/SocialMedia";
 import { Divider } from "./ui/Divider";
 

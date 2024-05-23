@@ -1,0 +1,28 @@
+export function MailingListSignup() {
+  return (
+    <div className="flex w-full flex-col gap-4 border-2 border-gold-light p-6">
+      <span className="text-center text-xl font-black uppercase text-gold md:text-3xl">
+        Newsletter
+      </span>
+
+      {/* <hr className="border-gold-light" /> */}
+      <form className="flex flex-col gap-4 md:flex-row landscape:flex-row">
+        <input
+          type="email"
+          placeholder="Type email address here"
+          className="flex-1 border-b-2 border-b-gold-light bg-transparent px-2 py-4 text-gold-light placeholder-gold-light placeholder:italic focus:border-b-gold md:text-xl"
+        />
+        <button
+          type="submit"
+          className="secondary h-full justify-center px-2 py-4 md:w-1/3 md:text-xl landscape:w-1/3"
+        >
+          Sign up
+        </button>
+      </form>
+      <p className="font-medium md:text-lg">
+        Join the mailing list to receive updates on Gary's performances, new
+        music and more.
+      </p>
+    </div>
+  );
+}
