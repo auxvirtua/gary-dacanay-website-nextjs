@@ -19,7 +19,7 @@ export function Hero() {
         </div>
         <div className="flex flex-col items-center gap-5 md:gap-10">
           <div className="text-sm font-bold italic text-gold-light md:text-xl">
-            Available for your private events, weddings, dinners and parties.
+            Available for your private events, weddings, dinners, and parties.
           </div>
           <div className="flex flex-col items-center gap-2">
             <a href="mailto:info@garydacanay.com" className="button">

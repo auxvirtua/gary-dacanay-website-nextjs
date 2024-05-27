@@ -1,6 +1,6 @@
 export function MailingListSignup() {
   return (
-    <div className="flex w-full flex-col gap-4 border-2 border-gold-light p-6">
+    <div className="flex w-full flex-col gap-4 border-2 border-gold-light p-6 md:w-fit">
       <span className="text-xl font-black uppercase text-gold md:text-3xl">
         Newsletter
       </span>
@@ -18,8 +18,8 @@ export function MailingListSignup() {
         </button>
       </form>
       <p className="font-medium md:text-lg">
-        Join the mailing list to receive updates on Gary's performances, new
-        music and more.
+        Join the mailing list to receive updates on Gary&apos;s performances,
+        new music and more.
       </p>
     </div>
   );
