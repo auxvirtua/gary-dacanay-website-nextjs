@@ -21,7 +21,8 @@
 } */
 
 @layer base {
-  button {
+  button,
+  .button {
     @apply bg-gold px-8 py-4 text-center font-bold uppercase text-stone-950 md:text-2xl;
   }
 

@@ -1,11 +1,9 @@
 export function MailingListSignup() {
   return (
     <div className="flex w-full flex-col gap-4 border-2 border-gold-light p-6">
-      <span className="text-center text-xl font-black uppercase text-gold md:text-3xl">
+      <span className="text-xl font-black uppercase text-gold md:text-3xl">
         Newsletter
       </span>
-
-      {/* <hr className="border-gold-light" /> */}
       <form className="flex flex-col gap-4 md:flex-row landscape:flex-row">
         <input
           type="email"

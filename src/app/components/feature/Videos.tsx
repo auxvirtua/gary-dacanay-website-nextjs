@@ -5,7 +5,7 @@ import { Video } from "../ui/Video";
 export function Videos() {
   return (
     <div className="flex flex-col gap-3 px-12">
-      <span className="text-center text-xl font-black uppercase text-gold md:text-3xl">
+      <span className="text-xl font-black uppercase text-gold md:text-3xl">
         Videos
       </span>
       <div className="flex snap-both snap-mandatory flex-nowrap gap-6 overflow-x-auto overscroll-contain pb-6">

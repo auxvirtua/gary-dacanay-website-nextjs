@@ -12,21 +12,25 @@ export function Hero() {
           Jazz Standards
         </div>
         <div className="text-lg font-bold italic text-gold-light md:text-2xl">
-          ~ and ~
+          ~ and more from ~
         </div>
-        <div className="text-2xl font-black uppercase text-gold md:text-6xl">
+        <div className="text-2xl font-black uppercase text-gold md:text-4xl">
           The Great American Songbook
         </div>
         <div className="flex flex-col items-center gap-5 md:gap-10">
           <div className="text-sm font-bold italic text-gold-light md:text-xl">
-            Available for your private events, weddings, dinners and parties.
+            Available for your private corporate events, weddings, dinners and
+            parties
           </div>
           <div className="flex flex-col items-center gap-2">
-            <a href="mailto:info@garydacanay.com" className="button">
-              Email Gary to book
-            </a>
-            <span className="text-xs text-gold-light md:text-sm">
-              (Opens your email client)
+            <button type="button">
+              <span className="flex uppercase">Click here to book</span>
+            </button>
+            <span className="text-sm font-medium md:text-lg">
+              or email Gary directly at{" "}
+              <a className="underline" href="mailto:info@garydacanay.com">
+                info@garydacanay.com
+              </a>
             </span>
           </div>
         </div>
