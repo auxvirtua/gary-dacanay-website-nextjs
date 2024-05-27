@@ -1,10 +1,30 @@
+"use client";
+
+import { subscribe } from "../../actions";
+
+const subscribeToNewsletter = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  const email = new FormData(e.currentTarget).get("email") as string;
+  const response = await subscribe(email);
+
+  // Handle response
+  if (response.status === 201) {
+    alert("Thank you for subscribing to the newsletter!");
+  } else {
+    alert("Something went wrong. Please try again.");
+  }
+};
+
 export function MailingListSignup() {
   return (
     <div className="flex w-full flex-col gap-4 border-2 border-gold-light p-6 md:w-fit">
       <span className="text-xl font-black uppercase text-gold md:text-3xl">
         Newsletter
       </span>
-      <form className="flex flex-col gap-4 md:flex-row landscape:flex-row">
+      <form
+        className="flex flex-col gap-4 md:flex-row landscape:flex-row"
+        onSubmit={subscribeToNewsletter}
+      >
         <input
           type="email"
           placeholder="Type email address here"

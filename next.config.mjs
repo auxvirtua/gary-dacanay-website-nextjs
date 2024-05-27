@@ -1,15 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        remotePatterns: [
-            {
-                hostname: "img.youtube.com"
-            },
-            {
-                hostname: "via.placeholder.com"
-            },
-        ],
-    }
+  images: {
+    remotePatterns: [
+      {
+        hostname: "img.youtube.com",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
