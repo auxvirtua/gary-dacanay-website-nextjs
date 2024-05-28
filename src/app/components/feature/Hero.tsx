@@ -11,10 +11,10 @@ export function Hero() {
         <div className="text-3xl font-black uppercase text-gold md:text-5xl">
           Jazz Standards
         </div>
-        <div className="text-lg font-bold italic text-gold-light md:text-3xl">
+        <div className="text-xl font-bold italic text-gold-light md:text-3xl">
           ~ and ~
         </div>
-        <div className="text-2xl font-black uppercase text-gold md:text-5xl">
+        <div className="text-3xl font-black uppercase text-gold md:text-5xl">
           The Great American Songbook
         </div>
         <div className="flex flex-col items-center gap-5 md:gap-10">
