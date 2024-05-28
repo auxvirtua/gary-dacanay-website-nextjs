@@ -7,7 +7,7 @@ export function Header() {
         <div>{data.name}</div>
       </div>
       <div className="text-xl font-black uppercase text-gold-light md:text-3xl">
-        Jazz Vocalist and Guitarist
+        {data.subdescription}
       </div>
     </div>
   );

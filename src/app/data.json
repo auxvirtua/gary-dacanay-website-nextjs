@@ -1,10 +1,26 @@
 {
     "name": "Gary Dacanay",
-    "bio": "Singing and playing your favorite Jazz Standards and songs from The Great American Songbook in Northeast Ohio for over 20 years. Available for private or corporate events, weddings, dinners and parties.",
+    "description": "Playing Jazz Standards from The Great American Songbook at your private corporate events, weddings, dinners and parties in Northeast Ohio.",
+    "subdescription": "Jazz Vocalist and Guitarist",
     "email": "info@garydacanay.com",
     "videos": [
-        ["Stella by Starlight", "SRjt5HgpgRM"],
-        ["You Stepped Out Of A Dream", "ee68onP0OHg"],
-        ["Medley: The Way You Look Tonight", "aBUiJQaLWgs"]
-    ]
+        [
+            "Stella by Starlight",
+            "SRjt5HgpgRM"
+        ],
+        [
+            "You Stepped Out Of A Dream",
+            "ee68onP0OHg"
+        ],
+        [
+            "Medley: The Way You Look Tonight",
+            "aBUiJQaLWgs"
+        ]
+    ],
+    "social": {
+        "instagram": "https://www.instagram.com/gary_dacanay_band",
+        "youtube": "https://www.youtube.com/user/GaryDacanay",
+        "spotify": "https://open.spotify.com/artist/3oPJs0JJuqfXPv4VEkPlAz",
+        "apple_music": "https://music.apple.com/us/artist/gary-dacanay/448384631"
+    }
 }

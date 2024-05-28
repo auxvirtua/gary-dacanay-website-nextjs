@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function Video({ title, videoId }: { title: string; videoId: string }) {
   return (
-    <div className="w-full flex-shrink-0 snap-center md:w-1/3 lg:w-1/5 landscape:w-1/3">
+    <div className="h-full w-[320px] snap-center">
       <a
         href={`https://www.youtube.com/watch?v=${videoId}`}
         target="_blank"
@@ -13,8 +13,8 @@ export function Video({ title, videoId }: { title: string; videoId: string }) {
           <Image
             src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
             alt={title}
-            width={160}
-            height={90}
+            width={320}
+            height={180}
             className="h-full w-full object-cover"
             priority
           />
