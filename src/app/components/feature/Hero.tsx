@@ -1,5 +1,5 @@
+import data from "../../data.json";
 import React from "react";
-import { Divider } from "../ui/Divider";
 
 export function Hero() {
   return (
@@ -8,13 +8,13 @@ export function Hero() {
         <div className="text-xl font-bold italic text-gold-light md:text-3xl">
           ~ Sings and plays ~
         </div>
-        <div className="text-3xl font-black uppercase text-gold md:text-6xl">
+        <div className="text-3xl font-black uppercase text-gold md:text-5xl">
           Jazz Standards
         </div>
-        <div className="text-lg font-bold italic text-gold-light md:text-2xl">
+        <div className="text-lg font-bold italic text-gold-light md:text-3xl">
           ~ and ~
         </div>
-        <div className="text-2xl font-black uppercase text-gold md:text-6xl">
+        <div className="text-2xl font-black uppercase text-gold md:text-5xl">
           The Great American Songbook
         </div>
         <div className="flex flex-col items-center gap-5 md:gap-10">
@@ -22,7 +22,7 @@ export function Hero() {
             Available for your private events, weddings, dinners, and parties.
           </div>
           <div className="flex flex-col items-center gap-2">
-            <a href="mailto:info@garydacanay.com" className="button">
+            <a href={`mailto:${data.email}`} className="button">
               Email Gary to book
             </a>
             <span className="text-xs text-gold-light md:text-sm">

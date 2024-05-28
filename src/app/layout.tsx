@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./styles.css";
+import data from "./data.json";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Gary Dacanay",
-  description: "Playing Jazz Standards from The Great American Songbook at your private corporate events, weddings, dinners and parties in Northeast Ohio",
+  title: data.name,
+  description: data.description,
 };
 
 export default function RootLayout({
@@ -15,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-stone-950 dark:text-gold-light text-gold">
+    <html lang="en" className="bg-stone-950 text-gold dark:text-gold-light">
       <body className={inter.className}>{children}</body>
     </html>
   );
