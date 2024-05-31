@@ -26,7 +26,7 @@ export function Hero() {
               Email Gary to book
             </a>
             <span className="text-xs text-gold-light md:text-sm">
-              (Opens your email client)
+              (Opens your email app)
             </span>
           </div>
         </div>

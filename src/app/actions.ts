@@ -1,5 +1,6 @@
 "use server";
 import mailchimp from "@mailchimp/mailchimp_marketing";
+import "dotenv/config";
 
 declare const process: {
   env: {
@@ -37,17 +38,16 @@ export const subscribe = async (email: string) => {
       email_address: email,
       status: "subscribed",
     });
+    return {
+      status: 201,
+      json: { error: "" },
+    };
   } catch (error: any) {
     return {
       status: 500,
       json: { error: `Error: ${error.message}` },
     };
   }
-
-  return {
-    status: 201,
-    json: { error: "" },
-  };
 };
 
 export default subscribe;

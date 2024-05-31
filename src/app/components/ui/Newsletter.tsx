@@ -5,13 +5,12 @@ import { subscribe } from "../../actions";
 const subscribeToNewsletter = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
   const email = new FormData(e.currentTarget).get("email") as string;
-  const response = await subscribe(email);
-
-  // Handle response
-  if (response.status === 201) {
-    alert("Thank you for subscribing to the newsletter!");
-  } else {
-    alert("Something went wrong. Please try again.");
+  try {
+    await subscribe(email);
+    alert("Subscribed successfully!");
+  } catch (error) {
+    console.error(error);
+    alert("An error occurred. Please try again.");
   }
 };
 
