@@ -18,8 +18,10 @@
         ]
     ],
     "social": {
-        "instagram": "https://www.instagram.com/gary_dacanay_band",
         "youtube": "https://www.youtube.com/user/GaryDacanay",
+        "instagram": "https://www.instagram.com/gary_dacanay_band"
+    },
+    "music": {
         "spotify": "https://open.spotify.com/artist/3oPJs0JJuqfXPv4VEkPlAz",
         "apple_music": "https://music.apple.com/us/artist/gary-dacanay/448384631"
     }
