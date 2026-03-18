@@ -1,0 +1,75 @@
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    backdrop-filter 220ms ease;
+}
+
+.scrolled {
+  background: rgba(10, 8, 6, 0.78);
+  border-bottom: 1px solid rgba(212, 181, 90, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  color: hsl(45 90% 74%);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 180ms ease;
+}
+
+.brand:hover,
+.brand:focus-visible {
+  color: hsl(45 90% 82%);
+}
+
+.brand:focus-visible,
+.link:focus-visible {
+  outline: 1px solid rgba(212, 181, 90, 0.9);
+  outline-offset: 4px;
+}
+
+.links {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+}
+
+.link {
+  color: hsl(38 24% 78%);
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 180ms ease, opacity 180ms ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: hsl(45 90% 74%);
+}
+
+@media (min-width: 768px) {
+  .nav {
+    padding: 1.15rem 3rem;
+  }
+
+  .links {
+    display: flex;
+  }
+}

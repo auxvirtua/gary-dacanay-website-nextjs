@@ -1,0 +1,106 @@
+.section {
+  padding: 4.5rem 1.5rem 5.5rem;
+  background:
+    radial-gradient(circle at top, rgba(115, 89, 35, 0.14), transparent 42%),
+    linear-gradient(180deg, #14110d 0%, #0f0d0a 100%);
+}
+
+.shell {
+  max-width: 46rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.kicker {
+  margin: 0;
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 0.69rem;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(245, 230, 188, 0.58);
+}
+
+.heading {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(2.25rem, 4vw, 3.75rem);
+  line-height: 0.95;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: hsl(45 90% 72%);
+}
+
+.description {
+  margin: 0.85rem 0 0;
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(205, 199, 186, 0.72);
+}
+
+.platforms {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  margin-top: 2.25rem;
+}
+
+.platformLink {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  width: 100%;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  text-decoration: none;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.platformLink:hover {
+  border-color: rgba(246, 214, 122, 0.52);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.platformLink:focus-visible {
+  outline: 1px solid rgba(246, 214, 122, 0.8);
+  outline-offset: 3px;
+}
+
+.platformIcon {
+  flex-shrink: 0;
+}
+
+.platformLabel {
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: rgba(245, 243, 238, 0.94);
+}
+
+@media (min-width: 640px) {
+  .section {
+    padding: 5.5rem 1.5rem 6.5rem;
+  }
+
+  .platforms {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .platformLink {
+    width: auto;
+    min-width: 14rem;
+  }
+}

@@ -1,35 +1,72 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
   color-scheme: dark;
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
+  --color-bg: hsl(0 0% 4%);
+  --color-bg-soft: hsl(24 8% 8%);
+  --color-surface: hsl(30 8% 10%);
+  --color-surface-elevated: hsl(28 9% 14%);
+  --color-surface-muted: hsl(30 7% 18%);
+  --color-border: hsl(38 14% 24%);
+  --color-border-strong: hsl(44 40% 45%);
+  --color-text: hsl(42 32% 92%);
+  --color-text-muted: hsl(34 12% 68%);
+  --color-text-subtle: hsl(33 8% 52%);
+  --color-gold: hsl(45 88% 71%);
+  --color-gold-soft: hsl(44 68% 64%);
+  --color-gold-deep: hsl(42 54% 34%);
+  --shadow-soft: 0 22px 50px rgb(0 0 0 / 0.3);
+  --shadow-card: 0 18px 45px rgb(0 0 0 / 0.24);
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --container-xl: 72rem;
+  --container-lg: 64rem;
+  --container-md: 48rem;
+  --duration-fast: 160ms;
+  --duration-medium: 280ms;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-rgb: 0, 0, 0;
-  }
+* {
+  box-sizing: border-box;
 }
 
-/* body {
-  color: rgb(var(--foreground-rgb));
-  background-color: rgb(var(--background-rgb));
-} */
+html {
+  scroll-behavior: smooth;
+  background: var(--color-bg);
+}
 
-@layer base {
-  button,
-  .button {
-    @apply bg-gold px-8 py-4 text-center font-bold uppercase text-stone-950 md:text-2xl;
-  }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgb(110 88 40 / 0.12), transparent 28%),
+    linear-gradient(180deg, hsl(30 8% 7%), hsl(0 0% 4%));
+  color: var(--color-text);
+  font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  button.secondary {
-    @apply border-2 border-gold-light bg-transparent text-gold-light focus:border-gold focus:text-gold;
-  }
-  input {
-    /* @apply bg-stone-800 px-8 py-4 text-center text-gold-light placeholder:text-gold md:text-2xl; */
-  }
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: rgb(217 180 84 / 0.3);
 }

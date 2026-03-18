@@ -1,27 +1,23 @@
 "use server";
-import mailchimp from "@mailchimp/mailchimp_marketing";
-import "dotenv/config";
 
-declare const process: {
-  env: {
-    MAILCHIMP_API_KEY: string;
-    MAILCHIMP_API_SERVER: string;
-    MAILCHIMP_AUDIENCE_ID: string;
-  };
-};
+import mailchimp from "@mailchimp/mailchimp_marketing";
 
 mailchimp.setConfig({
   apiKey: process.env.MAILCHIMP_API_KEY,
   server: process.env.MAILCHIMP_API_SERVER,
 });
 
-export const subscribe = async (email: string) => {
-  if (!process.env.MAILCHIMP_API_KEY || !process.env.MAILCHIMP_API_SERVER) {
+export async function subscribe(email: string) {
+  const apiKey = process.env.MAILCHIMP_API_KEY;
+  const server = process.env.MAILCHIMP_API_SERVER;
+  const audienceId = process.env.MAILCHIMP_AUDIENCE_ID;
+
+  if (!apiKey || !server || !audienceId) {
     return {
       status: 500,
       json: {
         error:
-          "Please define MAILCHIMP_API_KEY and MAILCHIMP_API_SERVER. Email newsletter subscription will not work.",
+          "Please define MAILCHIMP_API_KEY, MAILCHIMP_API_SERVER, and MAILCHIMP_AUDIENCE_ID. Email newsletter subscription will not work.",
       },
     };
   }
@@ -34,7 +30,7 @@ export const subscribe = async (email: string) => {
   }
 
   try {
-    await mailchimp.lists.addListMember(process.env.MAILCHIMP_AUDIENCE_ID, {
+    await mailchimp.lists.addListMember(audienceId, {
       email_address: email,
       status: "subscribed",
     });
@@ -42,12 +38,11 @@ export const subscribe = async (email: string) => {
       status: 201,
       json: { error: "" },
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Unknown error";
     return {
       status: 500,
-      json: { error: `Error: ${error.message}` },
+      json: { error: `Error: ${message}` },
     };
   }
-};
-
-export default subscribe;
+}

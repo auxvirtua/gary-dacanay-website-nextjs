@@ -1,0 +1,85 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgb(145 119 66 / 0.2);
+  border-radius: var(--radius-md);
+  background: linear-gradient(180deg, rgb(33 28 24 / 0.96), rgb(20 18 16 / 0.98));
+  box-shadow: var(--shadow-card);
+  transition:
+    transform var(--duration-medium) ease,
+    border-color var(--duration-fast) ease,
+    box-shadow var(--duration-medium) ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgb(208 173 92 / 0.42);
+  box-shadow: 0 22px 55px rgb(0 0 0 / 0.32);
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: rgb(21 18 16);
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.card:hover .image {
+  transform: scale(1.04);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgb(10 9 8 / 0.16), rgb(10 9 8 / 0.34));
+  opacity: 0;
+  transition: opacity var(--duration-medium) ease;
+}
+
+.card:hover .overlay,
+.card:focus-visible .overlay {
+  opacity: 1;
+}
+
+.playBadge {
+  display: flex;
+  height: 3.125rem;
+  width: 3.125rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgb(217 180 84 / 0.9);
+  box-shadow: 0 10px 25px rgb(0 0 0 / 0.18);
+}
+
+.playIcon {
+  margin-left: 0.125rem;
+  fill: rgb(18 16 14);
+  color: rgb(18 16 14);
+}
+
+.titleBar {
+  padding: 0.95rem 1rem 1.05rem;
+  background: linear-gradient(180deg, rgb(31 27 24 / 0.98), rgb(23 20 18 / 0.98));
+}
+
+.title {
+  margin: 0;
+  overflow: hidden;
+  color: rgb(243 239 233);
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

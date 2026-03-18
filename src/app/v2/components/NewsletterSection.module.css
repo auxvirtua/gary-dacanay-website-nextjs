@@ -1,0 +1,116 @@
+.section {
+  padding: 4.5rem 1.5rem 5.5rem;
+  background:
+    radial-gradient(circle at top, rgba(115, 89, 35, 0.12), transparent 40%),
+    linear-gradient(180deg, #12100d 0%, #0f0d0a 100%);
+}
+
+.shell {
+  max-width: 40rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.kicker {
+  margin: 0;
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 0.69rem;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(245, 230, 188, 0.58);
+}
+
+.heading {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(2.25rem, 4vw, 3.75rem);
+  line-height: 0.96;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: hsl(45 90% 72%);
+}
+
+.copy {
+  margin: 1rem 0 0;
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(214, 209, 199, 0.8);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1.75rem;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.95rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.95rem 1rem;
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 0.98rem;
+  color: rgba(245, 243, 238, 0.96);
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.input::placeholder {
+  color: rgba(165, 159, 148, 0.86);
+}
+
+.input:focus {
+  border-color: rgba(246, 214, 122, 0.78);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 3px rgba(246, 214, 122, 0.14);
+}
+
+.button {
+  border: 0;
+  border-radius: 0.95rem;
+  padding: 0.95rem 1.25rem;
+  background: linear-gradient(180deg, hsl(45 90% 72%), hsl(45 90% 64%));
+  color: #15110d;
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    filter 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
+}
+
+.button:focus-visible {
+  outline: 1px solid rgba(246, 214, 122, 0.9);
+  outline-offset: 3px;
+}
+
+@media (min-width: 640px) {
+  .section {
+    padding: 5.5rem 1.5rem 6.5rem;
+  }
+
+  .form {
+    flex-direction: row;
+  }
+
+  .button {
+    min-width: 10rem;
+  }
+}

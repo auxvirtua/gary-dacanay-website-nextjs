@@ -1,0 +1,94 @@
+.section {
+  background: hsl(0 0% 3%);
+  padding: 5.5rem 1.5rem 6rem;
+}
+
+.container {
+  max-width: 42rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rule {
+  width: 4rem;
+  height: 1px;
+  margin: 0 auto 2rem;
+  background: linear-gradient(90deg, transparent, rgba(212, 181, 90, 0.78), transparent);
+}
+
+.quote {
+  margin: 0;
+  color: hsl(38 100% 81%);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.7rem, 4.4vw, 3rem);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.body {
+  margin: 0;
+  color: hsl(34 14% 76%);
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.actions {
+  margin-top: 2.75rem;
+}
+
+.primaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.95rem 2.1rem;
+  color: hsl(32 60% 7%);
+  background: linear-gradient(180deg, hsl(45 90% 72%), hsl(45 90% 66%));
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.primaryAction:hover,
+.primaryAction:focus-visible {
+  background: linear-gradient(180deg, hsl(45 90% 78%), hsl(45 90% 70%));
+  transform: translateY(-1px);
+}
+
+.primaryAction:focus-visible {
+  outline: 1px solid rgba(212, 181, 90, 0.9);
+  outline-offset: 3px;
+}
+
+.note {
+  margin: 0.9rem 0 0;
+  color: hsl(0 0% 40%);
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 7rem 2rem 8rem;
+  }
+
+  .rule {
+    width: 4.75rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .body {
+    font-size: 1.06rem;
+  }
+}
