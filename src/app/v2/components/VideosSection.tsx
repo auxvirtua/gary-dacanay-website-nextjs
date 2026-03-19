@@ -11,6 +11,8 @@ const videos = data.videos;
 export function VideosSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [featuredTitle, featuredVideoId] = videos[0];
+  const supportingVideos = videos.slice(1);
 
   const scrollTo = (index: number) => {
     const container = scrollRef.current;
@@ -86,6 +88,36 @@ export function VideosSection() {
               className={i === activeIndex ? styles.dotActive : styles.dot}
             />
           ))}
+        </div>
+
+        <div className={styles.desktopShowcase}>
+          <div className={styles.featuredMeta}>
+            <h3 className={styles.featuredTitle}>{featuredTitle}</h3>
+            <p className={styles.featuredDescription}>Featured performance</p>
+          </div>
+
+          <div className={styles.featuredFrame}>
+            <a
+              href={`https://www.youtube.com/watch?v=${featuredVideoId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.featuredMedia}
+            >
+              <VideoCard title={featuredTitle} videoId={featuredVideoId} />
+            </a>
+          </div>
+
+          <div className={styles.supportingColumn}>
+            <div className={styles.supportingIntro}>
+              <p className={styles.supportingLabel}>Additional recordings</p>
+            </div>
+
+            <div className={styles.supportingGrid}>
+              {supportingVideos.map(([title, videoId]) => (
+                <VideoCard key={videoId} title={title} videoId={videoId} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

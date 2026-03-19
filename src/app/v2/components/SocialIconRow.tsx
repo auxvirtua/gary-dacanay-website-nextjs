@@ -7,14 +7,21 @@ const allLinks = {
   ...data.music,
 } as Record<string, string>;
 
-export function SocialIconRow() {
+const toLabel = (value: string) =>
+  value
+    .split("_")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+
+export function SocialIconRow({ compact = false }: { compact?: boolean }) {
   return (
-    <div className={styles.row}>
+    <div className={`${styles.row} ${compact ? styles.compact : ""}`}>
       {Object.entries(allLinks).map(([platform, url]) => (
         <a
           key={platform}
           href={url}
-          title={platform.replace("_", " ")}
+          aria-label={toLabel(platform)}
+          title={toLabel(platform)}
           target="_blank"
           rel="noopener noreferrer"
           className={styles.link}
@@ -26,6 +33,7 @@ export function SocialIconRow() {
             height={32}
             className={styles.icon}
           />
+          <span className={styles.label}>{toLabel(platform)}</span>
         </a>
       ))}
     </div>

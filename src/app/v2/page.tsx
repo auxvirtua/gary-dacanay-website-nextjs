@@ -1,7 +1,6 @@
 import { NavBar } from "./components/NavBar";
 import { HeroSection } from "./components/HeroSection";
 import { AboutSection } from "./components/AboutSection";
-import { MusicLinksSection } from "./components/MusicLinksSection";
 import { VideosSection } from "./components/VideosSection";
 import { NewsletterSection } from "./components/NewsletterSection";
 import { FooterSection } from "./components/FooterSection";
@@ -13,7 +12,6 @@ export default function V2Page() {
       <NavBar />
       <HeroSection />
       <AboutSection />
-      <MusicLinksSection />
       <VideosSection />
       <NewsletterSection />
       <FooterSection />

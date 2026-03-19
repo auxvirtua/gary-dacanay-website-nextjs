@@ -6,17 +6,27 @@
 }
 
 .shell {
-  max-width: 40rem;
+  display: grid;
+  gap: 1.75rem;
+  max-width: 72rem;
   margin: 0 auto;
+}
+
+.introColumn {
   text-align: center;
+}
+
+.listenAnchor {
+  position: relative;
+  top: -5rem;
 }
 
 .kicker {
   margin: 0;
   font-family: var(--font-lato), system-ui, sans-serif;
-  font-size: 0.69rem;
+  font-size: 0.64rem;
   font-weight: 700;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: rgba(245, 230, 188, 0.58);
 }
@@ -24,19 +34,58 @@
 .heading {
   margin: 0.5rem 0 0;
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: clamp(2.25rem, 4vw, 3.75rem);
-  line-height: 0.96;
+  font-size: clamp(2.6rem, 4.8vw, 5rem);
+  line-height: 0.92;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: -0.02em;
   color: hsl(45 90% 72%);
 }
 
 .copy {
   margin: 1rem 0 0;
   font-family: var(--font-lato), system-ui, sans-serif;
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.96rem;
+  line-height: 1.9;
   color: rgba(214, 209, 199, 0.8);
+}
+
+.listenGroup {
+  display: grid;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.noteLabel,
+.formLabel {
+  margin: 0;
+  color: rgba(245, 230, 188, 0.72);
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.emailLink {
+  display: inline-flex;
+  margin-top: 0.95rem;
+  color: hsl(45 90% 72%);
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+
+.emailLink:hover,
+.emailLink:focus-visible {
+  color: hsl(45 90% 80%);
+}
+
+.formCard {
+  text-align: left;
+  padding-top: 0.4rem;
 }
 
 .form {
@@ -101,6 +150,54 @@
   outline-offset: 3px;
 }
 
+.contactMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.formNote {
+  margin: 0.95rem 0 0;
+  color: rgba(214, 209, 199, 0.72);
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.platforms {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+
+.platformLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: fit-content;
+  color: rgba(245, 243, 238, 0.94);
+  text-decoration: none;
+}
+
+.platformLink:hover,
+.platformLink:focus-visible {
+  color: var(--color-gold-soft);
+}
+
+.platformIcon {
+  flex-shrink: 0;
+}
+
+.platformLabel {
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.connectColumn {
+  padding-top: 0.1rem;
+}
+
 @media (min-width: 640px) {
   .section {
     padding: 5.5rem 1.5rem 6.5rem;
@@ -112,5 +209,29 @@
 
   .button {
     min-width: 10rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .shell {
+    grid-template-columns: minmax(0, 1.1fr) minmax(28rem, 0.9fr);
+    align-items: start;
+    gap: 4rem;
+  }
+
+  .introColumn {
+    text-align: left;
+    padding-top: 0.2rem;
+  }
+
+  .formCard {
+    padding-left: 2.25rem;
+    border-left: 1px solid rgba(212, 181, 90, 0.12);
+  }
+
+  .listenGroup {
+    grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.75fr);
+    align-items: start;
+    gap: 2.25rem;
   }
 }

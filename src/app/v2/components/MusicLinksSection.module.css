@@ -6,9 +6,10 @@
 }
 
 .shell {
-  max-width: 46rem;
+  display: grid;
+  gap: 1.25rem;
+  max-width: 72rem;
   margin: 0 auto;
-  text-align: center;
 }
 
 .kicker {
@@ -41,11 +42,45 @@
   color: rgba(205, 199, 186, 0.72);
 }
 
+.content {
+  text-align: center;
+}
+
+.highlights {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+}
+
+.highlight {
+  margin: 0;
+  padding: 0 0 0.85rem;
+  border-bottom: 1px solid rgba(212, 181, 90, 0.1);
+  color: rgba(245, 243, 238, 0.9);
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.panel {
+  padding-top: 0.1rem;
+}
+
+.panelLabel {
+  margin: 0;
+  color: rgba(245, 230, 188, 0.72);
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
 .platforms {
   display: flex;
   flex-direction: column;
   gap: 0.875rem;
-  margin-top: 2.25rem;
+  margin-top: 1rem;
 }
 
 .platformLink {
@@ -89,18 +124,47 @@
   color: rgba(245, 243, 238, 0.94);
 }
 
+.panelNote {
+  margin: 1rem 0 0;
+  color: rgba(214, 209, 199, 0.76);
+  font-family: var(--font-lato), system-ui, sans-serif;
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+
 @media (min-width: 640px) {
   .section {
     padding: 5.5rem 1.5rem 6.5rem;
   }
+}
+
+@media (min-width: 1024px) {
+  .shell {
+    grid-template-columns: minmax(0, 1.1fr) minmax(24rem, 0.9fr);
+    align-items: start;
+    gap: 2.4rem;
+  }
+
+  .content {
+    text-align: left;
+    padding: 0.5rem 0 0.25rem;
+  }
+
+  .highlights {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+
+  .panel {
+    padding-left: 2rem;
+    border-left: 1px solid rgba(212, 181, 90, 0.12);
+  }
 
   .platforms {
-    flex-direction: row;
-    justify-content: center;
+    margin-top: 1.1rem;
   }
 
   .platformLink {
-    width: auto;
-    min-width: 14rem;
+    width: 100%;
   }
 }

@@ -1,15 +1,15 @@
-import { Cormorant_Garamond, Lato } from "next/font/google";
+import { Bodoni_Moda, Manrope } from "next/font/google";
 
-const cormorant = Cormorant_Garamond({
+const display = Bodoni_Moda({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["500", "600", "700"],
   style: ["normal", "italic"],
   variable: "--font-cormorant",
 });
 
-const lato = Lato({
+const sans = Manrope({
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-lato",
 });
 
@@ -18,5 +18,5 @@ export default function V2Layout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className={`${cormorant.variable} ${lato.variable}`}>{children}</div>;
+  return <div className={`${display.variable} ${sans.variable}`}>{children}</div>;
 }
