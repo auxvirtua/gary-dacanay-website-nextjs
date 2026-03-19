@@ -169,10 +169,11 @@
 
   .desktopShowcase {
     display: grid;
-    grid-template-columns: minmax(14rem, 0.45fr) minmax(0, 1.1fr) minmax(18rem, 0.72fr);
-    gap: 2.4rem;
+    gap: 1.5rem;
     margin-top: 2.7rem;
     align-items: start;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
   }
 
   .featuredMeta {
@@ -180,7 +181,7 @@
     flex-direction: column;
     justify-content: start;
     gap: 0.55rem;
-    padding-top: 2rem;
+    padding-inline: 12%;
   }
 
   .supportingLabel,
@@ -198,36 +199,152 @@
     margin: 0;
     color: var(--color-text);
     font-family: var(--font-cormorant), Georgia, serif;
-    font-size: clamp(2.5rem, 3.6vw, 4.25rem);
+    font-size: clamp(2.5rem, 3.8vw, 4.5rem);
     line-height: 0.92;
   }
 
-  .featuredFrame {
-    min-width: 0;
-  }
-
-  .featuredMedia {
-    display: block;
-  }
-
-  .supportingColumn {
+  .stageWrap {
     display: grid;
-    grid-template-rows: auto 1fr;
-    gap: 1rem;
-    padding-top: 0.4rem;
-    border-left: 1px solid rgb(191 161 90 / 0.12);
-    padding-left: 2rem;
+    gap: 1.1rem;
   }
 
-  .supportingIntro {
-    padding-bottom: 0.8rem;
-    border-bottom: 1px solid rgb(191 161 90 / 0.12);
+  .stageButton {
+    position: relative;
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 0;
+    background: transparent;
   }
-}
 
-@media (min-width: 1200px) {
-  .desktopShowcase {
-    grid-template-columns: minmax(15rem, 0.48fr) minmax(0, 1.16fr) minmax(19rem, 0.72fr);
-    gap: 2.5rem;
+  .stagePlay {
+    position: absolute;
+    right: 1.1rem;
+    bottom: 1rem;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.35rem;
+    padding: 0.55rem 0.95rem;
+    border: 1px solid rgb(217 180 84 / 0.34);
+    border-radius: 999px;
+    background: rgb(10 9 8 / 0.76);
+    color: var(--color-gold-soft);
+    font-family: var(--font-lato), system-ui, sans-serif;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    backdrop-filter: blur(14px);
+  }
+
+  .desktopTrack {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .desktopTrack::-webkit-scrollbar {
+    display: none;
+  }
+
+  .desktopSpacer {
+    flex: 0 0 auto;
+  }
+
+  .desktopSlide {
+    width: min(74vw, 62rem);
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    opacity: 0.62;
+    transition:
+      opacity var(--duration-medium) ease,
+      transform var(--duration-medium) ease;
+    transform: scale(0.92);
+  }
+
+  .desktopSlideActive {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .desktopPoster {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border: 1px solid rgb(145 119 66 / 0.2);
+    border-radius: var(--radius-md);
+    background: rgb(10 9 8);
+    box-shadow: var(--shadow-card);
+    aspect-ratio: 16 / 9;
+  }
+
+  .desktopPosterImage {
+    object-fit: cover;
+  }
+
+  .embedShell {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgb(145 119 66 / 0.2);
+    border-radius: var(--radius-md);
+    background: rgb(10 9 8);
+    box-shadow: var(--shadow-card);
+    aspect-ratio: 16 / 9;
+  }
+
+  .embed {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .desktopControls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.15rem;
+  }
+
+  .desktopNav {
+    display: flex;
+    gap: 0.8rem;
+  }
+
+  .desktopPager {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.35rem 0.6rem;
+    border: 1px solid rgb(191 161 90 / 0.12);
+    border-radius: 999px;
+    background: rgb(255 248 235 / 0.02);
+  }
+
+  .desktopDot,
+  .desktopDotActive {
+    height: 0.34rem;
+    width: 0.34rem;
+    border: none;
+    border-radius: 999px;
+    background: rgb(158 152 145 / 0.5);
+    transition:
+      width var(--duration-medium) ease,
+      background-color var(--duration-fast) ease;
+  }
+
+  .desktopDotActive {
+    width: 1.2rem;
+    background: var(--color-gold-soft);
+  }
+
+  .desktopDot:focus-visible,
+  .desktopDotActive:focus-visible {
+    outline: 1px solid rgb(217 180 84 / 0.72);
+    outline-offset: 3px;
   }
 }
