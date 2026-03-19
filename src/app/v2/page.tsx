@@ -1,6 +1,5 @@
 import { NavBar } from "./components/NavBar";
 import { HeroSection } from "./components/HeroSection";
-import { AboutSection } from "./components/AboutSection";
 import { VideosSection } from "./components/VideosSection";
 import { NewsletterSection } from "./components/NewsletterSection";
 import { FooterSection } from "./components/FooterSection";
@@ -11,7 +10,6 @@ export default function V2Page() {
     <main className={styles.page}>
       <NavBar />
       <HeroSection />
-      <AboutSection />
       <VideosSection />
       <NewsletterSection />
       <FooterSection />

@@ -22,7 +22,7 @@ export function NavBar() {
       </a>
       <div className={styles.links}>
         {[
-          { label: "About", href: "#about" },
+          { label: "About", href: "#hero" },
           { label: "Listen", href: "#listen" },
           { label: "Videos", href: "#videos" },
           { label: "Contact", href: "#contact" },

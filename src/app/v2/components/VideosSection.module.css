@@ -1,8 +1,5 @@
 .section {
-  padding: 5.5rem 1.5rem;
-  background:
-    linear-gradient(180deg, rgb(14 13 12 / 0.32), transparent 14%),
-    linear-gradient(180deg, rgb(8 8 8 / 0), rgb(8 8 8 / 0.18));
+  padding: 5.75rem 1.5rem 6rem;
 }
 
 .container {
@@ -146,7 +143,7 @@
 
 @media (min-width: 768px) {
   .section {
-    padding: 6.75rem 2rem;
+    padding: 6.75rem 2rem 7rem;
   }
 
   .mobileNav,

@@ -30,11 +30,7 @@ export function NewsletterSection() {
       <div className={styles.shell}>
         <div className={styles.introColumn}>
           <div id="listen" className={styles.listenAnchor} />
-          <p className={styles.kicker}>Contact & listening</p>
-          <h2 className={styles.heading}>Stay in the Loop</h2>
-          <p className={styles.copy}>
-            Streaming, social links, and a quiet way to stay connected all live here now.
-          </p>
+          <h2 className={styles.heading}>Connect</h2>
 
           <div className={styles.listenGroup}>
             <div className={styles.streamColumn}>
@@ -83,7 +79,6 @@ export function NewsletterSection() {
             </button>
           </form>
           <div className={styles.contactMeta}>
-            <p className={styles.formNote}>Occasional notes only. No noise.</p>
             <a className={styles.emailLink} href={`mailto:${data.email}`}>
               {data.email}
             </a>

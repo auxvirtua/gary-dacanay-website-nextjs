@@ -1,8 +1,5 @@
 .section {
-  padding: 4.5rem 1.5rem 5.5rem;
-  background:
-    radial-gradient(circle at top, rgba(115, 89, 35, 0.12), transparent 40%),
-    linear-gradient(180deg, #12100d 0%, #0f0d0a 100%);
+  padding: 5.5rem 1.5rem 6rem;
 }
 
 .shell {
@@ -21,18 +18,8 @@
   top: -5rem;
 }
 
-.kicker {
-  margin: 0;
-  font-family: var(--font-sans), system-ui, sans-serif;
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(245, 230, 188, 0.54);
-}
-
 .heading {
-  margin: 0.35rem 0 0;
+  margin: 0;
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(2.15rem, 3.6vw, 3.9rem);
   line-height: 0.97;
@@ -41,19 +28,10 @@
   color: hsl(44 78% 68%);
 }
 
-.copy {
-  margin: 0.8rem auto 0;
-  max-width: 32rem;
-  font-family: var(--font-sans), system-ui, sans-serif;
-  font-size: 0.92rem;
-  line-height: 1.72;
-  color: rgba(214, 209, 199, 0.76);
-}
-
 .listenGroup {
   display: grid;
   gap: 1rem;
-  margin-top: 1.65rem;
+  margin-top: 1.25rem;
   text-align: left;
 }
 
@@ -86,7 +64,7 @@
 
 .formCard {
   text-align: left;
-  padding-top: 0.2rem;
+  padding-top: 0.75rem;
 }
 
 .form {
@@ -154,15 +132,7 @@
 .contactMeta {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
-}
-
-.formNote {
-  margin: 0.8rem 0 0;
-  color: rgba(214, 209, 199, 0.72);
-  font-family: var(--font-sans), system-ui, sans-serif;
-  font-size: 0.78rem;
-  line-height: 1.55;
+  gap: 0;
 }
 
 .platforms {
@@ -223,10 +193,6 @@
   .introColumn {
     text-align: left;
     padding-top: 0.2rem;
-  }
-
-  .copy {
-    margin-left: 0;
   }
 
   .formCard {
