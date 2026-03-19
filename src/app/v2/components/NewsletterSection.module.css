@@ -7,7 +7,7 @@
 
 .shell {
   display: grid;
-  gap: 1.75rem;
+  gap: 1.5rem;
   max-width: 72rem;
   margin: 0 auto;
 }
@@ -23,58 +23,59 @@
 
 .kicker {
   margin: 0;
-  font-family: var(--font-lato), system-ui, sans-serif;
-  font-size: 0.64rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(245, 230, 188, 0.58);
+  color: rgba(245, 230, 188, 0.54);
 }
 
 .heading {
-  margin: 0.5rem 0 0;
+  margin: 0.35rem 0 0;
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: clamp(2.6rem, 4.8vw, 5rem);
-  line-height: 0.92;
+  font-size: clamp(2.15rem, 3.6vw, 3.9rem);
+  line-height: 0.97;
   font-weight: 600;
-  letter-spacing: -0.02em;
-  color: hsl(45 90% 72%);
+  letter-spacing: -0.015em;
+  color: hsl(44 78% 68%);
 }
 
 .copy {
-  margin: 1rem 0 0;
-  font-family: var(--font-lato), system-ui, sans-serif;
-  font-size: 0.96rem;
-  line-height: 1.9;
-  color: rgba(214, 209, 199, 0.8);
+  margin: 0.8rem auto 0;
+  max-width: 32rem;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.72;
+  color: rgba(214, 209, 199, 0.76);
 }
 
 .listenGroup {
   display: grid;
-  gap: 1.2rem;
-  margin-top: 2rem;
+  gap: 1rem;
+  margin-top: 1.65rem;
   text-align: left;
 }
 
 .noteLabel,
 .formLabel {
   margin: 0;
-  color: rgba(245, 230, 188, 0.72);
-  font-family: var(--font-lato), system-ui, sans-serif;
-  font-size: 0.64rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+  color: rgba(245, 230, 188, 0.62);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .emailLink {
   display: inline-flex;
-  margin-top: 0.95rem;
-  color: hsl(45 90% 72%);
-  font-family: var(--font-lato), system-ui, sans-serif;
-  font-size: 0.84rem;
+  margin-top: 0.8rem;
+  color: hsl(44 78% 68%);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-decoration: none;
 }
 
@@ -85,14 +86,14 @@
 
 .formCard {
   text-align: left;
-  padding-top: 0.4rem;
+  padding-top: 0.2rem;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  margin-top: 1.75rem;
+  margin-top: 1.3rem;
 }
 
 .input {
@@ -101,7 +102,7 @@
   border-radius: 0.95rem;
   background: rgba(255, 255, 255, 0.03);
   padding: 0.95rem 1rem;
-  font-family: var(--font-lato), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 0.98rem;
   color: rgba(245, 243, 238, 0.96);
   outline: none;
@@ -127,10 +128,10 @@
   padding: 0.95rem 1.25rem;
   background: linear-gradient(180deg, hsl(45 90% 72%), hsl(45 90% 64%));
   color: #15110d;
-  font-family: var(--font-lato), system-ui, sans-serif;
-  font-size: 0.72rem;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.26em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   cursor: pointer;
   transition:
@@ -157,17 +158,17 @@
 }
 
 .formNote {
-  margin: 0.95rem 0 0;
+  margin: 0.8rem 0 0;
   color: rgba(214, 209, 199, 0.72);
-  font-family: var(--font-lato), system-ui, sans-serif;
-  font-size: 0.82rem;
-  line-height: 1.6;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.55;
 }
 
 .platforms {
   display: grid;
-  gap: 0.6rem;
-  margin-top: 0.9rem;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
 }
 
 .platformLink {
@@ -189,8 +190,8 @@
 }
 
 .platformLabel {
-  font-family: var(--font-lato), system-ui, sans-serif;
-  font-size: 0.92rem;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 0.84rem;
   font-weight: 600;
 }
 
@@ -208,7 +209,7 @@
   }
 
   .button {
-    min-width: 10rem;
+    min-width: 9rem;
   }
 }
 
@@ -222,6 +223,10 @@
   .introColumn {
     text-align: left;
     padding-top: 0.2rem;
+  }
+
+  .copy {
+    margin-left: 0;
   }
 
   .formCard {

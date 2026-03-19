@@ -23,7 +23,7 @@
 }
 
 .copy {
-  font-family: var(--font-lato), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 0.66rem;
   font-weight: 600;
   letter-spacing: 0.18em;

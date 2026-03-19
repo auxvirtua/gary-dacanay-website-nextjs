@@ -50,7 +50,7 @@
 
 .link {
   color: hsl(38 24% 78%);
-  font-family: var(--font-lato), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 0.72rem;
   letter-spacing: 0.24em;
   line-height: 1;

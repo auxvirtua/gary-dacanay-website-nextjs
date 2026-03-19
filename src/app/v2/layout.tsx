@@ -1,16 +1,16 @@
-import { Bodoni_Moda, Manrope } from "next/font/google";
+import { Instrument_Serif, Inter } from "next/font/google";
 
-const display = Bodoni_Moda({
+const display = Instrument_Serif({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: "400",
   style: ["normal", "italic"],
   variable: "--font-cormorant",
 });
 
-const sans = Manrope({
+const sans = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-lato",
+  variable: "--font-sans",
 });
 
 export default function V2Layout({

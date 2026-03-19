@@ -97,8 +97,8 @@ export function VideosSection() {
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.headingGroup}>
-            <h2 className={styles.title}>Videos</h2>
-            <p className={styles.eyebrow}>Live performances &amp; recordings</p>
+            <h2 className={styles.title}>{activeTitle}</h2>
+            <p className={styles.mobileMeta}>Featured performance</p>
           </div>
 
           <div className={styles.mobileNav}>
@@ -159,8 +159,7 @@ export function VideosSection() {
         <div className={styles.desktopShowcase}>
           <div className={styles.desktopTopline}>
             <div className={styles.featuredMeta}>
-              <h3 className={styles.featuredTitle}>{activeTitle}</h3>
-              <p className={styles.featuredDescription}>Featured performance</p>
+              <h2 className={styles.featuredTitle}>{activeTitle}</h2>
             </div>
           </div>
 

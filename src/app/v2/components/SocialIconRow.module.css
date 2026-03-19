@@ -46,7 +46,7 @@
 .label {
   display: inline;
   color: rgba(245, 243, 238, 0.92);
-  font-family: var(--font-lato), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.06em;
