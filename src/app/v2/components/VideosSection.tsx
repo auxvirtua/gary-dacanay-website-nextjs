@@ -2,24 +2,46 @@
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import data from "../../data.json";
 import { VideoCard } from "./VideoCard";
 import styles from "./VideosSection.module.css";
 
 const videos = data.videos;
+const TITLE_SETTLE_DELAY_MS = 70;
 
 export function VideosSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [stageIndex, setStageIndex] = useState(0);
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
   const [desktopSpacerWidth, setDesktopSpacerWidth] = useState(0);
   const mobileScrollRef = useRef<HTMLDivElement>(null);
   const desktopScrollRef = useRef<HTMLDivElement>(null);
+  const settleTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [activeTitle] = videos[activeIndex];
 
-  const syncDesktopActiveIndex = (container: HTMLDivElement) => {
+  const scheduleTitleCommit = useCallback((index: number, immediate = false) => {
+    if (settleTimeoutRef.current) {
+      clearTimeout(settleTimeoutRef.current);
+    }
+
+    if (immediate) {
+      setActiveIndex(index);
+      return;
+    }
+
+    settleTimeoutRef.current = setTimeout(() => {
+      setActiveIndex(index);
+      settleTimeoutRef.current = null;
+    }, TITLE_SETTLE_DELAY_MS);
+  }, []);
+
+  const syncDesktopActiveIndex = useCallback((
+    container: HTMLDivElement,
+    { immediate = false }: { immediate?: boolean } = {},
+  ) => {
     const slides = Array.from(container.querySelectorAll<HTMLElement>("[data-desktop-slide]"));
-    if (slides.length === 0) return;
+    if (slides.length === 0) return 0;
 
     const containerCenter = container.scrollLeft + container.clientWidth / 2;
     let closestIndex = 0;
@@ -34,8 +56,17 @@ export function VideosSection() {
       }
     });
 
-    setActiveIndex((current) => (current === closestIndex ? current : closestIndex));
-  };
+    setStageIndex((current) => (current === closestIndex ? current : closestIndex));
+    const closestSlide = slides[closestIndex];
+    const centeredThreshold = closestSlide ? closestSlide.offsetWidth * 0.08 : 0;
+
+    scheduleTitleCommit(
+      closestIndex,
+      immediate || closestDistance <= centeredThreshold,
+    );
+
+    return closestIndex;
+  }, [scheduleTitleCommit]);
 
   const scrollTo = (index: number) => {
     const desktopContainer = desktopScrollRef.current;
@@ -59,12 +90,12 @@ export function VideosSection() {
       }
     }
 
-    setActiveIndex(index);
+    setStageIndex(index);
     setPlayingIndex(null);
   };
 
-  const prev = () => scrollTo(Math.max(0, activeIndex - 1));
-  const next = () => scrollTo(Math.min(videos.length - 1, activeIndex + 1));
+  const prev = () => scrollTo(Math.max(0, stageIndex - 1));
+  const next = () => scrollTo(Math.min(videos.length - 1, stageIndex + 1));
 
   useEffect(() => {
     const desktopContainer = desktopScrollRef.current;
@@ -81,7 +112,7 @@ export function VideosSection() {
       );
 
       setDesktopSpacerWidth(spacerWidth);
-      syncDesktopActiveIndex(desktopContainer);
+      syncDesktopActiveIndex(desktopContainer, { immediate: true });
     };
 
     updateDesktopGeometry();
@@ -89,6 +120,14 @@ export function VideosSection() {
 
     return () => {
       window.removeEventListener("resize", updateDesktopGeometry);
+    };
+  }, [syncDesktopActiveIndex]);
+
+  useEffect(() => {
+    return () => {
+      if (settleTimeoutRef.current) {
+        clearTimeout(settleTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -105,7 +144,7 @@ export function VideosSection() {
             <button
               type="button"
               onClick={prev}
-              disabled={activeIndex === 0}
+              disabled={stageIndex === 0}
               aria-label="Previous video"
               className={styles.navBtn}
             >
@@ -114,7 +153,7 @@ export function VideosSection() {
             <button
               type="button"
               onClick={next}
-              disabled={activeIndex === videos.length - 1}
+              disabled={stageIndex === videos.length - 1}
               aria-label="Next video"
               className={styles.navBtn}
             >
@@ -132,7 +171,11 @@ export function VideosSection() {
             const container = e.currentTarget;
             const cardWidth = (container.children[0] as HTMLElement)?.offsetWidth ?? 0;
             if (cardWidth > 0) {
-              setActiveIndex(Math.round(container.scrollLeft / (cardWidth + 16)));
+              const nextIndex = Math.round(container.scrollLeft / (cardWidth + 16));
+              setStageIndex(nextIndex);
+              const targetOffset = nextIndex * (cardWidth + 16);
+              const isSettled = Math.abs(container.scrollLeft - targetOffset) <= 12;
+              scheduleTitleCommit(nextIndex, isSettled);
             }
           }}
         >
@@ -150,8 +193,8 @@ export function VideosSection() {
               type="button"
               onClick={() => scrollTo(i)}
               aria-label={`Go to video ${i + 1}: ${title}`}
-              aria-pressed={i === activeIndex}
-              className={i === activeIndex ? styles.dotActive : styles.dot}
+              aria-pressed={i === stageIndex}
+              className={i === stageIndex ? styles.dotActive : styles.dot}
             />
           ))}
         </div>
@@ -183,7 +226,7 @@ export function VideosSection() {
                 <div
                   key={videoId}
                   data-desktop-slide
-                  className={`${styles.desktopSlide} ${index === activeIndex ? styles.desktopSlideActive : ""}`}
+                  className={`${styles.desktopSlide} ${index === stageIndex ? styles.desktopSlideActive : ""}`}
                 >
                   {playingIndex === index ? (
                     <div className={styles.embedShell}>
@@ -200,7 +243,7 @@ export function VideosSection() {
                       type="button"
                       className={styles.stageButton}
                       onClick={() => {
-                        if (index !== activeIndex) {
+                        if (index !== stageIndex) {
                           scrollTo(index);
                           return;
                         }
@@ -234,7 +277,7 @@ export function VideosSection() {
                 <button
                   type="button"
                   onClick={prev}
-                  disabled={activeIndex === 0}
+                  disabled={stageIndex === 0}
                   aria-label="Previous video"
                   className={styles.navBtn}
                 >
@@ -243,7 +286,7 @@ export function VideosSection() {
                 <button
                   type="button"
                   onClick={next}
-                  disabled={activeIndex === videos.length - 1}
+                  disabled={stageIndex === videos.length - 1}
                   aria-label="Next video"
                   className={styles.navBtn}
                 >
@@ -257,7 +300,7 @@ export function VideosSection() {
                     key={title}
                     type="button"
                     role="tab"
-                    aria-selected={index === activeIndex}
+                    aria-selected={index === stageIndex}
                     aria-label={`Show ${title}`}
                     className={index === activeIndex ? styles.desktopDotActive : styles.desktopDot}
                     onClick={() => scrollTo(index)}
