@@ -7,22 +7,17 @@ export function HeroSection() {
     <section id="hero" className={styles.hero}>
       <div id="about" className={styles.aboutAnchor} />
       <div className={styles.shell}>
-        <div className={styles.main}>
-          <div className={styles.ornamentRow}>
-            <div className={styles.rule} />
-            <span className={styles.eyebrow}>{data.subdescription}</span>
-            <div className={styles.rule} />
-          </div>
+        <div className={styles.eyebrowBand}>
+          <div className={styles.rule} />
+          <span className={styles.eyebrow}>{data.subdescription}</span>
+        </div>
 
+        <h1 className={styles.title}>Elegant live jazz for gatherings that want soul.</h1>
+
+        <div className={styles.detailBlock}>
           <p className={styles.quote}>
             &ldquo;Bringing the warmth and elegance of classic jazz to every occasion.&rdquo;
           </p>
-
-          <div className={styles.subtitleRow}>
-            <div className={styles.rule} />
-            <h1 className={styles.title}>Elegant live jazz for gatherings that want soul.</h1>
-            <div className={styles.rule} />
-          </div>
 
           <p className={styles.supportingCopy}>
             From private dinners and weddings to corporate receptions and intimate
