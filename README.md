@@ -17,9 +17,11 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Content
 
-Public copy, performance videos, booking-email content, and external music and
-social links live in `src/app/data.json`. The production hero and social-sharing
-artwork live in `public/images`; the two source candidates remain in
+Public copy, performance videos, booking-email content, and external social
+links live in `src/app/data.json`. Spotify and Apple Music URLs are retained
+there as optional content, but are intentionally not rendered until Gary
+approves their inclusion. The production hero and social-sharing artwork live
+in `public/images`; the two source candidates remain in
 `public/images/artwork-candidates` for future reference.
 
 ## Newsletter configuration

@@ -41,7 +41,7 @@ export function NewsletterForm() {
   return (
     <div className={styles.newsletter}>
       <p className={styles.footerKicker}>Notes from the bandstand</p>
-      <h2>Get performance updates.</h2>
+      <h2>Get Updates.</h2>
       <p>Occasional news about performances, recordings, and new music.</p>
       <form onSubmit={handleSubmit} className={styles.newsletterForm}>
         <label htmlFor="newsletter-email">Email address</label>

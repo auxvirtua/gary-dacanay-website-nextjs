@@ -6,11 +6,6 @@ import { NewsletterForm } from "./NewsletterForm";
 import { Performances } from "./Performances";
 import styles from "./HomePage.module.css";
 
-const musicPlatforms = [
-  { label: "Spotify", href: data.music.spotify, icon: "/spotify.svg" },
-  { label: "Apple Music", href: data.music.apple_music, icon: "/apple_music.svg" },
-];
-
 const socialPlatforms = [
   { label: "YouTube", href: data.social.youtube, icon: "/youtube.svg" },
   { label: "Instagram", href: data.social.instagram, icon: "/instagram.svg" },
@@ -75,7 +70,7 @@ export function HomePage() {
           <div className={styles.forHireShell}>
             <div className={styles.forHireIntro}>
               <p className={styles.darkKicker}>Available throughout Northeast Ohio</p>
-              <h2 id="hire-title">Music that belongs in the room.</h2>
+              <h2 id="hire-title">Music for Any Room.</h2>
               <p>
                 A polished solo performance shaped around the occasion—welcoming when
                 guests arrive, atmospheric through dinner, and memorable when the music
@@ -98,36 +93,6 @@ export function HomePage() {
           </div>
         </section>
 
-        <section id="about" className={styles.about} aria-labelledby="about-title">
-          <div className={styles.aboutShell}>
-            <div className={styles.aboutCopy}>
-              <p className={styles.sectionKicker}>About the music</p>
-              <h2 id="about-title">One voice. One guitar. A room transformed.</h2>
-              {data.about.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-
-            <aside className={styles.listenPanel} aria-labelledby="stream-title">
-              <p className={styles.sectionKicker}>Hear more</p>
-              <h2 id="stream-title">Listen anywhere.</h2>
-              <p>Stream Gary&apos;s recorded music on your preferred platform.</p>
-              <div className={styles.musicLinks}>
-                {musicPlatforms.map((platform) => (
-                  <a
-                    key={platform.label}
-                    href={platform.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Image src={platform.icon} alt="" width={30} height={30} />
-                    <span>{platform.label}</span>
-                  </a>
-                ))}
-              </div>
-            </aside>
-          </div>
-        </section>
       </main>
 
       <footer id="contact" className={styles.footer}>
@@ -150,7 +115,7 @@ export function HomePage() {
           <div className={styles.footerConnect}>
             <NewsletterForm />
             <div className={styles.socialBlock}>
-              <p>Follow &amp; listen</p>
+              <p>Follow Gary</p>
               <div className={styles.socialLinks}>
                 {socialPlatforms.map((platform) => (
                   <a

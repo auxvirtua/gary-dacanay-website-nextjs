@@ -27,7 +27,7 @@ export function Performances({ videos }: { videos: Video[] }) {
       <div className={styles.sectionHeader}>
         <div>
           <p className={styles.sectionKicker}>Selected performances</p>
-          <h2 id="performances-title">Press play. Stay awhile.</h2>
+          <h2 id="performances-title">Press Play.</h2>
         </div>
         <p>
           Three standards, performed with the intimacy and warmth Gary brings to a live

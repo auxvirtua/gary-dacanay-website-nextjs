@@ -275,7 +275,6 @@
 .sectionHeader,
 .videoGrid,
 .forHireShell,
-.aboutShell,
 .footerMain,
 .footerBottom {
   width: min(100%, var(--container));
@@ -296,8 +295,6 @@
 }
 
 .sectionHeader h2,
-.aboutCopy h2,
-.listenPanel h2,
 .footerBooking h2,
 .newsletter h2 {
   margin: 0.35rem 0 0;
@@ -496,6 +493,11 @@
   scroll-margin-top: 4.8rem;
 }
 
+.forHire ::selection {
+  color: var(--color-paper);
+  background: var(--color-ink);
+}
+
 .forHireShell {
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
@@ -567,68 +569,6 @@
   line-height: 1.6;
 }
 
-.about {
-  padding: clamp(5rem, 9vw, 9rem) clamp(1rem, 4vw, 4rem);
-  background:
-    linear-gradient(90deg, transparent 0 49.95%, var(--color-rule) 50%, transparent 50.05%),
-    radial-gradient(circle at 82% 28%, rgb(82 124 120 / 0.14), transparent 24rem),
-    var(--color-ink);
-  scroll-margin-top: 4.8rem;
-}
-
-.aboutShell {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(4rem, 10vw, 11rem);
-}
-
-.aboutCopy h2,
-.listenPanel h2 {
-  max-width: 10ch;
-  font-size: clamp(3.8rem, 6vw, 7rem);
-}
-
-.aboutCopy > p:not(.sectionKicker),
-.listenPanel > p:not(.sectionKicker) {
-  max-width: 38rem;
-  margin: 1.3rem 0 0;
-  color: var(--color-paper-muted);
-  font-size: 1rem;
-  line-height: 1.8;
-}
-
-.listenPanel {
-  align-self: start;
-}
-
-.musicLinks {
-  display: grid;
-  gap: 0.75rem;
-  margin-top: 2rem;
-}
-
-.musicLinks a {
-  display: flex;
-  min-height: 4.5rem;
-  align-items: center;
-  gap: 1rem;
-  border: 1px solid var(--color-rule);
-  padding: 1rem 1.25rem;
-  font-family: var(--font-display), sans-serif;
-  font-size: 1.35rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition:
-    color 160ms ease,
-    background-color 160ms ease;
-}
-
-.musicLinks a:hover {
-  color: var(--color-ink);
-  background: var(--color-paper);
-}
-
-.musicLinks img,
 .socialLinks img {
   object-fit: contain;
 }
@@ -931,22 +871,10 @@
   }
 
   .forHireShell,
-  .aboutShell,
   .footerMain {
     grid-template-columns: 1fr;
   }
 
-  .about {
-    background:
-      radial-gradient(circle at 82% 28%, rgb(82 124 120 / 0.14), transparent 24rem),
-      var(--color-ink);
-  }
-
-  .aboutShell {
-    gap: 5rem;
-  }
-
-  .listenPanel,
   .footerConnect {
     border-top: 1px solid var(--color-rule);
     padding-top: 3rem;
@@ -1008,15 +936,12 @@
   }
 
   .performances,
-  .forHire,
-  .about {
+  .forHire {
     padding-block: 4.5rem;
   }
 
   .sectionHeader h2,
   .forHireIntro h2,
-  .aboutCopy h2,
-  .listenPanel h2,
   .footerBooking h2,
   .newsletter h2 {
     font-size: clamp(3.4rem, 17vw, 5rem);

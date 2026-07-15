@@ -11,7 +11,7 @@ export default function Page() {
     image: `${siteUrl}/images/hero-gary.webp`,
     jobTitle: "Jazz Vocalist and Guitarist",
     email: `mailto:${data.email}`,
-    sameAs: [...Object.values(data.social), ...Object.values(data.music)],
+    sameAs: Object.values(data.social),
   };
 
   return (
