@@ -1,29 +1,57 @@
 {
-    "name": "Gary Dacanay",
-    "description": "Playing Jazz Standards from The Great American Songbook at your private corporate events, weddings, dinners and parties in Northeast Ohio.",
-    "subdescription": "Jazz Vocalist and Guitarist",
-    "email": "info@garydacanay.com",
-    "videos": [
-        [
-            "Stella by Starlight",
-            "SRjt5HgpgRM"
-        ],
-        [
-            "You Stepped Out Of A Dream",
-            "ee68onP0OHg"
-        ],
-        [
-            "Medley: The Way You Look Tonight",
-            "aBUiJQaLWgs"
-        ]
-    ],
-    "social": {
-        "youtube": "https://www.youtube.com/user/GaryDacanay",
-        "instagram": "https://www.instagram.com/gary_dacanay",
-        "facebook": "https://www.facebook.com/profile.php?id=100083527954006"
+  "name": "Gary Dacanay",
+  "description": "Live jazz standards and Great American Songbook favorites for weddings, dinners, concerts, corporate receptions, and private events in Northeast Ohio.",
+  "subdescription": "Jazz Vocalist and Guitarist",
+  "email": "info@garydacanay.com",
+  "hero": {
+    "eyebrow": "Jazz vocalist + guitarist",
+    "headline": "The Great American Songbook, Live.",
+    "supportingCopy": "Timeless jazz for concerts, weddings, dinners, and private events.",
+    "stamp": "Available for your event"
+  },
+  "navigation": [
+    { "label": "Listen", "href": "#listen" },
+    { "label": "About", "href": "#about" },
+    { "label": "For Hire", "href": "#for-hire" }
+  ],
+  "booking": {
+    "subject": "Booking inquiry for Gary Dacanay",
+    "body": "Hi Gary,\n\nI'm interested in booking you for an event.\n\nEvent type:\nDate:\nLocation:\nApproximate guest count:\n\nAdditional details:\n\nThank you,"
+  },
+  "services": [
+    {
+      "name": "Weddings",
+      "description": "Ceremonies, cocktail hours, dinners, and receptions with a warm, elegant atmosphere."
     },
-    "music": {
-        "spotify": "https://open.spotify.com/artist/3oPJs0JJuqfXPv4VEkPlAz",
-        "apple_music": "https://music.apple.com/us/artist/gary-dacanay/448384631"
+    {
+      "name": "Private Dinners",
+      "description": "Intimate vocal-and-guitar performances that complement the room without overtaking it."
+    },
+    {
+      "name": "Corporate Events",
+      "description": "Polished live jazz for receptions, client gatherings, celebrations, and hospitality."
+    },
+    {
+      "name": "Concerts & Parties",
+      "description": "A focused performance of beloved standards for audiences ready to listen and celebrate."
     }
+  ],
+  "about": [
+    "Gary Dacanay pairs warm vocals with tasteful hollow-body guitar, drawing from jazz standards and the Great American Songbook.",
+    "The music is shaped for the occasion: present enough to make a gathering memorable, and refined enough to let conversation and connection remain at the center."
+  ],
+  "videos": [
+    ["Stella by Starlight", "SRjt5HgpgRM"],
+    ["You Stepped Out Of A Dream", "ee68onP0OHg"],
+    ["Medley: The Way You Look Tonight", "aBUiJQaLWgs"]
+  ],
+  "social": {
+    "youtube": "https://www.youtube.com/user/GaryDacanay",
+    "instagram": "https://www.instagram.com/gary_dacanay",
+    "facebook": "https://www.facebook.com/profile.php?id=100083527954006"
+  },
+  "music": {
+    "spotify": "https://open.spotify.com/artist/3oPJs0JJuqfXPv4VEkPlAz",
+    "apple_music": "https://music.apple.com/us/artist/gary-dacanay/448384631"
+  }
 }
