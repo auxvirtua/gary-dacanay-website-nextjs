@@ -53,9 +53,6 @@ export function HomePage() {
                 sizes="(max-width: 899px) 100vw, 56vw"
                 className={styles.heroImage}
               />
-              <span className={styles.availabilityStamp}>
-                {data.hero.stamp}
-              </span>
             </div>
           </div>
         </section>
@@ -65,12 +62,11 @@ export function HomePage() {
         <section id="events" className={styles.forHire} aria-labelledby="events-title">
           <div className={styles.forHireShell}>
             <div className={styles.forHireIntro}>
-              <p className={styles.availabilityLine}>Available throughout Northeast Ohio</p>
+              <p className={styles.eventsKicker}>Shaped Around The Occasion</p>
               <h2 id="events-title">Music for Any Room.</h2>
               <p>
-                A polished performance shaped around the occasion—welcoming when
-                guests arrive, atmospheric through dinner, and memorable when the music
-                takes center stage.
+                A polished performance—welcoming as guests arrive, atmospheric through
+                dinner, and memorable when the music takes center stage.
               </p>
               <a className={styles.darkButton} href={bookingHref}>
                 Check availability

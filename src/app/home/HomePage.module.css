@@ -129,6 +129,7 @@
 
 .eyebrow,
 .sectionKicker,
+.eventsKicker,
 .footerKicker {
   margin: 0;
   font-family: var(--font-display), sans-serif;
@@ -137,7 +138,8 @@
 }
 
 .eyebrow,
-.sectionKicker {
+.sectionKicker,
+.eventsKicker {
   font-size: clamp(0.9rem, 1vw, 1rem);
   letter-spacing: 0.18em;
 }
@@ -149,6 +151,10 @@
 
 .eyebrow {
   color: var(--color-rust);
+}
+
+.eventsKicker {
+  color: rgb(11 10 9 / 0.72);
 }
 
 .heroTitle {
@@ -244,29 +250,6 @@
 .heroImage {
   object-fit: cover;
   object-position: 50% 18%;
-}
-
-.availabilityStamp {
-  position: absolute;
-  top: 8%;
-  right: 5%;
-  z-index: 3;
-  display: grid;
-  width: clamp(7rem, 11vw, 10.5rem);
-  aspect-ratio: 1;
-  place-items: center;
-  border: 3px double var(--color-gold);
-  border-radius: 50%;
-  color: var(--color-gold);
-  background: rgb(11 10 9 / 0.72);
-  font-family: var(--font-display), sans-serif;
-  font-size: clamp(0.95rem, 1.45vw, 1.35rem);
-  letter-spacing: 0.1em;
-  line-height: 0.95;
-  text-align: center;
-  text-transform: uppercase;
-  white-space: pre-line;
-  transform: rotate(-8deg);
 }
 
 .performances {
@@ -504,19 +487,6 @@
   gap: clamp(3rem, 7vw, 8rem);
 }
 
-.availabilityLine {
-  width: fit-content;
-  margin: 0;
-  border-left: 0.22rem solid var(--color-ink);
-  padding-left: 0.8rem;
-  color: var(--color-ink);
-  font-family: var(--font-display), sans-serif;
-  font-size: clamp(1rem, 1.35vw, 1.2rem);
-  letter-spacing: 0.14em;
-  line-height: 1.15;
-  text-transform: uppercase;
-}
-
 .forHireIntro h2 {
   max-width: 8ch;
   margin: 0.45rem 0 0;
@@ -527,7 +497,7 @@
   text-transform: uppercase;
 }
 
-.forHireIntro > p:not(.availabilityLine) {
+.forHireIntro > p:not(.eventsKicker) {
   max-width: 35rem;
   margin: 1.5rem 0 0;
   font-family: var(--font-serif), Georgia, serif;
@@ -868,10 +838,6 @@
     object-position: 50% 13%;
   }
 
-  .availabilityStamp {
-    top: 14%;
-  }
-
   .sectionHeader {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -943,11 +909,6 @@
   .heroArtwork {
     min-height: 34rem;
     margin-top: -4rem;
-  }
-
-  .availabilityStamp {
-    width: 6.6rem;
-    font-size: 0.85rem;
   }
 
   .performances,
