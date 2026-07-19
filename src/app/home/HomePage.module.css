@@ -108,17 +108,14 @@
 .hero {
   position: relative;
   min-height: 100svh;
-  padding: 5.7rem clamp(1rem, 4vw, 4rem) 0;
+  padding: 5.7rem 0 0;
 }
 
 .heroGrid {
   display: grid;
-  width: min(100%, var(--container));
+  width: 100%;
   min-height: calc(100svh - 5.7rem);
   grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
-  margin: 0 auto;
-  border: 1px solid var(--color-rule);
-  border-bottom: 0;
 }
 
 .heroCopy {
@@ -127,23 +124,37 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(2.5rem, 6vw, 6.5rem) clamp(2rem, 5vw, 5.5rem);
+  padding: clamp(2.5rem, 6vw, 6.5rem) clamp(1rem, 4vw, 4rem);
 }
 
 .eyebrow,
 .sectionKicker,
-.darkKicker,
+.eventsKicker,
 .footerKicker {
   margin: 0;
   font-family: var(--font-display), sans-serif;
-  font-size: 0.82rem;
-  letter-spacing: 0.22em;
   line-height: 1.2;
   text-transform: uppercase;
 }
 
+.eyebrow,
+.sectionKicker,
+.eventsKicker {
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  letter-spacing: 0.18em;
+}
+
+.footerKicker {
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+}
+
 .eyebrow {
   color: var(--color-rust);
+}
+
+.eventsKicker {
+  color: rgb(11 10 9 / 0.72);
 }
 
 .heroTitle {
@@ -241,27 +252,6 @@
   object-position: 50% 18%;
 }
 
-.availabilityStamp {
-  position: absolute;
-  top: 8%;
-  right: 5%;
-  z-index: 3;
-  display: grid;
-  width: clamp(7rem, 11vw, 10.5rem);
-  aspect-ratio: 1;
-  place-items: center;
-  border: 3px double var(--color-rust);
-  border-radius: 50%;
-  color: var(--color-rust);
-  font-family: var(--font-display), sans-serif;
-  font-size: clamp(0.95rem, 1.45vw, 1.35rem);
-  letter-spacing: 0.1em;
-  line-height: 0.88;
-  text-align: center;
-  text-transform: uppercase;
-  transform: rotate(-8deg);
-}
-
 .performances {
   position: relative;
   padding: clamp(5rem, 9vw, 9rem) clamp(1rem, 4vw, 4rem);
@@ -332,6 +322,7 @@
 .videoCard button {
   display: block;
   width: 100%;
+  height: 100%;
   border: 0;
   padding: 0;
   color: inherit;
@@ -392,16 +383,15 @@
 
 .videoMeta {
   display: grid;
-  min-height: 9rem;
+  min-height: 7.25rem;
   grid-template-columns: auto 1fr;
-  gap: 0.3rem 1rem;
+  gap: 1rem;
   align-content: start;
   padding: 1.2rem;
   border-top: 1px solid var(--color-rule);
 }
 
 .videoMeta > span:first-child {
-  grid-row: 1 / 3;
   color: var(--color-rust);
   font-family: var(--font-display), sans-serif;
   font-size: 0.8rem;
@@ -414,13 +404,6 @@
   font-weight: 400;
   line-height: 0.95;
   letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-.videoMeta > span:last-child {
-  color: var(--color-paper-muted);
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -504,10 +487,6 @@
   gap: clamp(3rem, 7vw, 8rem);
 }
 
-.darkKicker {
-  color: rgb(11 10 9 / 0.66);
-}
-
 .forHireIntro h2 {
   max-width: 8ch;
   margin: 0.45rem 0 0;
@@ -518,7 +497,7 @@
   text-transform: uppercase;
 }
 
-.forHireIntro > p:not(.darkKicker) {
+.forHireIntro > p:not(.eventsKicker) {
   max-width: 35rem;
   margin: 1.5rem 0 0;
   font-family: var(--font-serif), Georgia, serif;
@@ -564,9 +543,9 @@
 
 .service p {
   margin: 0.8rem 0 0;
-  color: rgb(11 10 9 / 0.74);
-  font-size: 0.9rem;
-  line-height: 1.6;
+  color: rgb(11 10 9 / 0.8);
+  font-size: 1rem;
+  line-height: 1.55;
 }
 
 .socialLinks img {
@@ -592,9 +571,12 @@
   color: var(--color-rust);
 }
 
-.footerBooking h2,
-.newsletter h2 {
+.footerBooking h2 {
   font-size: clamp(3.6rem, 6vw, 6.6rem);
+}
+
+.newsletter h2 {
+  font-size: clamp(2.9rem, 4.2vw, 4.7rem);
 }
 
 .footerBooking > p:not(.footerKicker),
@@ -759,6 +741,10 @@
 }
 
 @media (max-width: 899px) {
+  .navScrolled {
+    backdrop-filter: none;
+  }
+
   .desktopNavigation {
     display: none;
   }
@@ -821,7 +807,6 @@
   .heroGrid {
     min-height: calc(100svh - 5.7rem);
     grid-template-columns: 1fr;
-    border-inline: 0;
   }
 
   .heroCopy {
@@ -853,10 +838,6 @@
     object-position: 50% 13%;
   }
 
-  .availabilityStamp {
-    top: 14%;
-  }
-
   .sectionHeader {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -867,7 +848,7 @@
   }
 
   .videoMeta {
-    min-height: 7rem;
+    min-height: 6rem;
   }
 
   .forHireShell,
@@ -930,11 +911,6 @@
     margin-top: -4rem;
   }
 
-  .availabilityStamp {
-    width: 6.6rem;
-    font-size: 0.85rem;
-  }
-
   .performances,
   .forHire {
     padding-block: 4.5rem;
@@ -942,9 +918,12 @@
 
   .sectionHeader h2,
   .forHireIntro h2,
-  .footerBooking h2,
-  .newsletter h2 {
+  .footerBooking h2 {
     font-size: clamp(3.4rem, 17vw, 5rem);
+  }
+
+  .newsletter h2 {
+    font-size: clamp(2.9rem, 14vw, 4.2rem);
   }
 
   .serviceGrid {

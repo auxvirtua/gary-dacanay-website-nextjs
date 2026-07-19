@@ -23,15 +23,14 @@ export function Performances({ videos }: { videos: Video[] }) {
   const closeModal = () => dialogRef.current?.close();
 
   return (
-    <section id="listen" className={styles.performances} aria-labelledby="performances-title">
+    <section id="videos" className={styles.performances} aria-labelledby="performances-title">
       <div className={styles.sectionHeader}>
         <div>
           <p className={styles.sectionKicker}>Selected performances</p>
-          <h2 id="performances-title">Press Play.</h2>
+          <h2 id="performances-title">Videos.</h2>
         </div>
         <p>
-          Three standards, performed with the intimacy and warmth Gary brings to a live
-          room.
+          Standards performed with the intimacy and warmth Gary brings to a live room.
         </p>
       </div>
 
@@ -60,7 +59,6 @@ export function Performances({ videos }: { videos: Video[] }) {
               <span className={styles.videoMeta}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <strong>{video.title}</strong>
-                <span>Watch performance</span>
               </span>
             </button>
           </article>
