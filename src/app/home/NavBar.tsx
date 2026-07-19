@@ -58,7 +58,7 @@ export function NavBar({
           </a>
         ))}
         <a className={styles.navBooking} href={bookingHref}>
-          Book
+          Check availability
         </a>
       </nav>
 
@@ -85,7 +85,7 @@ export function NavBar({
           </a>
         ))}
         <a className={styles.mobileBooking} href={bookingHref} onClick={() => setOpen(false)}>
-          Book Gary
+          Check availability
         </a>
       </nav>
     </header>

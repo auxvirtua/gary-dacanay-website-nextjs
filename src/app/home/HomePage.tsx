@@ -36,10 +36,10 @@ export function HomePage() {
               <p className={styles.heroSupporting}>{data.hero.supportingCopy}</p>
               <div className={styles.heroActions}>
                 <a className={styles.primaryButton} href={bookingHref}>
-                  Book Gary
+                  Check availability
                 </a>
-                <a className={styles.secondaryButton} href="#listen">
-                  Watch &amp; listen
+                <a className={styles.secondaryButton} href="#videos">
+                  Watch videos
                 </a>
               </div>
             </div>
@@ -53,12 +53,8 @@ export function HomePage() {
                 sizes="(max-width: 899px) 100vw, 56vw"
                 className={styles.heroImage}
               />
-              <span className={styles.availabilityStamp} aria-hidden="true">
-                Available
-                <br />
-                for your
-                <br />
-                event
+              <span className={styles.availabilityStamp}>
+                {data.hero.stamp}
               </span>
             </div>
           </div>
@@ -66,18 +62,18 @@ export function HomePage() {
 
         <Performances videos={videos} />
 
-        <section id="for-hire" className={styles.forHire} aria-labelledby="hire-title">
+        <section id="events" className={styles.forHire} aria-labelledby="events-title">
           <div className={styles.forHireShell}>
             <div className={styles.forHireIntro}>
-              <p className={styles.darkKicker}>Available throughout Northeast Ohio</p>
-              <h2 id="hire-title">Music for Any Room.</h2>
+              <p className={styles.availabilityLine}>Available throughout Northeast Ohio</p>
+              <h2 id="events-title">Music for Any Room.</h2>
               <p>
-                A polished solo performance shaped around the occasion—welcoming when
+                A polished performance shaped around the occasion—welcoming when
                 guests arrive, atmospheric through dinner, and memorable when the music
                 takes center stage.
               </p>
               <a className={styles.darkButton} href={bookingHref}>
-                Start a booking inquiry
+                Check availability
               </a>
             </div>
 
@@ -101,11 +97,11 @@ export function HomePage() {
             <p className={styles.footerKicker}>Bring the songbook to your event</p>
             <h2>Let&apos;s make the room swing.</h2>
             <p>
-              Tell Gary about the occasion, date, location, and guest count. The booking
-              link opens a ready-to-complete email inquiry.
+              Share the date, location, occasion, and guest count. Gary will follow up
+              with availability.
             </p>
             <a className={styles.primaryButton} href={bookingHref}>
-              Book Gary
+              Check availability
             </a>
             <a className={styles.emailLink} href={`mailto:${data.email}`}>
               {data.email}

@@ -4,14 +4,14 @@
   "subdescription": "Jazz Vocalist and Guitarist",
   "email": "info@garydacanay.com",
   "hero": {
-    "eyebrow": "Jazz vocalist + guitarist",
+    "eyebrow": "Jazz vocalist & guitarist",
     "headline": "The Great American Songbook, Live.",
     "supportingCopy": "Timeless jazz for concerts, weddings, dinners, and private events.",
-    "stamp": "Available for your event"
+    "stamp": "Northeast\nOhio"
   },
   "navigation": [
-    { "label": "Listen", "href": "#listen" },
-    { "label": "For Hire", "href": "#for-hire" }
+    { "label": "Videos", "href": "#videos" },
+    { "label": "Events", "href": "#events" }
   ],
   "booking": {
     "subject": "Booking inquiry for Gary Dacanay",
@@ -38,7 +38,7 @@
   "videos": [
     ["Stella by Starlight", "SRjt5HgpgRM"],
     ["You Stepped Out Of A Dream", "ee68onP0OHg"],
-    ["Medley: The Way You Look Tonight", "aBUiJQaLWgs"]
+    ["The Way You Look Tonight — Medley", "aBUiJQaLWgs"]
   ],
   "social": {
     "youtube": "https://www.youtube.com/user/GaryDacanay",
