@@ -127,39 +127,9 @@
   padding: clamp(2.5rem, 6vw, 6.5rem) clamp(1rem, 4vw, 4rem);
 }
 
-.eyebrow,
-.sectionKicker,
-.eventsKicker,
-.footerKicker {
-  margin: 0;
-  font-family: var(--font-display), sans-serif;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.eyebrow,
-.sectionKicker,
-.eventsKicker {
-  font-size: clamp(0.9rem, 1vw, 1rem);
-  letter-spacing: 0.18em;
-}
-
-.footerKicker {
-  font-size: 0.82rem;
-  letter-spacing: 0.2em;
-}
-
-.eyebrow {
-  color: var(--color-rust);
-}
-
-.eventsKicker {
-  color: rgb(11 10 9 / 0.72);
-}
-
 .heroTitle {
   max-width: 7ch;
-  margin: 0.5rem 0 0;
+  margin: 0;
   font-family: var(--font-display), sans-serif;
   font-size: clamp(5rem, 7.4vw, 9rem);
   font-weight: 400;
@@ -273,21 +243,17 @@
 
 .sectionHeader {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.55fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: end;
   gap: 3rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid var(--color-rule);
 }
 
-.sectionKicker {
-  color: var(--color-teal);
-}
-
 .sectionHeader h2,
 .footerBooking h2,
 .newsletter h2 {
-  margin: 0.35rem 0 0;
+  margin: 0;
   font-family: var(--font-display), sans-serif;
   font-weight: 400;
   line-height: 0.9;
@@ -296,15 +262,6 @@
 
 .sectionHeader h2 {
   font-size: clamp(3.5rem, 7vw, 7.5rem);
-}
-
-.sectionHeader > p {
-  margin: 0;
-  color: var(--color-paper-muted);
-  font-family: var(--font-serif), Georgia, serif;
-  font-size: 1.35rem;
-  font-style: italic;
-  line-height: 1.4;
 }
 
 .videoGrid {
@@ -489,7 +446,7 @@
 
 .forHireIntro h2 {
   max-width: 8ch;
-  margin: 0.45rem 0 0;
+  margin: 0;
   font-family: var(--font-display), sans-serif;
   font-size: clamp(4rem, 7vw, 7.5rem);
   font-weight: 400;
@@ -497,7 +454,7 @@
   text-transform: uppercase;
 }
 
-.forHireIntro > p:not(.eventsKicker) {
+.forHireIntro > p {
   max-width: 35rem;
   margin: 1.5rem 0 0;
   font-family: var(--font-serif), Georgia, serif;
@@ -567,10 +524,6 @@
   padding: clamp(5rem, 9vw, 9rem) clamp(1rem, 4vw, 4rem);
 }
 
-.footerKicker {
-  color: var(--color-rust);
-}
-
 .footerBooking h2 {
   font-size: clamp(3.6rem, 6vw, 6.6rem);
 }
@@ -579,8 +532,8 @@
   font-size: clamp(2.9rem, 4.2vw, 4.7rem);
 }
 
-.footerBooking > p:not(.footerKicker),
-.newsletter > p:not(.footerKicker),
+.footerBooking > p,
+.newsletter > p,
 .socialBlock > p {
   max-width: 34rem;
   margin: 1.25rem 0 0;

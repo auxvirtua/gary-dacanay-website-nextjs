@@ -26,12 +26,8 @@ export function Performances({ videos }: { videos: Video[] }) {
     <section id="videos" className={styles.performances} aria-labelledby="performances-title">
       <div className={styles.sectionHeader}>
         <div>
-          <p className={styles.sectionKicker}>Selected performances</p>
-          <h2 id="performances-title">Videos.</h2>
+          <h2 id="performances-title">Videos</h2>
         </div>
-        <p>
-          Standards performed with the intimacy and warmth Gary brings to a live room.
-        </p>
       </div>
 
       <div className={styles.videoGrid}>
