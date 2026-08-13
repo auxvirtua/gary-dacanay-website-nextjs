@@ -23,7 +23,6 @@ export function HomePage() {
         <section id="top" className={styles.hero} aria-labelledby="hero-title">
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
-              <p className={styles.eyebrow}>{data.hero.eyebrow}</p>
               <h1 id="hero-title" className={styles.heroTitle}>
                 The Great
                 <br />
@@ -31,7 +30,7 @@ export function HomePage() {
                 <br />
                 Songbook,
                 <br />
-                <span>Live.</span>
+                <span>Live</span>
               </h1>
               <p className={styles.heroSupporting}>{data.hero.supportingCopy}</p>
               <div className={styles.heroActions}>
@@ -62,8 +61,7 @@ export function HomePage() {
         <section id="events" className={styles.forHire} aria-labelledby="events-title">
           <div className={styles.forHireShell}>
             <div className={styles.forHireIntro}>
-              <p className={styles.eventsKicker}>Shaped Around The Occasion</p>
-              <h2 id="events-title">Music for Any Room.</h2>
+              <h2 id="events-title">Music for Any Room</h2>
               <p>
                 A polished performance—welcoming as guests arrive, atmospheric through
                 dinner, and memorable when the music takes center stage.
@@ -90,8 +88,7 @@ export function HomePage() {
       <footer id="contact" className={styles.footer}>
         <div className={styles.footerMain}>
           <div className={styles.footerBooking}>
-            <p className={styles.footerKicker}>Bring the songbook to your event</p>
-            <h2>Let&apos;s make the room swing.</h2>
+            <h2>Bring the songbook to your event</h2>
             <p>
               Share the date, location, occasion, and guest count. Gary will follow up
               with availability.
