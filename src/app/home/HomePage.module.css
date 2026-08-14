@@ -359,6 +359,7 @@
 
 .activeVideoTitle {
   max-width: 16ch;
+  min-height: 1.8em;
   margin: 1.25rem 0 0;
   font-family: var(--font-display), sans-serif;
   font-size: clamp(2.8rem, 4.4vw, 5rem);
@@ -366,6 +367,52 @@
   line-height: 0.9;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+}
+
+.skeletonMedia {
+  background: rgb(39 38 35);
+  animation: videoSkeletonPulse 1.6s ease-in-out infinite;
+}
+
+.skeletonTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25em;
+}
+
+.skeletonTitleLine {
+  display: block;
+  width: min(11ch, 68%);
+  height: 0.16em;
+  border-radius: 999px;
+  background: rgb(244 228 184 / 0.22);
+  animation: videoSkeletonPulse 1.6s ease-in-out infinite;
+}
+
+.skeletonTitleLine:last-child {
+  width: min(7ch, 44%);
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@keyframes videoSkeletonPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 0.82;
+  }
 }
 
 .videoPlaylist {
@@ -862,6 +909,7 @@
 
   .activeVideoTitle {
     max-width: 20ch;
+    min-height: 1.9em;
     font-size: clamp(2rem, 8vw, 3rem);
     line-height: 0.95;
   }
@@ -890,6 +938,13 @@
   .playlistItem strong {
     font-size: clamp(1.05rem, 4.8vw, 1.3rem);
     line-height: 1.05;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeletonMedia,
+  .skeletonTitleLine {
+    animation: none;
   }
 }
 

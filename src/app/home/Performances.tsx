@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Play } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 import {
   type KeyboardEvent,
   type MouseEvent,
@@ -11,7 +12,7 @@ import {
 } from "react";
 import styles from "./HomePage.module.css";
 
-type Video = {
+export type Video = {
   title: string;
   id: string;
 };
@@ -19,14 +20,21 @@ type Video = {
 const videoScrollStateKey = "videoShowcaseScrollY";
 
 export function Performances({ videos }: { videos: Video[] }) {
-  const [activeVideo, setActiveVideo] = useState<Video | null>(videos[0] ?? null);
+  const searchParams = useSearchParams();
+  const requestedVideo = videos.find(
+    (video) => video.id === searchParams.get("watch"),
+  );
+  const initialRequestedVideoRef = useRef(requestedVideo);
+  const [activeVideo, setActiveVideo] = useState<Video | null>(
+    () => requestedVideo ?? videos[0] ?? null,
+  );
   const [isPlaying, setIsPlaying] = useState(false);
   const videoStageRef = useRef<HTMLDivElement>(null);
   const playerFrameRef = useRef<HTMLIFrameElement>(null);
   const shouldFocusPlayerRef = useRef(false);
 
   useEffect(() => {
-    const syncVideoFromHistory = (event?: PopStateEvent) => {
+    const syncVideoFromHistory = (event: PopStateEvent) => {
       const requestedId = new URL(window.location.href).searchParams.get("watch");
       const requestedVideo = videos.find((video) => video.id === requestedId);
       const storedScrollPosition = event?.state?.[videoScrollStateKey];
@@ -46,7 +54,12 @@ export function Performances({ videos }: { videos: Video[] }) {
       }
     };
 
-    syncVideoFromHistory();
+    if (initialRequestedVideoRef.current) {
+      window.requestAnimationFrame(() => {
+        videoStageRef.current?.scrollIntoView({ behavior: "auto", block: "start" });
+      });
+    }
+
     window.addEventListener("popstate", syncVideoFromHistory);
 
     return () => window.removeEventListener("popstate", syncVideoFromHistory);
