@@ -1,9 +1,11 @@
 import Image from "next/image";
+import { Suspense } from "react";
 import data from "../data.json";
 import { bookingHref } from "../content";
 import { NavBar } from "./NavBar";
 import { NewsletterForm } from "./NewsletterForm";
 import { Performances } from "./Performances";
+import { PerformancesSkeleton } from "./PerformancesSkeleton";
 import styles from "./HomePage.module.css";
 
 const socialPlatforms = [
@@ -56,7 +58,9 @@ export function HomePage() {
           </div>
         </section>
 
-        <Performances videos={videos} />
+        <Suspense fallback={<PerformancesSkeleton videos={videos} />}>
+          <Performances videos={videos} />
+        </Suspense>
 
         <section id="events" className={styles.forHire} aria-labelledby="events-title">
           <div className={styles.forHireShell}>
