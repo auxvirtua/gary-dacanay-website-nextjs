@@ -24,6 +24,9 @@ approves their inclusion. The production hero and social-sharing artwork live
 in `public/images`; the two source candidates remain in
 `public/images/artwork-candidates` for future reference.
 
+See [Music releases](docs/music-releases.md) for the planned staged rollout of
+release cards, Spotify embeds, and an eventual discography playlist.
+
 ## Newsletter configuration
 
 Mailchimp signup requires these environment variables:
