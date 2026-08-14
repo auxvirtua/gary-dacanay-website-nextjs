@@ -8,7 +8,7 @@
   },
   "navigation": [
     { "label": "Videos", "href": "#videos" },
-    { "label": "Photographs", "href": "#photographs" },
+    { "label": "Photos", "href": "#photographs" },
     { "label": "Events", "href": "#events" }
   ],
   "booking": {
