@@ -272,6 +272,10 @@
   min-width: 0;
 }
 
+.videoStage {
+  scroll-margin-top: 5.5rem;
+}
+
 .featuredMedia {
   position: relative;
   aspect-ratio: 16 / 9;
@@ -388,6 +392,7 @@
   color: var(--color-paper);
   background: transparent;
   text-align: left;
+  text-decoration: none;
   transition: background-color 160ms ease;
 }
 
@@ -813,40 +818,30 @@
   }
 
   .videoPlaylist {
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(15rem, 42vw);
-    gap: 0.75rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem clamp(1rem, 3vw, 1.5rem);
     margin: 0;
-    padding: 0.25rem 0.25rem 1rem;
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-    scroll-snap-type: inline mandatory;
-    scrollbar-width: thin;
-  }
-
-  .videoPlaylist::-webkit-scrollbar {
-    height: 0.35rem;
-  }
-
-  .videoPlaylist::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .videoPlaylist::-webkit-scrollbar-thumb {
-    border-radius: 999px;
-    background: rgb(244 228 184 / 0.24);
-  }
-
-  .videoPlaylist li {
-    scroll-snap-align: start;
+    padding: 0;
   }
 
   .playlistItem {
-    grid-template-columns: minmax(6.5rem, 43%) auto minmax(0, 1fr);
+    height: 100%;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-items: start;
+    gap: 0.75rem 0.65rem;
+    padding: 0.5rem;
+  }
+
+  .playlistThumbnail {
+    grid-column: 1 / -1;
+    width: 100%;
   }
 
   .playlistItem strong {
-    font-size: clamp(1.15rem, 2.8vw, 1.5rem);
+    overflow-wrap: anywhere;
+    font-size: clamp(1.2rem, 2.8vw, 1.5rem);
+    line-height: 1.05;
   }
 
   .forHireShell,
@@ -857,6 +852,44 @@
   .footerConnect {
     border-top: 1px solid var(--color-rule);
     padding-top: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .videoExperience {
+    gap: 1.5rem;
+  }
+
+  .activeVideoTitle {
+    max-width: 20ch;
+    font-size: clamp(2rem, 8vw, 3rem);
+    line-height: 0.95;
+  }
+
+  .videoPlaylist {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .playlistItem {
+    grid-template-columns: minmax(7rem, 38%) auto minmax(0, 1fr);
+    grid-template-rows: auto;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.45rem;
+  }
+
+  .playlistThumbnail {
+    grid-column: auto;
+  }
+
+  .playlistNumber {
+    font-size: 1rem;
+  }
+
+  .playlistItem strong {
+    font-size: clamp(1.05rem, 4.8vw, 1.3rem);
+    line-height: 1.05;
   }
 }
 
@@ -939,15 +972,6 @@
 
   .activeVideoTitle {
     margin-top: 1rem;
-    font-size: clamp(2.8rem, 13vw, 4rem);
-  }
-
-  .videoPlaylist {
-    grid-auto-columns: 76vw;
-  }
-
-  .playlistItem {
-    grid-template-columns: 40% auto minmax(0, 1fr);
   }
 
   .serviceGrid {
