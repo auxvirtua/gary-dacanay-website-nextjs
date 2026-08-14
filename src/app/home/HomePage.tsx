@@ -4,6 +4,7 @@ import data from "../data.json";
 import { bookingHref } from "../content";
 import { NavBar } from "./NavBar";
 import { NewsletterForm } from "./NewsletterForm";
+import { PhotoGallery } from "./PhotoGallery";
 import { Performances } from "./Performances";
 import { PerformancesSkeleton } from "./PerformancesSkeleton";
 import styles from "./HomePage.module.css";
@@ -61,6 +62,8 @@ export function HomePage() {
         <Suspense fallback={<PerformancesSkeleton videos={videos} />}>
           <Performances videos={videos} />
         </Suspense>
+
+        <PhotoGallery />
 
         <section id="events" className={styles.forHire} aria-labelledby="events-title">
           <div className={styles.forHireShell}>
