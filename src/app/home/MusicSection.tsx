@@ -29,7 +29,7 @@ export function MusicSection({ releases }: { releases: MusicRelease[] }) {
               src={release.artwork}
               alt={`Cover art for ${release.title}`}
               fill
-              sizes="(max-width: 640px) calc(100vw - 2rem), (max-width: 899px) 22rem, 26rem"
+              sizes="(max-width: 640px) 5.5rem, 22rem"
               className={styles.artwork}
             />
           </div>
@@ -39,7 +39,6 @@ export function MusicSection({ releases }: { releases: MusicRelease[] }) {
 
             {release.spotifyUrl || release.appleMusicUrl ? (
               <div className={styles.listenOn}>
-                <p>Listen on</p>
                 <div className={styles.platformLinks}>
                   {release.spotifyUrl ? (
                     <a

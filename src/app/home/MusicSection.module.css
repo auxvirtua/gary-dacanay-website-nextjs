@@ -3,23 +3,14 @@
   padding: clamp(5rem, 9vw, 9rem) clamp(1rem, 4vw, 4rem);
   border-top: 1px solid var(--color-rule);
   background:
-    radial-gradient(circle at 76% 42%, rgb(169 87 58 / 0.2), transparent 24rem),
-    var(--color-ink-soft);
+    radial-gradient(circle at 8% 12%, rgb(82 124 120 / 0.18), transparent 22rem),
+    var(--color-ink);
   scroll-margin-top: 4.8rem;
 }
 
 .shell {
   width: min(100%, var(--container));
   margin-inline: auto;
-}
-
-.listenOn > p {
-  margin: 0;
-  color: var(--color-gold);
-  font-family: var(--font-display), sans-serif;
-  font-size: 0.88rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
 }
 
 .title,
@@ -37,11 +28,12 @@
 
 .release {
   display: grid;
-  grid-template-columns: minmax(12rem, 18rem) minmax(0, 1fr);
-  gap: clamp(1.5rem, 4vw, 4rem);
-  align-items: center;
-  width: min(100%, 62rem);
+  grid-template-columns: 1fr;
+  width: min(100%, 23rem);
   margin-top: 2.25rem;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  background: var(--color-ink-soft);
 }
 
 .artworkFrame {
@@ -58,16 +50,16 @@
 }
 
 .releaseDetails {
-  max-width: 41rem;
+  padding: 1.1rem 0.35rem 0.35rem;
 }
 
 .release h3 {
-  max-width: 16ch;
-  font-size: clamp(2.8rem, 4.4vw, 5rem);
+  max-width: none;
+  font-size: clamp(2.35rem, 3vw, 3.5rem);
 }
 
 .listenOn {
-  margin-top: 1.35rem;
+  margin-top: 0.85rem;
 }
 
 .platformLinks {
@@ -79,12 +71,12 @@
 
 .platformLink {
   display: inline-flex;
-  min-height: 3.35rem;
+  min-height: 2.8rem;
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  border: 1px solid var(--color-gold);
-  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid var(--color-rule);
+  padding: 0.3rem 0;
   color: var(--color-paper);
   font-family: var(--font-display), sans-serif;
   font-size: 1rem;
@@ -99,20 +91,12 @@
 
 .platformLink:hover,
 .platformLink:focus-visible {
-  color: var(--color-ink);
-  background: var(--color-paper);
-  transform: translateY(-2px);
+  border-color: var(--color-paper);
+  color: var(--color-gold);
 }
 
 .platformLink img {
   object-fit: contain;
-}
-
-@media (max-width: 899px) {
-  .release {
-    grid-template-columns: minmax(12rem, 16rem) minmax(0, 1fr);
-    gap: clamp(1.25rem, 3vw, 2.5rem);
-  }
 }
 
 @media (max-width: 640px) {
@@ -121,14 +105,46 @@
   }
 
   .release {
-    grid-template-columns: 1fr;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: center;
+    width: 100%;
+    padding: 0.75rem;
   }
 
   .artworkFrame {
-    width: min(100%, 18rem);
+    width: 5.5rem;
+  }
+
+  .releaseDetails {
+    min-width: 0;
+    align-self: center;
+    padding: 0;
   }
 
   .release h3 {
-    font-size: clamp(2.8rem, 13vw, 4.4rem);
+    font-size: clamp(1.7rem, 7vw, 2rem);
+  }
+
+  .listenOn {
+    margin-top: 0.5rem;
+  }
+
+  .platformLinks {
+    gap: 0.75rem;
+    margin-top: 0;
+  }
+
+  .platformLink {
+    min-height: auto;
+    padding: 0.2rem 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.09em;
+    white-space: nowrap;
+  }
+
+  .platformLink img {
+    width: 1rem;
+    height: 1rem;
   }
 }
