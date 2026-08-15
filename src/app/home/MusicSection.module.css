@@ -1,0 +1,190 @@
+.music {
+  position: relative;
+  padding: clamp(5rem, 9vw, 9rem) clamp(1rem, 4vw, 4rem);
+  border-top: 1px solid var(--color-rule);
+  background:
+    radial-gradient(circle at 76% 42%, rgb(169 87 58 / 0.2), transparent 24rem),
+    var(--color-ink-soft);
+  scroll-margin-top: 4.8rem;
+}
+
+.shell {
+  width: min(100%, var(--container));
+  margin-inline: auto;
+}
+
+.heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.eyebrow,
+.releaseType {
+  margin: 0;
+  color: var(--color-gold);
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.88rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.heading h2,
+.release h3 {
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 400;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+.heading h2 {
+  font-size: clamp(3.5rem, 5vw, 5.5rem);
+}
+
+.release {
+  display: grid;
+  grid-template-columns: minmax(16rem, 26rem) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 7rem);
+  align-items: center;
+  width: min(100%, 70rem);
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+}
+
+.artworkLink {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: var(--color-ink);
+}
+
+.artwork {
+  object-fit: cover;
+}
+
+.releaseDetails {
+  max-width: 41rem;
+}
+
+.release h3 {
+  max-width: 12ch;
+  margin-top: 0.6rem;
+  font-size: clamp(3.4rem, 6vw, 6.8rem);
+}
+
+.description {
+  margin: 1.3rem 0 0;
+  color: var(--color-paper-muted);
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-style: italic;
+  line-height: 1.25;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1.25rem;
+  margin-top: 1.8rem;
+}
+
+.listenButton,
+.spotifyLink {
+  display: inline-flex;
+  min-height: 3.35rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-family: var(--font-display), sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.listenButton {
+  border: 1px solid var(--color-gold);
+  padding: 0.9rem 1.25rem;
+  color: var(--color-ink);
+  background: var(--color-gold);
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.listenButton:hover:not(:disabled),
+.listenButton:focus-visible:not(:disabled) {
+  color: var(--color-ink);
+  background: var(--color-paper);
+  transform: translateY(-2px);
+}
+
+.listenButton:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.spotifyLink {
+  border-bottom: 1px solid var(--color-gold);
+  padding: 0.3rem 0;
+  color: var(--color-paper);
+  transition:
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.spotifyLink:hover,
+.spotifyLink:focus-visible {
+  border-color: var(--color-paper);
+  color: var(--color-gold);
+}
+
+.spotifyLink img {
+  object-fit: contain;
+}
+
+.player {
+  width: min(100%, 34rem);
+  margin-top: 1.75rem;
+}
+
+.player iframe {
+  display: block;
+  border: 0;
+  border-radius: 0.75rem;
+}
+
+@media (max-width: 899px) {
+  .release {
+    grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .music {
+    padding-block: 4.5rem;
+  }
+
+  .heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .release {
+    grid-template-columns: 1fr;
+  }
+
+  .artworkLink {
+    width: min(100%, 26rem);
+  }
+
+  .release h3 {
+    font-size: clamp(3.4rem, 16vw, 5rem);
+  }
+}

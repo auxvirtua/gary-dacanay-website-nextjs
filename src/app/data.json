@@ -7,6 +7,7 @@
     "supportingCopy": "Timeless jazz for concerts, weddings, dinners, and private events."
   },
   "navigation": [
+    { "label": "Music", "href": "#music" },
     { "label": "Videos", "href": "#videos" },
     { "label": "Photographs", "href": "#photographs" },
     { "label": "Events", "href": "#events" }
@@ -49,6 +50,17 @@
   },
   "music": {
     "spotify": "https://open.spotify.com/artist/3oPJs0JJuqfXPv4VEkPlAz",
-    "apple_music": "https://music.apple.com/us/artist/gary-dacanay/448384631"
+    "apple_music": "https://music.apple.com/us/artist/gary-dacanay/448384631",
+    "releases": [
+      {
+        "slug": "i-fall-in-love-too-easily",
+        "title": "I Fall In Love Too Easily",
+        "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e021589ff3a3c093be46da9f39f",
+        "status": "released",
+        "description": "Available now on Spotify.",
+        "spotifyUrl": "https://open.spotify.com/track/0hVgBYKeDdVtdoeqMDM7dm",
+        "featured": true
+      }
+    ]
   }
 }

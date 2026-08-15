@@ -4,6 +4,7 @@ import data from "../data.json";
 import { bookingHref } from "../content";
 import { NavBar } from "./NavBar";
 import { NewsletterForm } from "./NewsletterForm";
+import { MusicSection } from "./MusicSection";
 import { PhotoGallery } from "./PhotoGallery";
 import { Performances } from "./Performances";
 import { PerformancesSkeleton } from "./PerformancesSkeleton";
@@ -58,6 +59,8 @@ export function HomePage() {
             </div>
           </div>
         </section>
+
+        <MusicSection releases={data.music.releases} />
 
         <Suspense fallback={<PerformancesSkeleton videos={videos} />}>
           <Performances videos={videos} />
