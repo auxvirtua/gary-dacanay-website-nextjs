@@ -143,7 +143,7 @@ export function PhotoGallery() {
     >
       <div className={styles.photoGallery}>
         <div className={styles.photoHeader}>
-          <h2 id="photographs-title">Photographs</h2>
+          <h2 id="photographs-title">Photos</h2>
           <button
             type="button"
             className={styles.photoOpenButton}
