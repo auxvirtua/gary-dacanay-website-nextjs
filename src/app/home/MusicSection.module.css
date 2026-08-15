@@ -1,0 +1,150 @@
+.music {
+  position: relative;
+  padding: clamp(5rem, 9vw, 9rem) clamp(1rem, 4vw, 4rem);
+  border-top: 1px solid var(--color-rule);
+  background:
+    radial-gradient(circle at 8% 12%, rgb(82 124 120 / 0.18), transparent 22rem),
+    var(--color-ink);
+  scroll-margin-top: 4.8rem;
+}
+
+.shell {
+  width: min(100%, var(--container));
+  margin-inline: auto;
+}
+
+.title,
+.release h3 {
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 400;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: clamp(3.5rem, 5vw, 5.5rem);
+}
+
+.release {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: min(100%, 23rem);
+  margin-top: 2.25rem;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  background: var(--color-ink-soft);
+}
+
+.artworkFrame {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: var(--color-ink);
+}
+
+.artwork {
+  object-fit: cover;
+}
+
+.releaseDetails {
+  padding: 1.1rem 0.35rem 0.35rem;
+}
+
+.release h3 {
+  max-width: none;
+  font-size: clamp(2.35rem, 3vw, 3.5rem);
+}
+
+.listenOn {
+  margin-top: 0.85rem;
+}
+
+.platformLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.platformLink {
+  display: inline-flex;
+  min-height: 2.8rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border-bottom: 1px solid var(--color-rule);
+  padding: 0.3rem 0;
+  color: var(--color-paper);
+  font-family: var(--font-display), sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.platformLink:hover,
+.platformLink:focus-visible {
+  border-color: var(--color-paper);
+  color: var(--color-gold);
+}
+
+.platformLink img {
+  object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .music {
+    padding-block: 4.5rem;
+  }
+
+  .release {
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: center;
+    width: 100%;
+    padding: 0.75rem;
+  }
+
+  .artworkFrame {
+    width: 5.5rem;
+  }
+
+  .releaseDetails {
+    min-width: 0;
+    align-self: center;
+    padding: 0;
+  }
+
+  .release h3 {
+    font-size: clamp(1.7rem, 7vw, 2rem);
+  }
+
+  .listenOn {
+    margin-top: 0.5rem;
+  }
+
+  .platformLinks {
+    gap: 0.75rem;
+    margin-top: 0;
+  }
+
+  .platformLink {
+    min-height: auto;
+    padding: 0.2rem 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.09em;
+    white-space: nowrap;
+  }
+
+  .platformLink img {
+    width: 1rem;
+    height: 1rem;
+  }
+}
