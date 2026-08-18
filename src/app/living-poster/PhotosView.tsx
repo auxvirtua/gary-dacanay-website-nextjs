@@ -180,34 +180,34 @@ export function PhotosView() {
             style={{ objectPosition: activePhoto.objectPosition }}
           />
         </button>
-      </div>
 
-      <div
-        ref={scrollerRef}
-        className={styles.mobileScroller}
-        onScroll={(event) => {
-          const width = event.currentTarget.clientWidth;
-          if (width) setActiveIndex(Math.round(event.currentTarget.scrollLeft / width));
-        }}
-      >
-        {photos.map((photo, index) => (
-          <button
-            key={photo.src}
-            type="button"
-            className={styles.mobileSlide}
-            aria-label={`View photograph ${index + 1} full screen`}
-            onClick={(event) => openLightbox(index, event.currentTarget)}
-          >
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              fill
-              loading={index < 2 ? "eager" : "lazy"}
-              sizes="(max-width: 760px) 100vw, 1px"
-              style={{ objectPosition: photo.objectPosition }}
-            />
-          </button>
-        ))}
+        <div
+          ref={scrollerRef}
+          className={styles.mobileScroller}
+          onScroll={(event) => {
+            const width = event.currentTarget.clientWidth;
+            if (width) setActiveIndex(Math.round(event.currentTarget.scrollLeft / width));
+          }}
+        >
+          {photos.map((photo, index) => (
+            <button
+              key={photo.src}
+              type="button"
+              className={styles.mobileSlide}
+              aria-label={`View photograph ${index + 1} full screen`}
+              onClick={(event) => openLightbox(index, event.currentTarget)}
+            >
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                loading={index < 2 ? "eager" : "lazy"}
+                sizes="(max-width: 760px) 100vw, 1px"
+                style={{ objectPosition: photo.objectPosition }}
+              />
+            </button>
+          ))}
+        </div>
       </div>
 
       <div
@@ -233,15 +233,6 @@ export function PhotosView() {
             />
           </button>
         ))}
-      </div>
-
-      <div className={styles.mobileControls}>
-        <PhotoControls
-          activeIndex={activeIndex}
-          onPrevious={() => selectPhoto(activeIndex - 1, true)}
-          onNext={() => selectPhoto(activeIndex + 1, true)}
-          onExpand={() => setLightboxOpen(true)}
-        />
       </div>
 
       <dialog
