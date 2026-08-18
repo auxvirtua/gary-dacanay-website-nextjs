@@ -1,0 +1,346 @@
+.view {
+  display: grid;
+  width: min(100%, 92rem);
+  height: 100%;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1.55fr) minmax(17rem, 0.65fr);
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+  margin-inline: auto;
+  padding: clamp(0.85rem, 2vw, 1.5rem) clamp(1rem, 3vw, 2.8rem);
+  overflow: hidden;
+  align-items: start;
+}
+.primary {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+  gap: 0.65rem;
+  align-self: start;
+}
+
+.frame {
+  position: relative;
+  width: 100%;
+  max-height: 100%;
+  aspect-ratio: 16 / 9;
+  align-self: start;
+  overflow: hidden;
+  border: 1px solid rgb(244 228 184 / 0.2);
+  background: #050504;
+}
+
+.frame iframe,
+.playButton {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.playButton {
+  padding: 0;
+  color: var(--color-ink);
+  background: #050504;
+}
+
+.playButton::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: rgb(10 9 8 / 0.18);
+  transition: background-color 180ms ease;
+}
+
+.playButton > img {
+  object-fit: cover;
+  filter: saturate(0.72) contrast(1.05) sepia(0.11);
+  transition: filter 200ms ease, transform 300ms ease;
+}
+
+.playButton > span {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  z-index: 1;
+  display: grid;
+  width: 4.25rem;
+  height: 4.25rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-gold);
+  transform: translate(-50%, -50%);
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.playButton:hover > img,
+.playButton:focus-visible > img {
+  filter: saturate(0.92) contrast(1.05);
+  transform: scale(1.02);
+}
+
+.playButton:hover > span,
+.playButton:focus-visible > span {
+  background: var(--color-paper);
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.caption {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.caption h1 {
+  min-width: 0;
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2.1rem, 4.5vw, 4.4rem);
+  font-weight: 400;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.controls > span {
+  min-width: 4rem;
+  color: var(--color-paper-muted);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+.controls button {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border: 1px solid var(--color-rule);
+  padding: 0;
+  color: var(--color-paper);
+  background: #15110e;
+}
+
+.controls button:hover,
+.controls button:focus-visible {
+  border-color: var(--color-gold);
+  color: var(--color-ink);
+  background: var(--color-gold);
+}
+
+.playlist {
+  align-self: start;
+  min-width: 0;
+  max-height: 100%;
+  margin: 0;
+  border-left: 1px solid var(--color-rule);
+  padding: 0 0 0 1rem;
+  overflow-y: auto;
+  list-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-rule) transparent;
+}
+
+.playlist li {
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.playlist button {
+  display: grid;
+  width: 100%;
+  grid-template-columns: minmax(5.5rem, 7.4rem) 1.4rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.65rem;
+  border: 0;
+  padding: 0.5rem 0;
+  color: var(--color-paper-muted);
+  background: transparent;
+  text-align: left;
+}
+
+.playlist button:hover,
+.playlist button:focus-visible,
+.playlist button[aria-current="true"] {
+  color: var(--color-gold);
+}
+
+.thumbnail {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #050504;
+}
+
+.thumbnail img {
+  object-fit: cover;
+  filter: saturate(0.62) sepia(0.12);
+}
+
+.number {
+  color: var(--color-rust);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+}
+
+.playlist strong {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(0.95rem, 1.3vw, 1.25rem);
+  font-weight: 400;
+  line-height: 0.93;
+  text-transform: uppercase;
+}
+
+@media (min-width: 761px) and (max-width: 1120px) {
+  .view {
+    display: block;
+    width: min(100%, 58rem);
+    height: 100%;
+    padding: 1.25rem clamp(1.25rem, 4vw, 2.5rem) 2rem;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+
+  .primary {
+    display: block;
+  }
+
+  .frame {
+    width: 100%;
+  }
+
+  .caption {
+    margin-top: 0.75rem;
+  }
+
+  .caption h1 {
+    font-size: clamp(2.25rem, 6vw, 3.6rem);
+  }
+
+  .playlist {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    max-height: none;
+    margin-top: 1.5rem;
+    border-left: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .playlist li {
+    border: 1px solid var(--color-rule);
+  }
+
+  .playlist button {
+    height: 100%;
+    grid-template-columns: 1.4rem minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-items: start;
+    gap: 0.65rem;
+    padding: 0.55rem;
+  }
+
+  .thumbnail {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .playlist strong {
+    font-size: clamp(1.1rem, 2.8vw, 1.5rem);
+    line-height: 1;
+  }
+}
+
+@media (max-width: 760px) {
+  .view {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+
+  .primary {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    display: block;
+    padding: 0.65rem 1rem 0.7rem;
+    border-bottom: 1px solid var(--color-rule);
+    background: #0d0b09;
+  }
+
+  .frame {
+    aspect-ratio: 16 / 9;
+  }
+
+  .playButton > span {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+
+  .caption {
+    margin-top: 0.55rem;
+  }
+
+  .caption h1 {
+    font-size: clamp(1.55rem, 7.5vw, 2.2rem);
+  }
+
+  .controls {
+    gap: 0.3rem;
+  }
+
+  .controls > span {
+    min-width: 3.4rem;
+    font-size: 0.54rem;
+  }
+
+  .controls button {
+    width: 1.95rem;
+    height: 1.95rem;
+  }
+
+  .playlist {
+    display: block;
+    max-height: none;
+    border-left: 0;
+    padding: 0 1rem 0.75rem;
+    overflow: visible;
+  }
+
+  .playlist button {
+    grid-template-columns: 5.8rem 1.3rem minmax(0, 1fr);
+    grid-template-rows: auto;
+    align-items: center;
+    padding: 0.55rem 0;
+  }
+
+  .thumbnail {
+    grid-column: auto;
+    width: auto;
+  }
+
+  .playlist strong {
+    font-size: 1rem;
+  }
+}
+
+@media (max-height: 650px) and (max-width: 760px) {
+  .primary {
+    padding-top: 0.45rem;
+  }
+
+  .frame {
+    width: min(100%, 42vh);
+    margin-inline: auto;
+  }
+}

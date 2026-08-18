@@ -3,6 +3,7 @@ import { Bebas_Neue, Instrument_Serif, Inter } from "next/font/google";
 import "./styles.css";
 import data from "./data.json";
 import { siteUrl } from "./content";
+import { LivingPosterShell } from "./living-poster/LivingPosterShell";
 
 const display = Bebas_Neue({
   subsets: ["latin"],
@@ -55,9 +56,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body className={`${display.variable} ${serif.variable} ${sans.variable}`}>
-        {children}
+        <LivingPosterShell>{children}</LivingPosterShell>
       </body>
     </html>
   );
