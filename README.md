@@ -1,8 +1,8 @@
 # Gary Dacanay
 
-Single-page website for jazz vocalist and guitarist Gary Dacanay. The July 2026
-design presents Gary as a live artist for hire through a responsive,
-poster-inspired experience.
+Website for jazz vocalist and guitarist Gary Dacanay. The Living Poster design
+presents Gary as a live artist for hire through a responsive, single-screen
+shell with route-backed music, video, and photo experiences.
 
 ## Local development
 
@@ -17,12 +17,15 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Content
 
-Public copy, performance videos, booking-email content, and external social
-links live in `src/app/data.json`. Spotify and Apple Music URLs are retained
-there as optional content, but are intentionally not rendered until Gary
-approves their inclusion. The production hero and social-sharing artwork live
-in `public/images`; the two source candidates remain in
+Public copy, performance videos, booking-email content, releases, and external
+platform links live in `src/app/data.json`. The production hero and
+social-sharing artwork live in `public/images`; source candidates remain in
 `public/images/artwork-candidates` for future reference.
+
+The persistent shell is shared by `/`, `/music`, `/videos`, and `/photos`.
+The poster background is only mounted on `/`; media routes replace the center
+canvas while preserving the navigation, booking, newsletter, and platform
+controls.
 
 See [Music releases](docs/music-releases.md) for the planned staged rollout of
 release cards, Spotify embeds, and an eventual discography playlist.

@@ -7,10 +7,10 @@
     "supportingCopy": "Timeless jazz for concerts, weddings, dinners, and private events."
   },
   "navigation": [
-    { "label": "Music", "href": "#music" },
-    { "label": "Videos", "href": "#videos" },
-    { "label": "Photos", "href": "#photographs" },
-    { "label": "Events", "href": "#events" }
+    { "label": "Home", "href": "/" },
+    { "label": "Music", "href": "/music" },
+    { "label": "Videos", "href": "/videos" },
+    { "label": "Photos", "href": "/photos" }
   ],
   "booking": {
     "subject": "Booking inquiry for Gary Dacanay",

@@ -1,6 +1,6 @@
 import data from "./data.json";
 import { siteUrl } from "./content";
-import { HomePage } from "./home/HomePage";
+import { PosterHome } from "./living-poster/PosterHome";
 
 export default function Page() {
   const personSchema = {
@@ -20,7 +20,7 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
-      <HomePage />
+      <PosterHome />
     </>
   );
 }

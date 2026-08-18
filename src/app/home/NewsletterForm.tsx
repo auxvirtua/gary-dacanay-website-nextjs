@@ -3,14 +3,14 @@
 import type { FormEvent } from "react";
 import { useState } from "react";
 import { subscribe } from "../actions";
-import styles from "./HomePage.module.css";
+import styles from "./NewsletterForm.module.css";
 
 type FormState = {
   kind: "idle" | "success" | "error";
   message: string;
 };
 
-export function NewsletterForm() {
+export function NewsletterForm({ titleId }: { titleId?: string }) {
   const [submitting, setSubmitting] = useState(false);
   const [state, setState] = useState<FormState>({ kind: "idle", message: "" });
 
@@ -40,7 +40,7 @@ export function NewsletterForm() {
 
   return (
     <div className={styles.newsletter}>
-      <h2>Stay in the Loop</h2>
+      <h2 id={titleId}>Stay in the Loop</h2>
       <p>Occasional messages about upcoming performances, recordings, and new music.</p>
       <form onSubmit={handleSubmit} className={styles.newsletterForm}>
         <label htmlFor="newsletter-email">Email address</label>

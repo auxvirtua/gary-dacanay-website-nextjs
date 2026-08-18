@@ -1,0 +1,475 @@
+.shell {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100dvh;
+  min-height: 36rem;
+  grid-template-rows: 4.25rem minmax(0, 1fr) 4.65rem;
+  overflow: hidden;
+  color: var(--color-paper);
+  background: #0b0908;
+  isolation: isolate;
+}
+.shell::after {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  content: "";
+  pointer-events: none;
+  opacity: 0.14;
+  background-image:
+    repeating-radial-gradient(circle at 18% 22%, transparent 0 2px, rgb(244 228 184 / 0.08) 3px 4px),
+    repeating-linear-gradient(92deg, transparent 0 7px, rgb(0 0 0 / 0.18) 8px 9px);
+  background-size: 17px 19px, 41px 100%;
+  mix-blend-mode: soft-light;
+}
+
+.posterBackdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background: #090807;
+}
+
+.posterBackdrop::before,
+.posterBackdrop::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "";
+  pointer-events: none;
+}
+
+.posterBackdrop::before {
+  background:
+    linear-gradient(90deg, #090807 0 24%, transparent 50% 76%, #090807 100%),
+    linear-gradient(0deg, #090807 0, transparent 22% 78%, rgb(9 8 7 / 0.72) 100%);
+}
+
+.posterBackdrop::after {
+  background: linear-gradient(135deg, rgb(214 166 62 / 0.05), transparent 42%);
+}
+
+.posterImage {
+  object-fit: cover;
+  object-position: 66% 24%;
+  filter: saturate(0.92) contrast(1.03);
+}
+
+.header {
+  position: relative;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  border-bottom: 1px solid var(--color-rule);
+  padding: 0 clamp(1rem, 2.7vw, 2.5rem);
+  background: rgb(10 9 8 / 0.72);
+  backdrop-filter: blur(8px);
+}
+
+.brand {
+  width: fit-content;
+  color: var(--color-gold);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.4vw, 2.2rem);
+}
+
+.desktopNav a {
+  border-bottom: 1px solid transparent;
+  padding: 0.3rem 0;
+  color: var(--color-paper-muted);
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+.desktopNav a:hover,
+.desktopNav a:focus-visible,
+.desktopNav a[aria-current="page"] {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.availabilityButton {
+  display: inline-flex;
+  min-height: 2.4rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  justify-self: end;
+  border: 1px solid var(--color-gold);
+  padding: 0.55rem 0.8rem;
+  color: var(--color-ink);
+  background: var(--color-gold);
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.74rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.canvas {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.shell[data-home="false"] .canvas {
+  background:
+    linear-gradient(135deg, rgb(214 166 62 / 0.035), transparent 42%),
+    #0d0b09;
+}
+
+.desktopUtilities {
+  position: relative;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: minmax(13rem, 0.85fr) minmax(13rem, 0.85fr) minmax(22rem, 1.45fr);
+  border-top: 1px solid var(--color-rule);
+  background: rgb(10 9 8 / 0.9);
+  backdrop-filter: blur(12px);
+}
+
+.desktopUtilities > button {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 0;
+  border-right: 1px solid var(--color-rule);
+  padding: 0.8rem 1.2rem;
+  color: var(--color-paper);
+  background: transparent;
+  text-align: left;
+}
+
+.desktopUtilities > button:hover,
+.desktopUtilities > button:focus-visible {
+  background: rgb(214 166 62 / 0.08);
+}
+
+.desktopUtilities > button span,
+.desktopPlatforms > span {
+  color: var(--color-paper-muted);
+  font-size: 0.56rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.desktopUtilities > button strong {
+  color: var(--color-gold);
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.96rem;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.desktopPlatforms,
+.mobilePlatforms {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.65rem 1.1rem;
+}
+
+.desktopPlatforms > div,
+.mobilePlatforms > div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(0.45rem, 1vw, 0.8rem);
+}
+
+.desktopPlatforms a,
+.mobilePlatforms a {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--color-rule);
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.025);
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.desktopPlatforms a:hover,
+.desktopPlatforms a:focus-visible,
+.mobilePlatforms a:hover,
+.mobilePlatforms a:focus-visible {
+  border-color: var(--color-gold);
+  background: rgb(214 166 62 / 0.12);
+}
+
+.desktopPlatforms img,
+.mobilePlatforms img {
+  object-fit: contain;
+}
+
+.mobilePlatforms,
+.mobileTabs {
+  display: none;
+}
+
+.utilityDialog {
+  width: 100%;
+  max-width: none;
+  height: auto;
+  max-height: calc(100dvh - 4.25rem);
+  margin: auto 0 0;
+  border: 0;
+  border-top: 1px solid var(--color-gold);
+  padding: 0;
+  color: var(--color-paper);
+  background: #100e0c;
+  box-shadow: 0 -24px 70px rgb(0 0 0 / 0.7);
+}
+
+.utilityDialog::backdrop {
+  background: rgb(0 0 0 / 0.68);
+  backdrop-filter: blur(3px);
+}
+
+.utilityPanel {
+  position: relative;
+  max-height: calc(100dvh - 4.25rem);
+  overflow-y: auto;
+  padding: clamp(1.5rem, 4vw, 3.5rem) clamp(1.25rem, 5vw, 5rem);
+}
+
+.dialogClose {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border: 1px solid var(--color-rule);
+  padding: 0;
+  color: var(--color-paper);
+  background: transparent;
+}
+
+.bookingPanel h2 {
+  max-width: 11ch;
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(3rem, 6vw, 5.4rem);
+  font-weight: 400;
+  line-height: 0.82;
+  text-transform: uppercase;
+}
+
+.kicker {
+  margin: 0 0 0.8rem;
+  color: var(--color-gold);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.dialogCopy {
+  max-width: 36rem;
+  margin: 1rem 0 0;
+  color: var(--color-paper-muted);
+  line-height: 1.55;
+}
+
+.eventTypes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+  margin-top: 1.2rem;
+  color: var(--color-paper-muted);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.bookingActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.primaryAction {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  border: 1px solid var(--color-gold);
+  padding: 0.8rem 1.1rem;
+  color: var(--color-ink);
+  background: var(--color-gold);
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.emailLink {
+  border-bottom: 1px solid var(--color-rule);
+  padding-bottom: 0.25rem;
+  color: var(--color-gold);
+  font-size: 0.8rem;
+}
+
+.newsletterPanel {
+  max-width: 44rem;
+}
+
+@media (max-width: 760px) {
+  .shell {
+    min-height: 34rem;
+    grid-template-rows: calc(4rem + env(safe-area-inset-top)) minmax(0, 1fr) 3rem calc(4.6rem + env(safe-area-inset-bottom));
+  }
+
+  .header {
+    grid-template-columns: 1fr auto;
+    padding: env(safe-area-inset-top) 1rem 0;
+    background: rgb(9 8 7 / 0.72);
+  }
+
+  .brand {
+    font-size: 1.22rem;
+  }
+
+  .desktopNav,
+  .availabilityButton svg,
+  .desktopUtilities {
+    display: none;
+  }
+
+  .availabilityButton {
+    display: inline-flex;
+    min-height: 2.25rem;
+    padding: 0.5rem 0.65rem;
+    font-size: 0.68rem;
+  }
+
+  .posterBackdrop {
+    bottom: 0;
+  }
+
+  .posterBackdrop::before {
+    background:
+      linear-gradient(0deg, #090807 0 7%, transparent 36% 72%, rgb(9 8 7 / 0.72) 100%),
+      linear-gradient(90deg, rgb(9 8 7 / 0.34), transparent 48%, rgb(9 8 7 / 0.16));
+  }
+
+  .posterImage {
+    object-position: 51% 30%;
+  }
+
+  .mobilePlatforms {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    grid-row: 3;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid var(--color-rule);
+    padding: 0 0.75rem;
+    background: rgb(9 8 7 / 0.95);
+  }
+
+  .mobilePlatforms > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .mobilePlatforms > div {
+    gap: clamp(1rem, 7vw, 1.9rem);
+  }
+
+  .mobilePlatforms a {
+    width: 2.7rem;
+    height: 2.7rem;
+    border: 0;
+  }
+
+  .mobileTabs {
+    position: relative;
+    z-index: 20;
+    display: grid;
+    grid-row: 4;
+    grid-template-columns: repeat(4, 1fr);
+    padding-bottom: env(safe-area-inset-bottom);
+    border-top: 1px solid var(--color-rule);
+    background: rgb(9 8 7 / 0.96);
+    backdrop-filter: blur(12px);
+  }
+
+  .mobileTabs a {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.3rem;
+    border-right: 1px solid var(--color-rule);
+    color: var(--color-paper-muted);
+    font-family: var(--font-display), sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .mobileTabs a:last-child {
+    border-right: 0;
+  }
+
+  .mobileTabs a[aria-current="page"] {
+    color: var(--color-gold);
+    background: rgb(214 166 62 / 0.08);
+  }
+
+  .canvas {
+    grid-row: 2;
+  }
+
+  .utilityDialog {
+    max-height: calc(100dvh - 2rem);
+  }
+
+  .utilityPanel {
+    max-height: calc(100dvh - 2rem);
+    padding: 2.8rem 1.2rem 1.5rem;
+  }
+
+  .bookingPanel h2 {
+    font-size: clamp(2.8rem, 13vw, 4rem);
+  }
+}
+
+@media (max-height: 620px) and (min-width: 761px) {
+  .shell {
+    min-height: 30rem;
+    grid-template-rows: 3.75rem minmax(0, 1fr) 4rem;
+  }
+}
