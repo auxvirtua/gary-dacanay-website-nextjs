@@ -29,6 +29,7 @@ export function PhotosView() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const scrollerRef = useRef<HTMLDivElement>(null);
+  const thumbnailScrollerRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const pinchRef = useRef<{ distance: number; zoom: number } | null>(null);
 
@@ -65,6 +66,33 @@ export function PhotosView() {
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, [lightboxOpen]);
+
+  useEffect(() => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+
+    const alignActiveSlide = () => {
+      scroller.scrollTo({
+        left: activeIndex * scroller.clientWidth,
+        behavior: "auto",
+      });
+    };
+
+    const observer = new ResizeObserver(alignActiveSlide);
+    observer.observe(scroller);
+    return () => observer.disconnect();
+  }, [activeIndex]);
+
+  useEffect(() => {
+    const activeThumbnail = thumbnailScrollerRef.current?.children.item(activeIndex);
+    if (!(activeThumbnail instanceof HTMLElement)) return;
+
+    activeThumbnail.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  }, [activeIndex]);
 
   const selectPhoto = (index: number, scrollMobile = false) => {
     const wrappedIndex = (index + photos.length) % photos.length;
@@ -182,21 +210,25 @@ export function PhotosView() {
         ))}
       </div>
 
-      <div className={styles.thumbnails} aria-label="Photograph thumbnails">
+      <div
+        ref={thumbnailScrollerRef}
+        className={styles.thumbnails}
+        aria-label="Photograph thumbnails"
+      >
         {photos.map((photo, index) => (
           <button
             key={photo.src}
             type="button"
             aria-current={index === activeIndex ? "true" : undefined}
             aria-label={`View photograph ${index + 1}`}
-            onClick={() => selectPhoto(index)}
+            onClick={() => selectPhoto(index, true)}
           >
             <Image
               src={photo.src}
               alt=""
               fill
               loading="lazy"
-              sizes="(max-width: 1120px) 22vw, 10vw"
+              sizes="(max-width: 760px) 3.25rem, (max-width: 1120px) 4rem, 5rem"
               style={{ objectPosition: photo.objectPosition }}
             />
           </button>

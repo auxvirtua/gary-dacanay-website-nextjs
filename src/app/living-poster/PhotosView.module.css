@@ -225,39 +225,18 @@
 
 @media (min-width: 761px) and (max-width: 1120px) {
   .view {
-    height: 100%;
-    grid-template-rows: auto max-content max-content;
-    align-content: start;
-    padding: 1rem clamp(1.25rem, 4vw, 2.5rem) 2rem;
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
-  }
-
-  .stageSlot {
-    min-height: auto;
-  }
-
-  .desktopStage {
-    width: min(100%, 46rem);
-    max-width: none;
-    height: auto;
-    max-height: none;
+    grid-template-rows: auto minmax(0, 1fr) clamp(3.2rem, 8vh, 4rem);
   }
 
   .thumbnails {
-    grid-auto-columns: auto;
-    grid-auto-flow: row;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    justify-content: stretch;
-    gap: 0.65rem;
-    overflow: visible;
+    grid-auto-columns: clamp(3.2rem, 8vh, 4rem);
   }
 }
 
 @media (max-width: 760px) {
   .view {
-    grid-template-rows: minmax(0, 1fr) auto;
-    gap: 0.6rem;
+    grid-template-rows: minmax(0, 1fr) 3.25rem auto;
+    gap: 0.45rem;
     padding: 0.5rem 0 0;
   }
 
@@ -265,14 +244,16 @@
     display: none;
   }
 
-  .stageSlot,
-  .thumbnails {
+  .stageSlot {
     display: none;
   }
 
   .mobileScroller {
     display: flex;
-    width: min(100%, calc(100dvh - 15.7rem));
+    width: auto;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
     min-width: 0;
     min-height: 0;
     aspect-ratio: 1;
@@ -299,10 +280,29 @@
     scroll-snap-stop: always;
   }
 
+  .thumbnails {
+    grid-auto-columns: 3.25rem;
+    justify-content: start;
+    gap: 0.45rem;
+    padding-inline: 0.75rem;
+    overflow-x: auto;
+    scroll-padding-inline: 0.75rem;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  .thumbnails::-webkit-scrollbar {
+    display: none;
+  }
+
+  .thumbnails button {
+    scroll-snap-align: center;
+  }
+
   .mobileControls {
     display: flex;
     justify-content: center;
-    padding: 0 1rem 0.7rem;
+    padding: 0 1rem 0.55rem;
   }
 
   .mobileControls .controls {
@@ -312,11 +312,5 @@
   .lightboxNavigation span {
     max-width: 9rem;
     text-align: center;
-  }
-}
-
-@media (max-height: 650px) and (max-width: 760px) {
-  .mobileScroller {
-    width: min(100%, calc(100dvh - 14.9rem));
   }
 }
