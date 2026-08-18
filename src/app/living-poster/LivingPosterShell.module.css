@@ -52,9 +52,24 @@
 }
 
 .posterImage {
-  object-fit: contain;
-  object-position: right center;
+  object-fit: cover;
+  object-position: 50% 18%;
   filter: saturate(0.92) contrast(1.03);
+}
+
+@media (min-width: 1121px) {
+  .posterBackdrop::before {
+    background: linear-gradient(0deg, rgb(9 8 7 / 0.72) 0, transparent 18% 86%, rgb(9 8 7 / 0.42) 100%);
+  }
+
+  .posterImage {
+    inset: 0 0 0 auto !important;
+    width: 60vw !important;
+    height: 100% !important;
+    object-position: 50% 18%;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, rgb(0 0 0 / 0.2) 7%, #000 22%);
+    mask-image: linear-gradient(90deg, transparent 0, rgb(0 0 0 / 0.2) 7%, #000 22%);
+  }
 }
 
 .header {
@@ -349,7 +364,7 @@
   }
 
   .posterImage {
-    object-position: right top;
+    object-position: 50% 18%;
   }
 
   .header {
