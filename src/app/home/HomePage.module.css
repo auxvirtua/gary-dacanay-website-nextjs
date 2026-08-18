@@ -53,7 +53,7 @@
 .brand {
   color: var(--color-gold);
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(1.6rem, 2.4vw, 2.35rem);
+  font-size: clamp(1.45rem, 2vw, 2rem);
   letter-spacing: 0.08em;
   line-height: 1;
   text-transform: uppercase;
@@ -64,7 +64,7 @@
   align-items: center;
   gap: clamp(1.4rem, 2.4vw, 2.6rem);
   font-family: var(--font-display), sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
@@ -135,14 +135,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(2.5rem, 6vw, 6.5rem) clamp(1rem, 4vw, 4rem);
+  padding: clamp(2.5rem, 5vw, 5.5rem) clamp(1rem, 4vw, 4rem);
 }
 
 .heroTitle {
   max-width: 7ch;
   margin: 0;
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(5rem, 7.4vw, 9rem);
+  font-size: clamp(4.75rem, 6.6vw, 7.75rem);
   font-weight: 400;
   line-height: 0.79;
   letter-spacing: -0.025em;
@@ -157,7 +157,7 @@
   max-width: 30rem;
   margin: 1.45rem 0 0;
   font-family: var(--font-serif), Georgia, serif;
-  font-size: clamp(1.25rem, 2vw, 1.9rem);
+  font-size: clamp(1.15rem, 1.6vw, 1.55rem);
   font-style: italic;
   line-height: 1.2;
 }
@@ -166,20 +166,20 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
-  margin-top: 1.8rem;
+  margin-top: 1.5rem;
 }
 
 .primaryButton,
 .secondaryButton,
 .darkButton {
   display: inline-flex;
-  min-height: 3.35rem;
+  min-height: 3.1rem;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--color-gold);
-  padding: 0.9rem 1.5rem;
+  padding: 0.85rem 1.35rem;
   font-family: var(--font-display), sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   letter-spacing: 0.13em;
   line-height: 1;
   text-transform: uppercase;
@@ -235,11 +235,9 @@
 
 .performances {
   position: relative;
-  padding: clamp(5rem, 9vw, 9rem) clamp(1rem, 4vw, 4rem);
+  padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 4rem);
   border-top: 1px solid var(--color-rule);
-  background:
-    radial-gradient(circle at 8% 12%, rgb(82 124 120 / 0.18), transparent 22rem),
-    var(--color-ink);
+  background: var(--color-ink);
   scroll-margin-top: 4.8rem;
 }
 
@@ -267,7 +265,7 @@
 }
 
 .sectionHeader h2 {
-  font-size: clamp(3.5rem, 5vw, 5.5rem);
+  font-size: clamp(3rem, 4.2vw, 4.5rem);
 }
 
 .videoExperience {
@@ -275,7 +273,7 @@
   grid-template-columns: minmax(0, 1.75fr) minmax(20rem, 1fr);
   gap: clamp(2rem, 4vw, 4rem);
   align-items: start;
-  margin-top: 2.25rem;
+  margin-top: 1.75rem;
 }
 
 .videoStage,
@@ -291,7 +289,7 @@
   position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: 0.75rem;
+  border-radius: 0;
   background: #050504;
 }
 
@@ -371,9 +369,9 @@
 .activeVideoTitle {
   max-width: 16ch;
   min-height: 1.8em;
-  margin: 1.25rem 0 0;
+  margin: 1rem 0 0;
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(2.8rem, 4.4vw, 5rem);
+  font-size: clamp(2.25rem, 3.2vw, 3.6rem);
   font-weight: 400;
   line-height: 0.9;
   letter-spacing: 0.02em;
@@ -445,7 +443,7 @@
   align-items: center;
   gap: 0.8rem;
   border: 0;
-  border-radius: 0.75rem;
+  border-radius: 0;
   padding: 0.45rem;
   color: var(--color-paper);
   background: transparent;
@@ -464,7 +462,7 @@
   position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: 0.5rem;
+  border-radius: 0;
   background: #050504;
 }
 
@@ -489,23 +487,21 @@
 
 .playlistNumber {
   color: var(--color-rust);
-  font-size: 1.15rem;
+  font-size: 1rem;
   letter-spacing: 0.06em;
 }
 
 .playlistItem strong {
-  font-size: clamp(1.2rem, 1.55vw, 1.65rem);
+  font-size: clamp(1.05rem, 1.25vw, 1.4rem);
   line-height: 0.95;
   letter-spacing: 0.025em;
 }
 
 .photographs {
   position: relative;
-  padding: clamp(5rem, 9vw, 9rem) clamp(1rem, 4vw, 4rem);
+  padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 4rem);
   border-top: 1px solid var(--color-rule);
-  background:
-    radial-gradient(circle at 88% 14%, rgb(169 87 58 / 0.16), transparent 26rem),
-    var(--color-ink-soft);
+  background: var(--color-ink-soft);
   scroll-margin-top: 4.8rem;
 }
 
@@ -524,7 +520,7 @@
 .photoHeader h2 {
   margin: 0;
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(3.5rem, 5vw, 5.5rem);
+  font-size: clamp(3rem, 4.2vw, 4.5rem);
   font-weight: 400;
   line-height: 0.9;
   text-transform: uppercase;
@@ -537,7 +533,7 @@
   color: var(--color-paper);
   background: transparent;
   font-family: var(--font-display), sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   letter-spacing: 0.13em;
   text-align: left;
   text-transform: uppercase;
@@ -559,7 +555,7 @@
   grid-template-rows: repeat(2, minmax(0, 1fr));
   aspect-ratio: 6 / 5;
   gap: clamp(0.65rem, 1.3vw, 1.15rem);
-  margin-top: clamp(2rem, 4vw, 3.5rem);
+  margin-top: clamp(1.75rem, 3vw, 2.75rem);
 }
 
 .photoPreview {
@@ -568,7 +564,7 @@
   min-width: 0;
   overflow: hidden;
   border: 0;
-  border-radius: 0.75rem;
+  border-radius: 0;
   padding: 0;
   background: #050504;
 }
@@ -690,7 +686,7 @@
 }
 
 .forHire {
-  padding: clamp(5rem, 9vw, 9rem) clamp(1rem, 4vw, 4rem);
+  padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 4rem);
   color: var(--color-ink);
   background: var(--color-gold);
   scroll-margin-top: 4.8rem;
@@ -711,7 +707,7 @@
   max-width: 8ch;
   margin: 0;
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(4rem, 7vw, 7.5rem);
+  font-size: clamp(3.5rem, 5.4vw, 5.75rem);
   font-weight: 400;
   line-height: 0.84;
   text-transform: uppercase;
@@ -719,14 +715,14 @@
 
 .forHireIntro > p {
   max-width: 35rem;
-  margin: 1.5rem 0 0;
+  margin: 1.25rem 0 0;
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   line-height: 1.42;
 }
 
 .darkButton {
-  margin-top: 1.6rem;
+  margin-top: 1.4rem;
   border-color: var(--color-ink);
   color: var(--color-paper);
   background: var(--color-ink);
@@ -741,7 +737,7 @@
 
 .service {
   min-height: 16rem;
-  padding: 1.5rem;
+  padding: 1.25rem;
   border-right: 1px solid rgb(11 10 9 / 0.45);
   border-bottom: 1px solid rgb(11 10 9 / 0.45);
 }
@@ -753,18 +749,18 @@
 }
 
 .service h3 {
-  margin: 2rem 0 0;
+  margin: 1.5rem 0 0;
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(2rem, 3vw, 3.3rem);
+  font-size: clamp(1.7rem, 2.35vw, 2.6rem);
   font-weight: 400;
   line-height: 0.92;
   text-transform: uppercase;
 }
 
 .service p {
-  margin: 0.8rem 0 0;
+  margin: 0.65rem 0 0;
   color: rgb(11 10 9 / 0.8);
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.55;
 }
 
@@ -774,9 +770,7 @@
 
 .footer {
   border-top: 1px solid var(--color-rule);
-  background:
-    radial-gradient(circle at 6% 24%, rgb(169 87 58 / 0.18), transparent 24rem),
-    var(--color-ink-soft);
+  background: var(--color-ink-soft);
   scroll-margin-top: 4.8rem;
 }
 
@@ -784,45 +778,45 @@
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: clamp(4rem, 10vw, 10rem);
-  padding: clamp(5rem, 9vw, 9rem) clamp(1rem, 4vw, 4rem);
+  padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 4rem);
 }
 
 .footerBooking h2 {
-  font-size: clamp(3.6rem, 6vw, 6.6rem);
+  font-size: clamp(3.1rem, 4.3vw, 4.75rem);
 }
 
 .newsletter h2 {
-  font-size: clamp(2.9rem, 4.2vw, 4.7rem);
+  font-size: clamp(2.4rem, 3.3vw, 3.6rem);
 }
 
 .footerBooking > p,
 .newsletter > p,
 .socialBlock > p {
   max-width: 34rem;
-  margin: 1.25rem 0 0;
+  margin: 1rem 0 0;
   color: var(--color-paper-muted);
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
 .footerBooking .primaryButton {
-  margin-top: 1.6rem;
+  margin-top: 1.4rem;
 }
 
 .emailLink {
   display: block;
   width: fit-content;
-  margin-top: 1.15rem;
+  margin-top: 1rem;
   color: var(--color-gold);
   font-size: 0.9rem;
 }
 
 .newsletter {
   border-bottom: 1px solid var(--color-rule);
-  padding-bottom: 2.5rem;
+  padding-bottom: 2rem;
 }
 
 .newsletterForm {
-  margin-top: 1.7rem;
+  margin-top: 1.4rem;
 }
 
 .newsletterForm label {
@@ -887,7 +881,7 @@
 }
 
 .socialBlock {
-  margin-top: 2.5rem;
+  margin-top: 2rem;
 }
 
 .socialLinks {
@@ -939,7 +933,7 @@
   }
 
   .heroTitle {
-    font-size: clamp(4.5rem, 7.5vw, 6.5rem);
+    font-size: clamp(4.25rem, 6.8vw, 6rem);
   }
 
   .videoExperience {
@@ -953,7 +947,7 @@
   }
 
   .playlistItem strong {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
   }
 
   .forHireShell,
@@ -1015,7 +1009,7 @@
     display: block;
     padding: 0.18rem 0;
     font-family: var(--font-display), sans-serif;
-    font-size: clamp(3.7rem, 15vw, 4.7rem);
+    font-size: clamp(3.25rem, 13vw, 4.25rem);
     line-height: 0.82;
     letter-spacing: -0.02em;
     text-transform: uppercase;
@@ -1038,7 +1032,7 @@
     }
 
     .mobileNavigation a {
-      font-size: clamp(3.3rem, 14vw, 4rem);
+      font-size: clamp(3rem, 12vw, 3.7rem);
     }
   }
 
@@ -1060,11 +1054,11 @@
   .heroCopy {
     min-height: 36rem;
     justify-content: start;
-    padding: 3.5rem 1.25rem 1rem;
+    padding: 3rem 1.25rem 1rem;
   }
 
   .heroTitle {
-    font-size: clamp(4.5rem, 18vw, 7rem);
+    font-size: clamp(4.25rem, 16vw, 6rem);
   }
 
   .heroSupporting {
@@ -1114,7 +1108,7 @@
 
   .playlistItem strong {
     overflow-wrap: anywhere;
-    font-size: clamp(1.2rem, 2.8vw, 1.5rem);
+    font-size: clamp(1.05rem, 2.5vw, 1.35rem);
     line-height: 1.05;
   }
 
@@ -1156,7 +1150,7 @@
   .activeVideoTitle {
     max-width: 20ch;
     min-height: 1.9em;
-    font-size: clamp(2rem, 8vw, 3rem);
+    font-size: clamp(1.8rem, 7vw, 2.6rem);
     line-height: 0.95;
   }
 
@@ -1182,7 +1176,7 @@
   }
 
   .playlistItem strong {
-    font-size: clamp(1.05rem, 4.8vw, 1.3rem);
+    font-size: clamp(1rem, 4.4vw, 1.2rem);
     line-height: 1.05;
   }
 
@@ -1234,7 +1228,7 @@
   }
 
   .brand {
-    font-size: 1.55rem;
+    font-size: 1.45rem;
   }
 
   .hero {
@@ -1251,12 +1245,12 @@
   }
 
   .heroTitle {
-    font-size: clamp(4.1rem, 20vw, 5.5rem);
+    font-size: clamp(3.75rem, 18vw, 5rem);
   }
 
   .heroSupporting {
     margin-top: 1.1rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .heroActions {
@@ -1269,7 +1263,7 @@
   .darkButton {
     min-height: 3rem;
     padding: 0.8rem 1rem;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .heroArtwork {
@@ -1278,18 +1272,22 @@
   }
 
   .performances,
+  .photographs,
   .forHire {
-    padding-block: 4.5rem;
+    padding-block: 3.75rem;
   }
 
-  .sectionHeader h2,
+  .sectionHeader h2 {
+    font-size: clamp(2.8rem, 13vw, 4rem);
+  }
+
   .forHireIntro h2,
   .footerBooking h2 {
-    font-size: clamp(3.4rem, 17vw, 5rem);
+    font-size: clamp(3rem, 14vw, 4.25rem);
   }
 
   .newsletter h2 {
-    font-size: clamp(2.9rem, 14vw, 4.2rem);
+    font-size: clamp(2.5rem, 12vw, 3.5rem);
   }
 
   .videoExperience {
@@ -1297,7 +1295,7 @@
   }
 
   .featuredMedia {
-    border-radius: 0.625rem;
+    border-radius: 0;
   }
 
   .featuredPlayIcon {
@@ -1318,7 +1316,7 @@
   }
 
   .footerMain {
-    padding-block: 4.5rem;
+    padding-block: 3.75rem;
   }
 
   .newsletterForm > div {
