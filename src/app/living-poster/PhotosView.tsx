@@ -135,22 +135,24 @@ export function PhotosView() {
         />
       </div>
 
-      <button
-        type="button"
-        className={styles.desktopStage}
-        aria-label={`View photograph ${activeIndex + 1} full screen`}
-        onClick={(event) => openLightbox(activeIndex, event.currentTarget)}
-      >
-        <Image
-          key={activePhoto.src}
-          src={activePhoto.src}
-          alt={activePhoto.alt}
-          fill
-          priority
-          sizes="(max-width: 1120px) 92vw, 70vh"
-          style={{ objectPosition: activePhoto.objectPosition }}
-        />
-      </button>
+      <div className={styles.stageSlot}>
+        <button
+          type="button"
+          className={styles.desktopStage}
+          aria-label={`View photograph ${activeIndex + 1} full screen`}
+          onClick={(event) => openLightbox(activeIndex, event.currentTarget)}
+        >
+          <Image
+            key={activePhoto.src}
+            src={activePhoto.src}
+            alt={activePhoto.alt}
+            fill
+            priority
+            sizes="(max-width: 1120px) 92vw, 70vh"
+            style={{ objectPosition: activePhoto.objectPosition }}
+          />
+        </button>
+      </div>
 
       <div
         ref={scrollerRef}

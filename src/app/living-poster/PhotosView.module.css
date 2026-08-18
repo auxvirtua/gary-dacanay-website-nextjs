@@ -62,13 +62,20 @@
   background: var(--color-gold);
 }
 
+.stageSlot {
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  place-items: center;
+}
+
 .desktopStage {
   position: relative;
-  width: min(100%, calc(100dvh - 18rem));
-  min-height: 0;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
   aspect-ratio: 1;
-  align-self: center;
-  justify-self: center;
   overflow: hidden;
   border: 1px solid rgb(244 228 184 / 0.18);
   padding: 0;
@@ -219,14 +226,22 @@
 @media (min-width: 761px) and (max-width: 1120px) {
   .view {
     height: 100%;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto max-content max-content;
+    align-content: start;
     padding: 1rem clamp(1.25rem, 4vw, 2.5rem) 2rem;
     overflow-y: auto;
     overscroll-behavior-y: contain;
   }
 
+  .stageSlot {
+    min-height: auto;
+  }
+
   .desktopStage {
     width: min(100%, 46rem);
+    max-width: none;
+    height: auto;
+    max-height: none;
   }
 
   .thumbnails {
@@ -250,7 +265,7 @@
     display: none;
   }
 
-  .desktopStage,
+  .stageSlot,
   .thumbnails {
     display: none;
   }
