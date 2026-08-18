@@ -43,8 +43,8 @@
 
 .posterBackdrop::before {
   background:
-    linear-gradient(90deg, #090807 0 24%, transparent 50% 76%, #090807 100%),
-    linear-gradient(0deg, #090807 0, transparent 22% 78%, rgb(9 8 7 / 0.72) 100%);
+    linear-gradient(90deg, #090807 0 24%, rgb(9 8 7 / 0.92) 34%, rgb(9 8 7 / 0.28) 52%, transparent 66%),
+    linear-gradient(0deg, rgb(9 8 7 / 0.72) 0, transparent 18% 86%, rgb(9 8 7 / 0.42) 100%);
 }
 
 .posterBackdrop::after {
@@ -52,8 +52,8 @@
 }
 
 .posterImage {
-  object-fit: cover;
-  object-position: 66% 24%;
+  object-fit: contain;
+  object-position: right center;
   filter: saturate(0.92) contrast(1.03);
 }
 
@@ -205,18 +205,18 @@
   height: 2rem;
   flex: 0 0 auto;
   place-items: center;
-  border: 1px solid var(--color-rule);
+  border: 0;
   border-radius: 50%;
-  background: rgb(255 255 255 / 0.025);
-  transition: border-color 160ms ease, background-color 160ms ease;
+  background: transparent;
+  transition: background-color 160ms ease, transform 160ms ease;
 }
 
 .desktopPlatforms a:hover,
 .desktopPlatforms a:focus-visible,
 .mobilePlatforms a:hover,
 .mobilePlatforms a:focus-visible {
-  border-color: var(--color-gold);
   background: rgb(214 166 62 / 0.12);
+  transform: translateY(-1px);
 }
 
 .desktopPlatforms img,
@@ -225,6 +225,7 @@
 }
 
 .mobilePlatforms,
+.mobileUtilities,
 .mobileTabs {
   display: none;
 }
@@ -340,10 +341,41 @@
   max-width: 44rem;
 }
 
+@media (min-width: 761px) and (max-width: 1120px) {
+  .posterBackdrop::before {
+    background:
+      linear-gradient(0deg, #090807 0 4%, rgb(9 8 7 / 0.9) 16%, transparent 48%),
+      linear-gradient(90deg, #090807 0 7%, rgb(9 8 7 / 0.82) 18%, transparent 45%);
+  }
+
+  .posterImage {
+    object-position: right top;
+  }
+
+  .header {
+    padding-inline: 1.25rem;
+  }
+
+  .desktopNav {
+    gap: 1.2rem;
+  }
+
+  .desktopUtilities {
+    grid-template-columns: repeat(2, minmax(12rem, 1fr)) minmax(20rem, 1.35fr);
+  }
+
+  .desktopUtilities > button {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+}
+
 @media (max-width: 760px) {
   .shell {
     min-height: 34rem;
-    grid-template-rows: calc(4rem + env(safe-area-inset-top)) minmax(0, 1fr) 3rem calc(4.6rem + env(safe-area-inset-bottom));
+    grid-template-rows: calc(4rem + env(safe-area-inset-top)) minmax(0, 1fr) 3rem 3.6rem calc(4.6rem + env(safe-area-inset-bottom));
   }
 
   .header {
@@ -380,6 +412,7 @@
   }
 
   .posterImage {
+    object-fit: cover;
     object-position: 51% 30%;
   }
 
@@ -410,14 +443,64 @@
   .mobilePlatforms a {
     width: 2.7rem;
     height: 2.7rem;
+  }
+
+  .mobileUtilities {
+    position: relative;
+    z-index: 20;
+    display: grid;
+    grid-row: 4;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--color-rule);
+    background: rgb(9 8 7 / 0.97);
+  }
+
+  .mobileUtilities button {
+    display: flex;
+    min-width: 0;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.15rem;
     border: 0;
+    border-right: 1px solid var(--color-rule);
+    padding: 0.45rem 1rem;
+    color: var(--color-paper);
+    background: transparent;
+    text-align: left;
+  }
+
+  .mobileUtilities button:last-child {
+    border-right: 0;
+  }
+
+  .mobileUtilities button:hover,
+  .mobileUtilities button:focus-visible {
+    background: rgb(214 166 62 / 0.1);
+  }
+
+  .mobileUtilities span {
+    color: var(--color-paper-muted);
+    font-size: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .mobileUtilities strong {
+    color: var(--color-gold);
+    font-family: var(--font-serif), Georgia, serif;
+    font-size: clamp(0.82rem, 3.8vw, 1rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1;
   }
 
   .mobileTabs {
     position: relative;
     z-index: 20;
     display: grid;
-    grid-row: 4;
+    grid-row: 5;
     grid-template-columns: repeat(4, 1fr);
     padding-bottom: env(safe-area-inset-bottom);
     border-top: 1px solid var(--color-rule);

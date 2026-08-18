@@ -106,6 +106,17 @@ export function LivingPosterShell({ children }: { children: ReactNode }) {
 
       <PlatformLinks className={styles.mobilePlatforms} />
 
+      <div className={styles.mobileUtilities} aria-label="Quick actions">
+        <button type="button" onClick={() => setDrawer("booking")}>
+          <span>Plan an event</span>
+          <strong>Check availability</strong>
+        </button>
+        <button type="button" onClick={() => setDrawer("newsletter")}>
+          <span>Stay in tune</span>
+          <strong>Join the mailing list</strong>
+        </button>
+      </div>
+
       <nav className={styles.mobileTabs} aria-label="Primary navigation">
         {routes.map((route) => {
           const Icon = route.icon;

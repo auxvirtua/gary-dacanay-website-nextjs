@@ -5,7 +5,6 @@ export function PosterHome() {
   return (
     <section className={styles.poster} aria-labelledby="poster-title">
       <div className={styles.copy}>
-        <p className={styles.eyebrow}>Jazz vocalist &amp; guitarist</p>
         <h1 id="poster-title">
           The Great
           <br />
@@ -16,7 +15,7 @@ export function PosterHome() {
           <span>Live</span>
         </h1>
         <p className={styles.supporting}>{data.hero.supportingCopy}</p>
-        <p className={styles.location}>Northeast Ohio · Available for private events</p>
+        <p className={styles.location}>Northeast Ohio</p>
       </div>
     </section>
   );

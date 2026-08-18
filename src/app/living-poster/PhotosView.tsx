@@ -124,10 +124,9 @@ export function PhotosView() {
   return (
     <section className={styles.view} aria-labelledby="photos-title">
       <div className={styles.header}>
-        <div>
-          <p className={styles.kicker}>Portraits &amp; performances</p>
-          <h1 id="photos-title">Photographs</h1>
-        </div>
+        <h1 id="photos-title" className={styles.visuallyHidden}>
+          Photographs
+        </h1>
         <PhotoControls
           activeIndex={activeIndex}
           onPrevious={() => selectPhoto(activeIndex - 1, true)}
@@ -148,7 +147,7 @@ export function PhotosView() {
           alt={activePhoto.alt}
           fill
           priority
-          sizes="100vw"
+          sizes="(max-width: 1120px) 92vw, 70vh"
           style={{ objectPosition: activePhoto.objectPosition }}
         />
       </button>
@@ -195,7 +194,7 @@ export function PhotosView() {
               alt=""
               fill
               loading="lazy"
-              sizes="10vw"
+              sizes="(max-width: 1120px) 22vw, 10vw"
               style={{ objectPosition: photo.objectPosition }}
             />
           </button>

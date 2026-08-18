@@ -27,7 +27,6 @@ export function VideosView() {
   return (
     <section className={styles.view} aria-labelledby="videos-title">
       <div className={styles.primary}>
-        <p className={styles.kicker}>Live performances</p>
         <div className={styles.frame}>
           {playingId === activeVideo.id ? (
             <iframe
@@ -49,7 +48,7 @@ export function VideosView() {
                 alt=""
                 fill
                 priority
-                sizes="(max-width: 760px) 100vw, 68vw"
+                sizes="(max-width: 1120px) 100vw, 68vw"
               />
               <span aria-hidden="true">
                 <Play size={26} fill="currentColor" />
@@ -98,7 +97,7 @@ export function VideosView() {
                     alt=""
                     fill
                     loading="lazy"
-                    sizes="(max-width: 760px) 6rem, 8rem"
+                    sizes="(max-width: 760px) 6rem, (max-width: 1120px) 44vw, 8rem"
                   />
                 </span>
                 <span className={styles.number}>{String(index + 1).padStart(2, "0")}</span>
