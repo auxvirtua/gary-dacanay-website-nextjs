@@ -48,23 +48,25 @@
 }
 
 .releaseDetails {
-  padding: 0.9rem 0.25rem 0.25rem;
+  padding: 1.2rem 0.25rem 0.4rem;
+  text-align: center;
 }
 
 .release h3 {
   max-width: none;
-  font-size: clamp(1.9rem, 2.4vw, 2.75rem);
+  font-size: clamp(1.9rem, 2.4vw, 2.25rem);
 }
 
 .listenOn {
-  margin-top: 0.7rem;
+  margin-top: 0;
 }
 
 .platformLinks {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.65rem;
-  margin-top: 0.6rem;
+  margin-top: 0;
 }
 
 .platformLink {
@@ -73,7 +75,6 @@
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  border-bottom: 1px solid var(--color-rule);
   padding: 0.3rem 0;
   color: var(--color-paper);
   font-family: var(--font-display), sans-serif;
@@ -89,7 +90,6 @@
 
 .platformLink:hover,
 .platformLink:focus-visible {
-  border-color: var(--color-paper);
   color: var(--color-gold);
 }
 
@@ -133,10 +133,11 @@
     min-width: 0;
     align-self: center;
     padding: 0;
+    text-align: left;
   }
 
   .release h3 {
-    font-size: clamp(1.5rem, 6vw, 1.8rem);
+    font-size: clamp(1.65rem, 6.5vw, 1.9rem);
   }
 
   .listenOn {
@@ -144,14 +145,14 @@
   }
 
   .platformLinks {
+    justify-content: flex-start;
     gap: 0.75rem;
-    margin-top: 0;
   }
 
   .platformLink {
     min-height: auto;
     padding: 0.2rem 0;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     letter-spacing: 0.09em;
     white-space: nowrap;
   }

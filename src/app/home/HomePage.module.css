@@ -1217,7 +1217,7 @@
   }
 
   .sectionHeader h2 {
-    font-size: clamp(2.8rem, 13vw, 4rem);
+    font-size: 3rem;
   }
 
   .forHireIntro h2 {
