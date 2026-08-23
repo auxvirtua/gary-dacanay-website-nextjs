@@ -92,6 +92,10 @@ export function NavBar({
         </a>
       </nav>
 
+      <a className={styles.mobileBooking} href={bookingHref}>
+        Check availability
+      </a>
+
       <nav className={styles.mobileTabs} aria-label="Explore this page">
         {navigation.map((item) => {
           const Icon = mobileTabIcons[item.href as keyof typeof mobileTabIcons];
