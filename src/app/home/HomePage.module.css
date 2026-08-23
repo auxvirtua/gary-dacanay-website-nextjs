@@ -24,11 +24,7 @@
   position: fixed;
   inset: 0 0 auto;
   z-index: 50;
-  display: flex;
   min-height: 4.8rem;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.9rem clamp(1rem, 4vw, 4rem);
   transition:
     background-color 180ms ease,
     -webkit-backdrop-filter 180ms ease,
@@ -39,6 +35,19 @@
   background: rgb(11 10 9 / 0.9);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
+}
+
+.navContent,
+.heroGrid {
+  width: min(var(--container), calc(100% - clamp(2rem, 8vw, 8rem)));
+  margin-inline: auto;
+}
+
+.navContent {
+  display: flex;
+  min-height: inherit;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .brand,
@@ -109,7 +118,6 @@
 
 .heroGrid {
   display: grid;
-  width: 100%;
   min-height: calc(100svh - 4.8rem);
   grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
 }
@@ -188,7 +196,8 @@
       #0b0a09db 16%,
       #0b0a0980 26%,
       #0b0a0924 50%,
-      transparent 78%
+      transparent 78%,
+      var(--color-ink) 100%
     ),
     linear-gradient(0deg, #0b0a0994 0, #0b0a0938 14%, transparent 30%);
   pointer-events: none;
@@ -884,6 +893,66 @@
   }
 }
 
+@media (min-width: 900px) and (max-width: 1100px) and (orientation: portrait) {
+  .hero {
+    padding-inline: 0;
+  }
+
+  .heroGrid {
+    position: relative;
+    width: 100%;
+    min-height: calc(100svh - 4.8rem);
+    grid-template-columns: 1fr;
+  }
+
+  .heroCopy {
+    min-height: calc(100svh - 4.8rem);
+    justify-content: center;
+    padding: 3rem clamp(2rem, 4vw, 3rem) 6.5rem;
+  }
+
+  .heroTitle {
+    font-size: clamp(4.25rem, 12vw, 6rem);
+  }
+
+  .heroSupporting {
+    max-width: 22rem;
+  }
+
+  .heroArtwork {
+    position: absolute;
+    inset: 0;
+    min-height: 0;
+    width: auto;
+    margin: 0;
+  }
+
+  .heroArtwork::after {
+    background:
+      radial-gradient(
+        ellipse 110% 56% at 18% 50%,
+        rgb(11 10 9 / 0.48) 0,
+        rgb(11 10 9 / 0.38) 42%,
+        rgb(11 10 9 / 0.16) 70%,
+        transparent 100%
+      ),
+      linear-gradient(
+        180deg,
+        transparent 0,
+        rgb(11 10 9 / 0.04) 14%,
+        rgb(11 10 9 / 0.16) 35%,
+        rgb(11 10 9 / 0.24) 52%,
+        rgb(11 10 9 / 0.16) 70%,
+        rgb(11 10 9 / 0.04) 88%,
+        transparent 100%
+      );
+  }
+
+  .heroImage {
+    object-position: 50% 18%;
+  }
+}
+
 @media (max-width: 899px) {
   .site {
     padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
@@ -961,6 +1030,7 @@
 
   .heroGrid {
     position: relative;
+    width: 100%;
     min-height: calc(100svh - 4.8rem);
     grid-template-columns: 1fr;
   }
