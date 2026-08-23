@@ -29,17 +29,16 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.9rem clamp(1rem, 4vw, 4rem);
-  border-bottom: 1px solid transparent;
   transition:
     background-color 180ms ease,
-    border-color 180ms ease,
+    -webkit-backdrop-filter 180ms ease,
     backdrop-filter 180ms ease;
 }
 
 .navScrolled {
-  border-color: var(--color-rule);
   background: rgb(11 10 9 / 0.9);
-  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 }
 
 .brand,
@@ -945,10 +944,6 @@
 @media (max-width: 899px) {
   .site {
     padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
-  }
-
-  .navScrolled {
-    backdrop-filter: none;
   }
 
   .desktopNavigation {

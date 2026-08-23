@@ -76,25 +76,27 @@ export function NavBar({
   }, [navigation]);
 
   return (
-    <header className={`${styles.nav} ${scrolled ? styles.navScrolled : ""}`}>
-      <a className={styles.brand} href="#top" aria-label={`${name}, home`}>
-        {name}
-      </a>
+    <>
+      <header className={`${styles.nav} ${scrolled ? styles.navScrolled : ""}`}>
+        <a className={styles.brand} href="#top" aria-label={`${name}, home`}>
+          {name}
+        </a>
 
-      <nav className={styles.desktopNavigation} aria-label="Primary navigation">
-        {navigation.map((item) => (
-          <a key={item.href} href={item.href}>
-            {item.label}
+        <nav className={styles.desktopNavigation} aria-label="Primary navigation">
+          {navigation.map((item) => (
+            <a key={item.href} href={item.href}>
+              {item.label}
+            </a>
+          ))}
+          <a className={styles.navBooking} href={bookingHref}>
+            Check availability
           </a>
-        ))}
-        <a className={styles.navBooking} href={bookingHref}>
+        </nav>
+
+        <a className={styles.mobileBooking} href={bookingHref}>
           Check availability
         </a>
-      </nav>
-
-      <a className={styles.mobileBooking} href={bookingHref}>
-        Check availability
-      </a>
+      </header>
 
       <nav className={styles.mobileTabs} aria-label="Explore this page">
         {navigation.map((item) => {
@@ -115,6 +117,6 @@ export function NavBar({
           );
         })}
       </nav>
-    </header>
+    </>
   );
 }
