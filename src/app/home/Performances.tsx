@@ -191,7 +191,7 @@ export function Performances({ videos }: { videos: Video[] }) {
           </div>
 
           <ol className={styles.videoPlaylist} aria-label="Performance videos">
-            {videos.map((video, index) => {
+            {videos.map((video) => {
               const isActive = video.id === activeVideo.id;
 
               return (
@@ -211,9 +211,6 @@ export function Performances({ videos }: { videos: Video[] }) {
                         fill
                         sizes="(max-width: 560px) 35vw, (max-width: 899px) 18vw, 10rem"
                       />
-                    </span>
-                    <span className={styles.playlistNumber} aria-hidden="true">
-                      {String(index + 1).padStart(2, "0")}
                     </span>
                     <strong>{video.title}</strong>
                   </a>

@@ -38,7 +38,7 @@ export function PerformancesSkeleton({ videos }: { videos: Video[] }) {
         </div>
 
         <ol className={styles.videoPlaylist} aria-label="Performance videos">
-          {videos.map((video, index) => (
+          {videos.map((video) => (
             <li key={video.id}>
               <a
                 href={watchHref(video)}
@@ -52,9 +52,6 @@ export function PerformancesSkeleton({ videos }: { videos: Video[] }) {
                     fill
                     sizes="(max-width: 560px) 35vw, (max-width: 899px) 18vw, 10rem"
                   />
-                </span>
-                <span className={styles.playlistNumber} aria-hidden="true">
-                  {String(index + 1).padStart(2, "0")}
                 </span>
                 <strong>{video.title}</strong>
               </a>

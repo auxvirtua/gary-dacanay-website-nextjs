@@ -40,7 +40,7 @@ export function NewsletterForm() {
 
   return (
     <div className={styles.newsletter}>
-      <h2 id="newsletter-title">Updates by email</h2>
+      <h2 id="newsletter-title">Join the newsletter</h2>
       <p>Occasional messages about upcoming performances, recordings, and new music.</p>
       <form onSubmit={handleSubmit} className={styles.newsletterForm}>
         <label htmlFor="newsletter-email">Email address</label>
@@ -55,7 +55,7 @@ export function NewsletterForm() {
             disabled={submitting}
           />
           <button type="submit" disabled={submitting}>
-            {submitting ? "Joining…" : "Get updates"}
+            {submitting ? "Joining…" : "Join"}
           </button>
         </div>
       </form>

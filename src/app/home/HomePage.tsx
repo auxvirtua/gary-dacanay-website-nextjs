@@ -46,14 +46,6 @@ export function HomePage() {
                 <span>Live</span>
               </h1>
               <p className={styles.heroSupporting}>{data.hero.supportingCopy}</p>
-              <div className={styles.heroActions}>
-                <a className={styles.primaryButton} href={bookingHref}>
-                  Check availability
-                </a>
-                <a className={styles.secondaryButton} href="#videos">
-                  Watch videos
-                </a>
-              </div>
             </div>
 
             <div className={styles.heroArtwork}>
@@ -80,7 +72,7 @@ export function HomePage() {
         <section id="events" className={styles.forHire} aria-labelledby="events-title">
           <div className={styles.forHireShell}>
             <div className={styles.forHireIntro}>
-              <h2 id="events-title">Music for Any Room</h2>
+              <h2 id="events-title">Events</h2>
               <p>
                 A polished performance—welcoming as guests arrive, atmospheric through
                 dinner, and memorable when the music takes center stage.
@@ -91,9 +83,8 @@ export function HomePage() {
             </div>
 
             <div className={styles.serviceGrid}>
-              {data.services.map((service, index) => (
+              {data.services.map((service) => (
                 <article className={styles.service} key={service.name}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
                   <h3>{service.name}</h3>
                   <p>{service.description}</p>
                 </article>

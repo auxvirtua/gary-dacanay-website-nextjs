@@ -147,15 +147,6 @@
   line-height: 1.2;
 }
 
-.heroActions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-  margin-top: 1.5rem;
-}
-
-.primaryButton,
-.secondaryButton,
 .darkButton {
   display: inline-flex;
   min-height: 3.1rem;
@@ -174,25 +165,8 @@
     transform 160ms ease;
 }
 
-.primaryButton {
-  color: var(--color-ink);
-  background: var(--color-gold);
-}
-
-.secondaryButton {
-  color: var(--color-paper);
-  background: transparent;
-}
-
-.primaryButton:hover,
-.secondaryButton:hover,
 .darkButton:hover {
   transform: translateY(-2px);
-}
-
-.secondaryButton:hover {
-  color: var(--color-ink);
-  background: var(--color-paper);
 }
 
 .heroArtwork {
@@ -430,7 +404,7 @@
 .playlistItem {
   display: grid;
   width: 100%;
-  grid-template-columns: minmax(7rem, 9.25rem) auto minmax(0, 1fr);
+  grid-template-columns: minmax(7rem, 9.25rem) minmax(0, 1fr);
   align-items: center;
   gap: 0.8rem;
   border: 0;
@@ -469,17 +443,10 @@
   filter: saturate(0.82) contrast(1.06) sepia(0.08);
 }
 
-.playlistNumber,
 .playlistItem strong {
   font-family: var(--font-display), sans-serif;
   font-weight: 400;
   text-transform: uppercase;
-}
-
-.playlistNumber {
-  color: var(--color-rust);
-  font-size: 1rem;
-  letter-spacing: 0.06em;
 }
 
 .playlistItem strong {
@@ -698,7 +665,7 @@
   max-width: 8ch;
   margin: 0;
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(3.5rem, 5.4vw, 5.75rem);
+  font-size: clamp(3rem, 4.2vw, 4.5rem);
   font-weight: 400;
   line-height: 0.84;
   text-transform: uppercase;
@@ -733,14 +700,8 @@
   border-bottom: 1px solid rgb(11 10 9 / 0.45);
 }
 
-.service > span {
-  font-family: var(--font-display), sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-}
-
 .service h3 {
-  margin: 1.5rem 0 0;
+  margin: 0;
   font-family: var(--font-display), sans-serif;
   font-size: clamp(1.7rem, 2.35vw, 2.6rem);
   font-weight: 400;
@@ -910,7 +871,7 @@
   }
 
   .playlistItem {
-    grid-template-columns: 6.5rem auto minmax(0, 1fr);
+    grid-template-columns: 6.5rem minmax(0, 1fr);
     gap: 0.65rem;
   }
 
@@ -1065,7 +1026,7 @@
 
   .playlistItem {
     height: 100%;
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     align-items: start;
     gap: 0.75rem 0.65rem;
@@ -1125,7 +1086,7 @@
   }
 
   .playlistItem {
-    grid-template-columns: minmax(7rem, 38%) auto minmax(0, 1fr);
+    grid-template-columns: minmax(7rem, 38%) minmax(0, 1fr);
     grid-template-rows: auto;
     align-items: center;
     gap: 0.7rem;
@@ -1134,10 +1095,6 @@
 
   .playlistThumbnail {
     grid-column: auto;
-  }
-
-  .playlistNumber {
-    font-size: 1rem;
   }
 
   .playlistItem strong {
@@ -1217,13 +1174,6 @@
     font-size: 1.1rem;
   }
 
-  .heroActions {
-    gap: 0.55rem;
-    margin-top: 1.3rem;
-  }
-
-  .primaryButton,
-  .secondaryButton,
   .darkButton {
     min-height: 3rem;
     padding: 0.8rem 1rem;
@@ -1242,10 +1192,6 @@
 
   .sectionHeader h2 {
     font-size: 3rem;
-  }
-
-  .forHireIntro h2 {
-    font-size: clamp(3rem, 14vw, 4.25rem);
   }
 
   .newsletter h2 {
