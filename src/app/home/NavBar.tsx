@@ -1,12 +1,19 @@
 "use client";
 
-import { Menu, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { CalendarDays, Images, Music2, Video } from "lucide-react";
+import { useEffect, useState } from "react";
 import styles from "./HomePage.module.css";
 
 type NavigationItem = {
   label: string;
   href: string;
+};
+
+const mobileTabIcons = {
+  "#music": Music2,
+  "#videos": Video,
+  "#photographs": Images,
+  "#events": CalendarDays,
 };
 
 export function NavBar({
@@ -18,10 +25,8 @@ export function NavBar({
   navigation: NavigationItem[];
   bookingHref: string;
 }) {
-  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const menuButtonRef = useRef<HTMLButtonElement>(null);
-  const mobileNavigationRef = useRef<HTMLElement>(null);
+  const [activeMobileTab, setActiveMobileTab] = useState<string | null>(null);
 
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 24);
@@ -31,60 +36,48 @@ export function NavBar({
   }, []);
 
   useEffect(() => {
-    if (!open) return;
+    const mobileQuery = window.matchMedia("(max-width: 899px)");
+    let frame: number | null = null;
 
-    const previousOverflow = document.body.style.overflow;
-    const menuButton = menuButtonRef.current;
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setOpen(false);
+    const updateActiveTab = () => {
+      frame = null;
+
+      if (!mobileQuery.matches) {
+        setActiveMobileTab(null);
         return;
       }
 
-      if (event.key !== "Tab") return;
+      const activationLine = 96;
+      const visibleSection = [...navigation]
+        .reverse()
+        .find((item) => {
+          const section = document.querySelector(item.href);
+          return section instanceof HTMLElement && section.getBoundingClientRect().top <= activationLine;
+        });
 
-      const focusableItems = mobileNavigationRef.current?.querySelectorAll<HTMLElement>(
-        'a[href]',
-      );
-      if (!focusableItems?.length) return;
-
-      const firstItem = focusableItems[0];
-      const lastItem = focusableItems[focusableItems.length - 1];
-
-      if (event.shiftKey && document.activeElement === firstItem) {
-        event.preventDefault();
-        lastItem.focus();
-      } else if (!event.shiftKey && document.activeElement === lastItem) {
-        event.preventDefault();
-        firstItem.focus();
-      }
+      setActiveMobileTab(visibleSection?.href ?? null);
     };
 
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", closeOnEscape);
-    window.requestAnimationFrame(() => {
-      mobileNavigationRef.current?.querySelector<HTMLElement>('a[href]')?.focus();
-    });
+    const requestUpdate = () => {
+      if (frame === null) frame = window.requestAnimationFrame(updateActiveTab);
+    };
+
+    updateActiveTab();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    mobileQuery.addEventListener("change", requestUpdate);
 
     return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", closeOnEscape);
-      menuButton?.focus({ preventScroll: true });
+      if (frame !== null) window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+      mobileQuery.removeEventListener("change", requestUpdate);
     };
-  }, [open]);
-
-  useEffect(() => {
-    const closeOnDesktop = () => {
-      if (window.matchMedia("(min-width: 900px)").matches) setOpen(false);
-    };
-
-    window.addEventListener("resize", closeOnDesktop);
-    return () => window.removeEventListener("resize", closeOnDesktop);
-  }, []);
+  }, [navigation]);
 
   return (
     <header className={`${styles.nav} ${scrolled ? styles.navScrolled : ""}`}>
-      <a className={styles.brand} href="#top" onClick={() => setOpen(false)}>
+      <a className={styles.brand} href="#top" aria-label={`${name}, home`}>
         {name}
       </a>
 
@@ -99,32 +92,24 @@ export function NavBar({
         </a>
       </nav>
 
-      <button
-        type="button"
-        className={styles.menuButton}
-        ref={menuButtonRef}
-        aria-expanded={open}
-        aria-controls="mobile-navigation"
-        aria-label={open ? "Close navigation" : "Open navigation"}
-        onClick={() => setOpen((current) => !current)}
-      >
-        {open ? <X size={24} /> : <Menu size={24} />}
-      </button>
+      <nav className={styles.mobileTabs} aria-label="Explore this page">
+        {navigation.map((item) => {
+          const Icon = mobileTabIcons[item.href as keyof typeof mobileTabIcons];
 
-      <nav
-        id="mobile-navigation"
-        ref={mobileNavigationRef}
-        className={`${styles.mobileNavigation} ${open ? styles.mobileNavigationOpen : ""}`}
-        aria-label="Mobile navigation"
-        aria-hidden={!open}
-      >
-        <div className={styles.mobileNavigationLinks}>
-          {navigation.map((item) => (
-            <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
-              {item.label}
+          if (!Icon) return null;
+
+          return (
+            <a
+              key={item.href}
+              href={item.href}
+              aria-current={activeMobileTab === item.href ? "location" : undefined}
+              onClick={() => setActiveMobileTab(item.href)}
+            >
+              <Icon size={18} strokeWidth={1.7} aria-hidden="true" />
+              <span>{item.label}</span>
             </a>
-          ))}
-        </div>
+          );
+        })}
       </nav>
     </header>
   );
