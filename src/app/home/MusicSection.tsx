@@ -48,7 +48,10 @@ export function MusicSection({ releases }: { releases: MusicRelease[] }) {
                       rel="noopener noreferrer"
                       aria-label={`Listen to ${release.title} on Spotify`}
                     >
-                      <Image src="/spotify.svg" alt="" width={20} height={20} />
+                      <span
+                        aria-hidden="true"
+                        className={`${styles.platformIcon} ${styles.spotifyIcon}`}
+                      />
                       Spotify
                     </a>
                   ) : null}
@@ -60,7 +63,10 @@ export function MusicSection({ releases }: { releases: MusicRelease[] }) {
                       rel="noopener noreferrer"
                       aria-label={`Listen to ${release.title} on Apple Music`}
                     >
-                      <Image src="/apple_music.svg" alt="" width={20} height={20} />
+                      <span
+                        aria-hidden="true"
+                        className={`${styles.platformIcon} ${styles.appleMusicIcon}`}
+                      />
                       Apple Music
                     </a>
                   ) : null}

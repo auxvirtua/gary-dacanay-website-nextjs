@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Suspense } from "react";
+import { Suspense, type CSSProperties } from "react";
+import { Mail } from "lucide-react";
 import data from "../data.json";
 import { bookingHref } from "../content";
 import { NavBar } from "./NavBar";
@@ -10,10 +11,18 @@ import { Performances } from "./Performances";
 import { PerformancesSkeleton } from "./PerformancesSkeleton";
 import styles from "./HomePage.module.css";
 
-const socialPlatforms = [
-  { label: "YouTube", href: data.social.youtube, icon: "/youtube.svg" },
-  { label: "Instagram", href: data.social.instagram, icon: "/instagram.svg" },
-  { label: "Facebook", href: data.social.facebook, icon: "/facebook.svg" },
+const footerLinks = [
+  { label: "Email Gary", href: `mailto:${data.email}`, icon: "email", external: false },
+  { label: "YouTube", href: data.social.youtube, icon: "/youtube.svg", external: true },
+  { label: "Instagram", href: data.social.instagram, icon: "/instagram.svg", external: true },
+  { label: "Facebook", href: data.social.facebook, icon: "/facebook.svg", external: true },
+  { label: "Spotify", href: data.social.spotify, icon: "/spotify.svg", external: true },
+  {
+    label: "Apple Music",
+    href: data.social.apple_music,
+    icon: "/apple_music.svg",
+    external: true,
+  },
 ];
 
 export function HomePage() {
@@ -92,50 +101,41 @@ export function HomePage() {
             </div>
           </div>
         </section>
-
       </main>
 
       <footer id="contact" className={styles.footer}>
-        <div className={styles.footerMain}>
-          <div className={styles.footerBooking}>
-            <h2>Bring the songbook to your event</h2>
-            <p>
-              Share the date, location, occasion, and guest count. Gary will follow up
-              with availability.
-            </p>
-            <a className={styles.primaryButton} href={bookingHref}>
-              Check availability
-            </a>
-            <a className={styles.emailLink} href={`mailto:${data.email}`}>
-              {data.email}
-            </a>
-          </div>
+        <section className={styles.newsletterShell} aria-labelledby="newsletter-title">
+          <NewsletterForm />
+        </section>
 
-          <div className={styles.footerConnect}>
-            <NewsletterForm />
-            <div className={styles.socialBlock}>
-              <p>Follow Gary</p>
+        <div className={styles.footerUtility}>
+          <div className={styles.footerBottom}>
+            <nav className={styles.socialBlock} aria-label="Gary's profiles and contact links">
               <div className={styles.socialLinks}>
-                {socialPlatforms.map((platform) => (
+                {footerLinks.map((link) => (
                   <a
-                    key={platform.label}
-                    href={platform.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={platform.label}
+                    key={link.label}
+                    href={link.href}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
+                    aria-label={link.label}
+                    title={link.label}
                   >
-                    <Image src={platform.icon} alt="" width={24} height={24} />
-                    <span>{platform.label}</span>
+                    {link.icon === "email" ? (
+                      <Mail aria-hidden="true" size={22} strokeWidth={1.7} />
+                    ) : (
+                      <span
+                        aria-hidden="true"
+                        className={styles.socialIcon}
+                        style={{ "--icon": `url(${link.icon})` } as CSSProperties}
+                      />
+                    )}
                   </a>
                 ))}
               </div>
-            </div>
+            </nav>
+            <span>&copy; {new Date().getFullYear()} {data.name}</span>
           </div>
-        </div>
-
-        <div className={styles.footerBottom}>
-          <span>{data.name}</span>
-          <span>&copy; {new Date().getFullYear()} {data.name}</span>
         </div>
       </footer>
     </div>

@@ -229,8 +229,8 @@
 .sectionHeader,
 .videoExperience,
 .forHireShell,
-.footerMain,
-.footerBottom {
+.newsletterShell,
+.footerUtility {
   width: min(100%, var(--container));
   margin-inline: auto;
 }
@@ -240,7 +240,6 @@
 }
 
 .sectionHeader h2,
-.footerBooking h2,
 .newsletter h2 {
   margin: 0;
   font-family: var(--font-display), sans-serif;
@@ -749,55 +748,23 @@
   line-height: 1.55;
 }
 
-.socialLinks img {
-  object-fit: contain;
-}
-
-.footer {
-  border-top: 1px solid var(--color-rule);
-  background: var(--color-ink-soft);
-  scroll-margin-top: 4.8rem;
-}
-
-.footerMain {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: clamp(4rem, 10vw, 10rem);
-  padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 4rem);
-}
-
-.footerBooking h2 {
-  font-size: clamp(3.1rem, 4.3vw, 4.75rem);
+.newsletterShell {
+  padding: clamp(3rem, 5vw, 4.5rem) clamp(1rem, 4vw, 4rem);
 }
 
 .newsletter h2 {
-  font-size: clamp(2.4rem, 3.3vw, 3.6rem);
+  font-size: clamp(2.25rem, 3.3vw, 3.6rem);
 }
 
-.footerBooking > p,
-.newsletter > p,
-.socialBlock > p {
+.newsletter > p {
   max-width: 34rem;
   margin: 1rem 0 0;
   color: var(--color-paper-muted);
   line-height: 1.65;
 }
 
-.footerBooking .primaryButton {
-  margin-top: 1.4rem;
-}
-
-.emailLink {
-  display: block;
-  width: fit-content;
-  margin-top: 1rem;
-  color: var(--color-gold);
-  font-size: 0.9rem;
-}
-
 .newsletter {
-  border-bottom: 1px solid var(--color-rule);
-  padding-bottom: 2rem;
+  max-width: 38rem;
 }
 
 .newsletterForm {
@@ -865,31 +832,46 @@
   color: #e49a83 !important;
 }
 
+.footer {
+  background: var(--color-ink-soft);
+  scroll-margin-top: 4.8rem;
+}
+
+.footerUtility {
+  padding-inline: clamp(1rem, 4vw, 4rem);
+}
+
 .socialBlock {
-  margin-top: 2rem;
+  margin: 0;
 }
 
 .socialLinks {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem 1.3rem;
-  margin-top: 1rem;
+  gap: 0.5rem;
 }
 
 .socialLinks a {
   display: inline-flex;
+  width: 2.75rem;
+  height: 2.75rem;
   align-items: center;
-  gap: 0.55rem;
-  padding-block: 0.4rem;
+  justify-content: center;
   color: var(--color-paper-muted);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  transition: color 160ms ease;
 }
 
-.socialLinks a:hover {
+.socialLinks a:hover,
+.socialLinks a:focus-visible {
   color: var(--color-gold);
+}
+
+.socialIcon {
+  width: 1.4rem;
+  height: 1.4rem;
+  background: currentColor;
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
 }
 
 .footerBottom {
@@ -897,19 +879,13 @@
   min-height: 5rem;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.5rem;
   border-top: 1px solid var(--color-rule);
-  padding: 1rem clamp(1rem, 4vw, 4rem);
+  padding-block: 1rem;
   color: var(--color-paper-muted);
   font-size: 0.68rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-}
-
-.footerBottom span:first-child {
-  color: var(--color-gold);
-  font-family: var(--font-display), sans-serif;
-  font-size: 1.45rem;
 }
 
 @media (max-width: 1100px) {
@@ -935,8 +911,7 @@
     font-size: 1.05rem;
   }
 
-  .forHireShell,
-  .footerMain {
+  .forHireShell {
     gap: 4rem;
   }
 }
@@ -1101,14 +1076,8 @@
     grid-column: auto;
   }
 
-  .forHireShell,
-  .footerMain {
+  .forHireShell {
     grid-template-columns: 1fr;
-  }
-
-  .footerConnect {
-    border-top: 1px solid var(--color-rule);
-    padding-top: 3rem;
   }
 }
 
@@ -1251,8 +1220,7 @@
     font-size: clamp(2.8rem, 13vw, 4rem);
   }
 
-  .forHireIntro h2,
-  .footerBooking h2 {
+  .forHireIntro h2 {
     font-size: clamp(3rem, 14vw, 4.25rem);
   }
 
@@ -1285,7 +1253,7 @@
     min-height: 13rem;
   }
 
-  .footerMain {
+  .newsletterShell {
     padding-block: 3.75rem;
   }
 
@@ -1299,7 +1267,10 @@
   }
 
   .footerBottom {
+    min-height: 0;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
+    padding-block: 1.5rem;
   }
 }
