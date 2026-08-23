@@ -986,7 +986,6 @@
     z-index: 60;
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    border-top: 1px solid var(--color-rule);
     padding-bottom: env(safe-area-inset-bottom);
     background: rgb(11 10 9 / 0.96);
     -webkit-backdrop-filter: blur(12px);
@@ -1001,7 +1000,6 @@
     justify-content: center;
     flex-direction: column;
     gap: 0.35rem;
-    border-right: 1px solid var(--color-rule);
     color: var(--color-paper-muted);
     font-family: var(--font-display), sans-serif;
     font-size: 0.62rem;
@@ -1013,15 +1011,10 @@
       background-color 160ms ease;
   }
 
-  .mobileTabs a:last-child {
-    border-right: 0;
-  }
-
   .mobileTabs a:hover,
   .mobileTabs a:focus-visible,
   .mobileTabs a[aria-current="location"] {
     color: var(--color-gold);
-    background: rgb(214 166 62 / 0.08);
   }
 
   .hero {
