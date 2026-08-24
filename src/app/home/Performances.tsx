@@ -178,7 +178,7 @@ export function Performances({ videos }: { videos: Video[] }) {
                     src={`https://img.youtube.com/vi/${activeVideo.id}/maxresdefault.jpg`}
                     alt=""
                     fill
-                    sizes="(max-width: 899px) 100vw, 64vw"
+                    sizes="(max-width: 899px) 100vw, 60vw"
                   />
                   <span className={styles.featuredPlayIcon} aria-hidden="true">
                     <Play size={28} fill="currentColor" />
@@ -209,7 +209,7 @@ export function Performances({ videos }: { videos: Video[] }) {
                         src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
                         alt=""
                         fill
-                        sizes="(max-width: 560px) 35vw, (max-width: 899px) 18vw, 10rem"
+                        sizes="(max-width: 560px) 35vw, (max-width: 899px) 42vw, 7rem"
                       />
                     </span>
                     <strong>{video.title}</strong>

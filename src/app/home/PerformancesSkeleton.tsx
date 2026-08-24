@@ -50,7 +50,7 @@ export function PerformancesSkeleton({ videos }: { videos: Video[] }) {
                     src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
                     alt=""
                     fill
-                    sizes="(max-width: 560px) 35vw, (max-width: 899px) 18vw, 10rem"
+                    sizes="(max-width: 560px) 35vw, (max-width: 899px) 42vw, 7rem"
                   />
                 </span>
                 <strong>{video.title}</strong>
