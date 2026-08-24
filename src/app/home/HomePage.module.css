@@ -659,8 +659,8 @@
   max-width: 35rem;
   margin: 1.25rem 0 0;
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 1.15rem;
-  line-height: 1.42;
+  font-size: clamp(1.35rem, 1.7vw, 1.65rem);
+  line-height: 1.32;
 }
 
 .darkButton {
