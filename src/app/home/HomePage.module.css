@@ -211,13 +211,13 @@
 .performances {
   position: relative;
   padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 4rem);
-  border-top: 1px solid var(--color-rule);
   background: var(--color-ink);
   scroll-margin-top: 4.8rem;
 }
 
 .sectionHeader,
 .videoExperience,
+.forHireHeader,
 .forHireShell,
 .newsletterShell,
 .footerUtility {
@@ -229,17 +229,12 @@
   padding-bottom: 0;
 }
 
-.sectionHeader h2,
 .newsletter h2 {
   margin: 0;
   font-family: var(--font-display), sans-serif;
   font-weight: 400;
   line-height: 0.9;
   text-transform: uppercase;
-}
-
-.sectionHeader h2 {
-  font-size: clamp(3rem, 4.2vw, 4.5rem);
 }
 
 .videoExperience {
@@ -467,8 +462,7 @@
 .photographs {
   position: relative;
   padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 4rem);
-  border-top: 1px solid var(--color-rule);
-  background: var(--color-ink-soft);
+  background: var(--color-ink);
   scroll-margin-top: 4.8rem;
 }
 
@@ -478,19 +472,8 @@
 }
 
 .photoHeader {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 1.5rem;
-}
-
-.photoHeader h2 {
-  margin: 0;
-  font-family: var(--font-display), sans-serif;
-  font-size: clamp(3rem, 4.2vw, 4.5rem);
-  font-weight: 400;
-  line-height: 0.9;
-  text-transform: uppercase;
+  display: grid;
+  gap: 0.85rem;
 }
 
 .photoOpenButton {
@@ -507,6 +490,7 @@
   transition:
     border-color 160ms ease,
     color 160ms ease;
+  justify-self: end;
 }
 
 .photoOpenButton:hover,
@@ -654,30 +638,21 @@
 
 .forHire {
   padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 4rem);
-  color: var(--color-ink);
-  background: var(--color-gold);
+  background: var(--color-ink);
   scroll-margin-top: 4.8rem;
 }
 
-.forHire ::selection {
-  color: var(--color-paper);
-  background: var(--color-ink);
+.forHireHeader {
+  margin-bottom: clamp(1.75rem, 3vw, 2.75rem);
 }
 
 .forHireShell {
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   gap: clamp(3rem, 7vw, 8rem);
-}
-
-.forHireIntro h2 {
-  max-width: 8ch;
-  margin: 0;
-  font-family: var(--font-display), sans-serif;
-  font-size: clamp(3rem, 4.2vw, 4.5rem);
-  font-weight: 400;
-  line-height: 0.84;
-  text-transform: uppercase;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  color: var(--color-ink);
+  background: var(--color-gold);
 }
 
 .forHireIntro > p {
@@ -1172,12 +1147,8 @@
     line-height: 1.05;
   }
 
-  .photoHeader {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
   .photoOpenButton {
+    justify-self: start;
     font-size: 0.85rem;
   }
 
@@ -1258,10 +1229,6 @@
   .photographs,
   .forHire {
     padding-block: 3.75rem;
-  }
-
-  .sectionHeader h2 {
-    font-size: 3rem;
   }
 
   .newsletter h2 {

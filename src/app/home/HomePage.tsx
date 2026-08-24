@@ -9,6 +9,7 @@ import { MusicSection } from "./MusicSection";
 import { PhotoGallery } from "./PhotoGallery";
 import { Performances } from "./Performances";
 import { PerformancesSkeleton } from "./PerformancesSkeleton";
+import { SectionHeading } from "./SectionHeading";
 import styles from "./HomePage.module.css";
 
 const footerLinks = [
@@ -70,9 +71,12 @@ export function HomePage() {
         <PhotoGallery />
 
         <section id="events" className={styles.forHire} aria-labelledby="events-title">
+          <div className={styles.forHireHeader}>
+            <SectionHeading id="events-title">Events</SectionHeading>
+          </div>
+
           <div className={styles.forHireShell}>
             <div className={styles.forHireIntro}>
-              <h2 id="events-title">Events</h2>
               <p>
                 A polished performance—welcoming as guests arrive, atmospheric through
                 dinner, and memorable when the music takes center stage.

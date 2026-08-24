@@ -10,6 +10,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { SectionHeading } from "./SectionHeading";
 import styles from "./HomePage.module.css";
 
 export type Video = {
@@ -151,7 +152,7 @@ export function Performances({ videos }: { videos: Video[] }) {
   return (
     <section id="videos" className={styles.performances} aria-labelledby="performances-title">
       <div className={styles.sectionHeader}>
-        <h2 id="performances-title">Videos</h2>
+        <SectionHeading id="performances-title">Videos</SectionHeading>
       </div>
 
       {activeVideo ? (

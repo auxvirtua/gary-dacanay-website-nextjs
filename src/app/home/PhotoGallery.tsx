@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { SectionHeading } from "./SectionHeading";
 import styles from "./HomePage.module.css";
 
 type PhotoLayout = "featured" | "supporting" | "portrait" | "landscape" | "square";
@@ -143,7 +144,7 @@ export function PhotoGallery() {
     >
       <div className={styles.photoGallery}>
         <div className={styles.photoHeader}>
-          <h2 id="photographs-title">Photos</h2>
+          <SectionHeading id="photographs-title">Photos</SectionHeading>
           <button
             type="button"
             className={styles.photoOpenButton}

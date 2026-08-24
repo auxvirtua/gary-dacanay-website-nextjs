@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Video } from "./Performances";
+import { SectionHeading } from "./SectionHeading";
 import styles from "./HomePage.module.css";
 
 const watchHref = (video: Video) =>
@@ -18,7 +19,7 @@ export function PerformancesSkeleton({ videos }: { videos: Video[] }) {
       </span>
 
       <div className={styles.sectionHeader}>
-        <h2 id="performances-title">Videos</h2>
+        <SectionHeading id="performances-title">Videos</SectionHeading>
       </div>
 
       <div className={styles.videoExperience}>

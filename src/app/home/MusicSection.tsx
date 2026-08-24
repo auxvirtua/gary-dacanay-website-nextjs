@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SectionHeading } from "./SectionHeading";
 import styles from "./MusicSection.module.css";
 
 type MusicRelease = {
@@ -21,7 +22,7 @@ export function MusicSection({ releases }: { releases: MusicRelease[] }) {
   return (
     <section id="music" className={styles.music} aria-labelledby="music-title">
       <div className={styles.shell}>
-        <h2 id="music-title" className={styles.title}>Music</h2>
+        <SectionHeading id="music-title">Music</SectionHeading>
 
         <article className={styles.release}>
           <div className={styles.artworkFrame}>
