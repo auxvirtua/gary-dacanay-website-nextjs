@@ -99,6 +99,10 @@ export function HomePage() {
       </main>
 
       <footer id="contact" className={styles.footer}>
+        <div className={styles.footerRuleFrame} aria-hidden="true">
+          <div className={styles.footerRule} />
+        </div>
+
         <section className={styles.newsletterShell} aria-labelledby="newsletter-title">
           <NewsletterForm />
         </section>

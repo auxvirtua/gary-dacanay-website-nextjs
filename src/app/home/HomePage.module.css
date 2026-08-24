@@ -785,8 +785,19 @@
 }
 
 .footer {
-  background: var(--color-ink-soft);
+  background: var(--color-ink);
   scroll-margin-top: 4.8rem;
+}
+
+.footerRuleFrame {
+  padding-inline: clamp(1rem, 4vw, 4rem);
+}
+
+.footerRule {
+  width: min(100%, var(--container));
+  height: 1px;
+  margin-inline: auto;
+  background: var(--color-rule);
 }
 
 .footerUtility {
