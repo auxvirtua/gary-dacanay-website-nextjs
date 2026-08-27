@@ -133,7 +133,14 @@
       transparent 78%,
       var(--color-ink) 100%
     ),
-    linear-gradient(0deg, #0b0a0994 0, #0b0a0938 14%, transparent 30%);
+    linear-gradient(
+      0deg,
+      var(--color-ink) 0,
+      #0b0a09db 7%,
+      #0b0a0980 13%,
+      #0b0a0924 18%,
+      transparent 24%
+    );
   pointer-events: none;
 }
 
@@ -880,6 +887,14 @@
 
   .heroArtwork::after {
     background:
+      linear-gradient(
+        0deg,
+        var(--color-ink) 0,
+        #0b0a09db 7%,
+        #0b0a0980 13%,
+        #0b0a0924 18%,
+        transparent 24%
+      ),
       radial-gradient(
         ellipse 110% 56% at 18% 50%,
         rgb(11 10 9 / 0.48) 0,
@@ -941,6 +956,14 @@
 
   .heroArtwork::after {
     background:
+      linear-gradient(
+        0deg,
+        var(--color-ink) 0,
+        #0b0a09db 7%,
+        #0b0a0980 13%,
+        #0b0a0924 18%,
+        transparent 24%
+      ),
       radial-gradient(
         ellipse 110% 56% at 18% 50%,
         rgb(11 10 9 / 0.48) 0,
