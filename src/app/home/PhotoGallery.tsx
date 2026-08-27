@@ -138,7 +138,6 @@ export function PhotoGallery() {
 
   return (
     <section
-      id="photographs"
       className={styles.photographs}
       aria-labelledby="photographs-title"
     >

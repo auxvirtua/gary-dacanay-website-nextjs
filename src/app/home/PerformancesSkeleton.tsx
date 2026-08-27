@@ -3,13 +3,9 @@ import type { Video } from "./Performances";
 import { SectionHeading } from "./SectionHeading";
 import styles from "./HomePage.module.css";
 
-const watchHref = (video: Video) =>
-  `/?watch=${encodeURIComponent(video.id)}#videos`;
-
 export function PerformancesSkeleton({ videos }: { videos: Video[] }) {
   return (
     <section
-      id="videos"
       className={styles.performances}
       aria-labelledby="performances-title"
       aria-busy="true"
@@ -41,10 +37,10 @@ export function PerformancesSkeleton({ videos }: { videos: Video[] }) {
         <ol className={styles.videoPlaylist} aria-label="Performance videos">
           {videos.map((video) => (
             <li key={video.id}>
-              <a
-                href={watchHref(video)}
+              <div
                 className={styles.playlistItem}
                 aria-label={`Play ${video.title}`}
+                aria-hidden="true"
               >
                 <span className={styles.playlistThumbnail}>
                   <Image
@@ -55,7 +51,7 @@ export function PerformancesSkeleton({ videos }: { videos: Video[] }) {
                   />
                 </span>
                 <strong>{video.title}</strong>
-              </a>
+              </div>
             </li>
           ))}
         </ol>

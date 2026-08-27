@@ -6,12 +6,6 @@
     "headline": "The Great American Songbook, Live",
     "supportingCopy": "Timeless jazz for concerts, weddings, dinners, and private events."
   },
-  "navigation": [
-    { "label": "Music", "href": "#music" },
-    { "label": "Videos", "href": "#videos" },
-    { "label": "Photos", "href": "#photographs" },
-    { "label": "Events", "href": "#events" }
-  ],
   "booking": {
     "subject": "Booking inquiry for Gary Dacanay",
     "body": "Hi Gary,\n\nI'm interested in booking you for an event.\n\nEvent type:\nDate:\nLocation:\nApproximate guest count:\n\nAdditional details:\n\nThank you,"

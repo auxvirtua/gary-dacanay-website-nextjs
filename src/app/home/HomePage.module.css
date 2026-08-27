@@ -24,7 +24,7 @@
   position: fixed;
   inset: 0 0 auto;
   z-index: 50;
-  min-height: 4.8rem;
+  min-height: 4rem;
   transition:
     background-color 180ms ease,
     -webkit-backdrop-filter 180ms ease,
@@ -50,8 +50,7 @@
   justify-content: space-between;
 }
 
-.brand,
-.desktopNavigation {
+.brand {
   position: relative;
   z-index: 2;
 }
@@ -65,60 +64,38 @@
   text-transform: uppercase;
 }
 
-.desktopNavigation {
-  display: flex;
+.mobileBooking {
+  display: inline-flex;
   align-items: center;
-  gap: clamp(1.4rem, 2.4vw, 2.6rem);
+  justify-content: center;
+  padding: 0.55rem 0.95rem;
+  color: var(--color-ink);
+  background: var(--color-gold);
   font-family: var(--font-display), sans-serif;
-  font-size: 0.875rem;
-  letter-spacing: 0.15em;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  line-height: 1;
   text-transform: uppercase;
-}
-
-.desktopNavigation a {
-  border-bottom: 1px solid transparent;
-  padding-block: 0.4rem;
   transition:
     color 160ms ease,
-    border-color 160ms ease;
+    background-color 160ms ease;
 }
 
-.desktopNavigation a:hover,
-.desktopNavigation a:focus-visible {
-  border-color: var(--color-gold);
-  color: var(--color-gold);
-}
-
-.desktopNavigation .navBooking:hover,
-.desktopNavigation .navBooking:focus-visible {
-  border-color: var(--color-gold);
+.mobileBooking:hover,
+.mobileBooking:focus-visible {
   color: var(--color-ink);
-  background: var(--color-gold);
-}
-
-.navBooking {
-  color: var(--color-ink);
-  background: var(--color-gold);
-  padding: 0.65rem 1rem !important;
-}
-
-.mobileBooking {
-  display: none;
-}
-
-.mobileTabs {
-  display: none;
+  background: var(--color-paper);
 }
 
 .hero {
   position: relative;
   min-height: 100svh;
-  padding: 4.8rem 0 0;
+  padding: 4rem 0 0;
 }
 
 .heroGrid {
   display: grid;
-  min-height: calc(100svh - 4.8rem);
+  min-height: calc(100svh);
   grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
 }
 
@@ -210,9 +187,8 @@
 
 .performances {
   position: relative;
-  padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 4rem);
+  padding: clamp(3rem, 5vw, 4.75rem) clamp(1rem, 4vw, 4rem);
   background: var(--color-ink);
-  scroll-margin-top: 4.8rem;
 }
 
 .sectionHeader,
@@ -248,10 +224,6 @@
 .videoStage,
 .videoPlaylist {
   min-width: 0;
-}
-
-.videoStage {
-  scroll-margin-top: 5.5rem;
 }
 
 .featuredMedia {
@@ -461,9 +433,8 @@
 
 .photographs {
   position: relative;
-  padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 4rem);
+  padding: clamp(3rem, 5vw, 4.75rem) clamp(1rem, 4vw, 4rem);
   background: var(--color-ink);
-  scroll-margin-top: 4.8rem;
 }
 
 .photoGallery {
@@ -637,9 +608,8 @@
 }
 
 .forHire {
-  padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 4rem);
+  padding: clamp(3rem, 5vw, 4.75rem) clamp(1rem, 4vw, 4rem);
   background: var(--color-ink);
-  scroll-margin-top: 4.8rem;
 }
 
 .forHireHeader {
@@ -701,7 +671,7 @@
 }
 
 .newsletterShell {
-  padding: clamp(3rem, 5vw, 4.5rem) clamp(1rem, 4vw, 4rem);
+  padding: clamp(2.5rem, 4vw, 3.75rem) clamp(1rem, 4vw, 4rem);
 }
 
 .newsletter h2 {
@@ -786,7 +756,6 @@
 
 .footer {
   background: var(--color-ink);
-  scroll-margin-top: 4.8rem;
 }
 
 .footerRuleFrame {
@@ -888,12 +857,12 @@
   .heroGrid {
     position: relative;
     width: 100%;
-    min-height: calc(100svh - 4.8rem);
+    min-height: calc(100svh);
     grid-template-columns: 1fr;
   }
 
   .heroCopy {
-    min-height: calc(100svh - 4.8rem);
+    min-height: calc(100svh);
     justify-content: center;
     padding: 3rem clamp(2rem, 4vw, 3rem) 6.5rem;
   }
@@ -941,74 +910,8 @@
 }
 
 @media (max-width: 899px) {
-  .site {
-    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
-  }
-
-  .desktopNavigation {
-    display: none;
-  }
-
   .mobileBooking {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.48rem 0.85rem;
-    color: var(--color-ink);
-    background: var(--color-gold);
-    font-family: var(--font-display), sans-serif;
     font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    line-height: 1;
-    text-transform: uppercase;
-    transition:
-      color 160ms ease,
-      background-color 160ms ease;
-  }
-
-  .mobileBooking:hover,
-  .mobileBooking:focus-visible {
-    color: var(--color-ink);
-    background: var(--color-paper);
-  }
-
-  .mobileTabs {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 60;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    padding-bottom: env(safe-area-inset-bottom);
-    background: rgb(11 10 9 / 0.96);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-  }
-
-  .mobileTabs a {
-    display: flex;
-    min-width: 0;
-    min-height: 4.5rem;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 0.35rem;
-    color: var(--color-paper-muted);
-    font-family: var(--font-display), sans-serif;
-    font-size: 0.62rem;
-    letter-spacing: 0.09em;
-    line-height: 1;
-    text-transform: uppercase;
-    transition:
-      color 160ms ease,
-      background-color 160ms ease;
-  }
-
-  .mobileTabs a:hover,
-  .mobileTabs a:focus-visible,
-  .mobileTabs a[aria-current="location"] {
-    color: var(--color-gold);
   }
 
   .hero {
@@ -1018,12 +921,12 @@
   .heroGrid {
     position: relative;
     width: 100%;
-    min-height: calc(100svh - 4.8rem);
+    min-height: calc(100svh);
     grid-template-columns: 1fr;
   }
 
   .heroCopy {
-    min-height: calc(100svh - 4.8rem);
+    min-height: calc(100svh);
     justify-content: center;
     padding: 3rem 1.25rem 6.5rem;
   }
@@ -1239,7 +1142,7 @@
   .performances,
   .photographs,
   .forHire {
-    padding-block: 3.75rem;
+    padding-block: 3rem;
   }
 
   .newsletter h2 {

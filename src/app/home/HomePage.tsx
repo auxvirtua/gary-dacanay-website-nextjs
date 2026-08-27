@@ -31,10 +31,10 @@ export function HomePage() {
 
   return (
     <div className={styles.site}>
-      <NavBar name={data.name} navigation={data.navigation} bookingHref={bookingHref} />
+      <NavBar name={data.name} bookingHref={bookingHref} />
 
       <main>
-        <section id="top" className={styles.hero} aria-labelledby="hero-title">
+        <section className={styles.hero} aria-labelledby="hero-title">
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
               <h1 id="hero-title" className={styles.heroTitle}>
@@ -62,15 +62,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <MusicSection releases={data.music.releases} />
-
-        <Suspense fallback={<PerformancesSkeleton videos={videos} />}>
-          <Performances videos={videos} />
-        </Suspense>
-
-        <PhotoGallery />
-
-        <section id="events" className={styles.forHire} aria-labelledby="events-title">
+        <section className={styles.forHire} aria-labelledby="events-title">
           <div className={styles.forHireHeader}>
             <SectionHeading id="events-title">Events</SectionHeading>
           </div>
@@ -96,9 +88,17 @@ export function HomePage() {
             </div>
           </div>
         </section>
+
+        <MusicSection releases={data.music.releases} />
+
+        <Suspense fallback={<PerformancesSkeleton videos={videos} />}>
+          <Performances videos={videos} />
+        </Suspense>
+
+        <PhotoGallery />
       </main>
 
-      <footer id="contact" className={styles.footer}>
+      <footer className={styles.footer}>
         <div className={styles.footerRuleFrame} aria-hidden="true">
           <div className={styles.footerRule} />
         </div>

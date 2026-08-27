@@ -20,7 +20,7 @@ export function MusicSection({ releases }: { releases: MusicRelease[] }) {
   }
 
   return (
-    <section id="music" className={styles.music} aria-labelledby="music-title">
+    <section className={styles.music} aria-labelledby="music-title">
       <div className={styles.shell}>
         <SectionHeading id="music-title">Music</SectionHeading>
 

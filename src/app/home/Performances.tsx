@@ -2,14 +2,7 @@
 
 import Image from "next/image";
 import { Play } from "lucide-react";
-import { useSearchParams } from "next/navigation";
-import {
-  type KeyboardEvent,
-  type MouseEvent,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { useEffect, useRef, useState } from "react";
 import { SectionHeading } from "./SectionHeading";
 import styles from "./HomePage.module.css";
 
@@ -18,53 +11,11 @@ export type Video = {
   id: string;
 };
 
-const videoScrollStateKey = "videoShowcaseScrollY";
-
 export function Performances({ videos }: { videos: Video[] }) {
-  const searchParams = useSearchParams();
-  const requestedVideo = videos.find(
-    (video) => video.id === searchParams.get("watch"),
-  );
-  const initialRequestedVideoRef = useRef(requestedVideo);
-  const [activeVideo, setActiveVideo] = useState<Video | null>(
-    () => requestedVideo ?? videos[0] ?? null,
-  );
+  const [activeVideo, setActiveVideo] = useState<Video | null>(() => videos[0] ?? null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const videoStageRef = useRef<HTMLDivElement>(null);
   const playerFrameRef = useRef<HTMLIFrameElement>(null);
   const shouldFocusPlayerRef = useRef(false);
-
-  useEffect(() => {
-    const syncVideoFromHistory = (event: PopStateEvent) => {
-      const requestedId = new URL(window.location.href).searchParams.get("watch");
-      const requestedVideo = videos.find((video) => video.id === requestedId);
-      const storedScrollPosition = event?.state?.[videoScrollStateKey];
-
-      setActiveVideo(requestedVideo ?? videos[0] ?? null);
-      setIsPlaying(false);
-      shouldFocusPlayerRef.current = false;
-
-      if (typeof storedScrollPosition === "number") {
-        window.requestAnimationFrame(() => {
-          window.scrollTo({ top: storedScrollPosition, behavior: "auto" });
-        });
-      } else if (requestedVideo) {
-        window.requestAnimationFrame(() => {
-          videoStageRef.current?.scrollIntoView({ behavior: "auto", block: "start" });
-        });
-      }
-    };
-
-    if (initialRequestedVideoRef.current) {
-      window.requestAnimationFrame(() => {
-        videoStageRef.current?.scrollIntoView({ behavior: "auto", block: "start" });
-      });
-    }
-
-    window.addEventListener("popstate", syncVideoFromHistory);
-
-    return () => window.removeEventListener("popstate", syncVideoFromHistory);
-  }, [videos]);
 
   useEffect(() => {
     if (!isPlaying || !shouldFocusPlayerRef.current) {
@@ -75,89 +26,29 @@ export function Performances({ videos }: { videos: Video[] }) {
     playerFrameRef.current?.focus();
   }, [activeVideo, isPlaying]);
 
-  const watchHref = (video: Video) => `/?watch=${encodeURIComponent(video.id)}#videos`;
-
-  const pushVideoHistory = (video: Video) => {
-    const url = new URL(window.location.href);
-    const isCurrentVideo = url.searchParams.get("watch") === video.id;
-    const currentState = {
-      ...window.history.state,
-      [videoScrollStateKey]: window.scrollY,
-    };
-
-    window.history.replaceState(currentState, "", window.location.href);
-
-    url.searchParams.set("watch", video.id);
-    url.hash = "videos";
-
-    if (isCurrentVideo) {
-      window.history.replaceState(currentState, "", url);
-    } else {
-      window.history.pushState(currentState, "", url);
-    }
-  };
-
-  const playVideo = (video: Video, shouldFocusPlayer = false) => {
-    shouldFocusPlayerRef.current = shouldFocusPlayer;
-    setActiveVideo(video);
-    setIsPlaying(false);
-    pushVideoHistory(video);
-
-    if (window.matchMedia("(max-width: 899px)").matches) {
-      videoStageRef.current?.scrollIntoView({ behavior: "auto", block: "start" });
-      window.requestAnimationFrame(() => {
-        window.history.replaceState(
-          {
-            ...window.history.state,
-            [videoScrollStateKey]: window.scrollY,
-          },
-          "",
-          window.location.href,
-        );
-        setIsPlaying(true);
-      });
+  const selectVideo = (video: Video) => {
+    if (video.id === activeVideo?.id) {
       return;
     }
 
+    setActiveVideo(video);
+    setIsPlaying(false);
+  };
+
+  const playActiveVideo = (shouldFocusPlayer = false) => {
+    shouldFocusPlayerRef.current = shouldFocusPlayer;
     setIsPlaying(true);
   };
 
-  const handlePlaylistClick = (event: MouseEvent<HTMLAnchorElement>, video: Video) => {
-    if (
-      event.button !== 0 ||
-      event.metaKey ||
-      event.ctrlKey ||
-      event.shiftKey ||
-      event.altKey
-    ) {
-      return;
-    }
-
-    event.preventDefault();
-    playVideo(video, event.detail === 0);
-  };
-
-  const handlePlaylistKeyDown = (
-    event: KeyboardEvent<HTMLAnchorElement>,
-    video: Video,
-  ) => {
-    if (event.key !== "Enter") {
-      return;
-    }
-
-    event.preventDefault();
-    playVideo(video, true);
-  };
-
   return (
-    <section id="videos" className={styles.performances} aria-labelledby="performances-title">
+    <section className={styles.performances} aria-labelledby="performances-title">
       <div className={styles.sectionHeader}>
         <SectionHeading id="performances-title">Videos</SectionHeading>
       </div>
 
       {activeVideo ? (
         <div className={styles.videoExperience}>
-          <div ref={videoStageRef} className={styles.videoStage}>
+          <div className={styles.videoStage}>
             <div className={styles.featuredMedia}>
               {isPlaying ? (
                 <iframe
@@ -173,7 +64,7 @@ export function Performances({ videos }: { videos: Video[] }) {
                   type="button"
                   className={styles.featuredPlay}
                   aria-label={`Play ${activeVideo.title}`}
-                  onClick={(event) => playVideo(activeVideo, event.detail === 0)}
+                  onClick={(event) => playActiveVideo(event.detail === 0)}
                 >
                   <Image
                     src={`https://img.youtube.com/vi/${activeVideo.id}/maxresdefault.jpg`}
@@ -197,13 +88,12 @@ export function Performances({ videos }: { videos: Video[] }) {
 
               return (
                 <li key={video.id}>
-                  <a
-                    href={watchHref(video)}
+                  <button
+                    type="button"
                     className={`${styles.playlistItem} ${isActive ? styles.playlistItemActive : ""}`}
-                    aria-current={isActive ? "true" : undefined}
-                    aria-label={`Play ${video.title}`}
-                    onClick={(event) => handlePlaylistClick(event, video)}
-                    onKeyDown={(event) => handlePlaylistKeyDown(event, video)}
+                    aria-pressed={isActive}
+                    aria-label={`Select ${video.title}`}
+                    onClick={() => selectVideo(video)}
                   >
                     <span className={styles.playlistThumbnail}>
                       <Image
@@ -214,7 +104,7 @@ export function Performances({ videos }: { videos: Video[] }) {
                       />
                     </span>
                     <strong>{video.title}</strong>
-                  </a>
+                  </button>
                 </li>
               );
             })}
