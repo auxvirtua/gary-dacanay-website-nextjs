@@ -585,6 +585,11 @@
   background: var(--color-gold);
 }
 
+.forHireShell ::selection {
+  color: var(--color-gold);
+  background: var(--color-ink);
+}
+
 .forHireIntro > p {
   max-width: 35rem;
   margin: 1.25rem 0 0;
