@@ -9,7 +9,6 @@ import { MusicSection } from "./MusicSection";
 import { PhotoGallery } from "./PhotoGallery";
 import { Performances } from "./Performances";
 import { PerformancesSkeleton } from "./PerformancesSkeleton";
-import { SectionHeading } from "./SectionHeading";
 import styles from "./HomePage.module.css";
 
 const footerLinks = [
@@ -62,11 +61,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className={styles.forHire} aria-labelledby="events-title">
-          <div className={styles.forHireHeader}>
-            <SectionHeading id="events-title">Events</SectionHeading>
-          </div>
-
+        <section className={styles.forHire} aria-label="Event booking information">
           <div className={styles.forHireShell}>
             <div className={styles.forHireIntro}>
               <p>
