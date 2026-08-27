@@ -31,10 +31,10 @@ export function HomePage() {
 
   return (
     <div className={styles.site}>
-      <NavBar name={data.name} bookingHref={bookingHref} />
-
       <main>
         <section className={styles.hero} aria-labelledby="hero-title">
+          <NavBar name={data.name} />
+
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
               <h1 id="hero-title" className={styles.heroTitle}>
@@ -111,7 +111,7 @@ export function HomePage() {
               when it matters most.
             </p>
             <a className={styles.footerBookingButton} href={bookingHref}>
-              Get in touch
+              Check availability
             </a>
           </div>
 
