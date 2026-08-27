@@ -103,7 +103,18 @@ export function HomePage() {
           <div className={styles.footerRule} />
         </div>
 
-        <section className={styles.newsletterShell} aria-labelledby="newsletter-title">
+        <section className={styles.footerMain} aria-label="Contact and newsletter">
+          <div className={styles.footerBooking}>
+            <h2>Bring the songbook to your event</h2>
+            <p>
+              Music that welcomes guests, settles into the room, and rises to the occasion
+              when it matters most.
+            </p>
+            <a className={styles.footerBookingButton} href={bookingHref}>
+              Get in touch
+            </a>
+          </div>
+
           <NewsletterForm />
         </section>
 

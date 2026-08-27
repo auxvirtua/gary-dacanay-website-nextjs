@@ -195,7 +195,7 @@
 .videoExperience,
 .forHireHeader,
 .forHireShell,
-.newsletterShell,
+.footerMain,
 .footerUtility {
   width: min(100%, var(--container));
   margin-inline: auto;
@@ -205,6 +205,7 @@
   padding-bottom: 0;
 }
 
+.footerBooking h2,
 .newsletter h2 {
   margin: 0;
   font-family: var(--font-display), sans-serif;
@@ -670,14 +671,18 @@
   line-height: 1.55;
 }
 
-.newsletterShell {
-  padding: clamp(2.5rem, 4vw, 3.75rem) clamp(1rem, 4vw, 4rem);
+.footerMain {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(4rem, 10vw, 10rem);
+  padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 4rem);
 }
 
-.newsletter h2 {
-  font-size: clamp(2.25rem, 3.3vw, 3.6rem);
+.footerBooking h2 {
+  font-size: clamp(2.75rem, 3.75vw, 4rem);
 }
 
+.footerBooking > p,
 .newsletter > p {
   max-width: 34rem;
   margin: 1rem 0 0;
@@ -685,11 +690,43 @@
   line-height: 1.65;
 }
 
+.footerBookingButton {
+  display: inline-flex;
+  min-height: 3.1rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.4rem;
+  padding: 0.85rem 1.35rem;
+  color: var(--color-ink);
+  background: var(--color-gold);
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.footerBookingButton:hover,
+.footerBookingButton:focus-visible {
+  color: var(--color-ink);
+  background: var(--color-paper);
+  transform: translateY(-2px);
+}
+
+.newsletter h2 {
+  font-size: clamp(2.25rem, 3vw, 3.15rem);
+}
+
 .newsletter {
   max-width: 38rem;
 }
 
 .newsletterForm {
+  max-width: 34rem;
   margin-top: 1.4rem;
 }
 
@@ -1025,6 +1062,18 @@
   .forHireShell {
     grid-template-columns: 1fr;
   }
+
+  .footerMain {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding-block: 3.75rem;
+  }
+
+  .newsletter {
+    max-width: none;
+    border-top: 1px solid var(--color-rule);
+    padding-top: 3rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1145,10 +1194,6 @@
     padding-block: 3rem;
   }
 
-  .newsletter h2 {
-    font-size: clamp(2.5rem, 12vw, 3.5rem);
-  }
-
   .videoExperience {
     margin-top: 1.6rem;
   }
@@ -1172,10 +1217,6 @@
 
   .service {
     min-height: 13rem;
-  }
-
-  .newsletterShell {
-    padding-block: 3.75rem;
   }
 
   .newsletterForm > div {
