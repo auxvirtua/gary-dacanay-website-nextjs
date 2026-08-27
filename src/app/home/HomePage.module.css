@@ -61,7 +61,7 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   padding: clamp(2.5rem, 5vw, 5.5rem) clamp(1rem, 4vw, 4rem);
 }
 
@@ -69,7 +69,7 @@
   max-width: 7ch;
   margin: 0;
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(6rem, 6.6vw, 7.75rem);
+  font-size: 10rem;
   font-weight: 400;
   line-height: 0.79;
   letter-spacing: -0.025em;
@@ -84,7 +84,7 @@
   max-width: 30rem;
   margin: 1.45rem 0 0;
   font-family: var(--font-serif), Georgia, serif;
-  font-size: clamp(1.15rem, 1.6vw, 1.55rem);
+  font-size: 2rem;
   font-style: italic;
   line-height: 1.2;
 }
@@ -822,7 +822,11 @@
   }
 
   .heroTitle {
-    font-size: 6rem;
+    font-size: 7rem;
+  }
+
+  .heroSupporting {
+    font-size: 1.5rem;
   }
 
   .videoExperience {
@@ -860,12 +864,12 @@
 
   .heroCopy {
     min-height: calc(100svh);
-    justify-content: center;
+    justify-content: flex-end;
     padding: 3rem clamp(2rem, 4vw, 3rem) 6.5rem;
   }
 
   .heroTitle {
-    font-size: clamp(4.25rem, 12vw, 6rem);
+    font-size: 6rem;
   }
 
   .heroSupporting {
@@ -929,16 +933,17 @@
 
   .heroCopy {
     min-height: calc(100svh);
-    justify-content: center;
+    justify-content: flex-end;
     padding: 3rem 1.25rem 6.5rem;
   }
 
   .heroTitle {
-    font-size: clamp(4.25rem, 16vw, 6rem);
+    font-size: 6rem;
   }
 
   .heroSupporting {
     max-width: 22rem;
+    font-size: 1.5rem;
   }
 
   .heroArtwork {
@@ -1135,12 +1140,12 @@
   }
 
   .heroTitle {
-    font-size: clamp(3.75rem, 18vw, 5rem);
+    font-size: 5.5rem;
   }
 
   .heroSupporting {
     margin-top: 1.1rem;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
   }
 
   .darkButton {
