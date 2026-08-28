@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SectionHeading } from "./SectionHeading";
 import styles from "./HomePage.module.css";
@@ -129,13 +129,16 @@ export function PhotoGallery() {
     >
       <div className={styles.photoGallery}>
         <div className={styles.photoHeader}>
-          <SectionHeading id="photographs-title">Photos</SectionHeading>
+          <SectionHeading className={styles.photoHeading} id="photographs-title">
+            Photos
+          </SectionHeading>
           <button
             type="button"
             className={styles.photoOpenButton}
             onClick={(event) => openGallery(0, event.currentTarget)}
           >
-            View all photographs
+            See More
+            <ArrowRight aria-hidden="true" size={16} strokeWidth={1.7} />
           </button>
         </div>
 

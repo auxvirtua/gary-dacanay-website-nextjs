@@ -151,7 +151,9 @@
 
 .performances {
   position: relative;
-  padding: clamp(3rem, 5vw, 4.75rem) clamp(1rem, 4vw, 4rem);
+  display: grid;
+  gap: 1.75rem;
+  padding: clamp(1.5rem, 2.5vw, 2.375rem) clamp(1rem, 4vw, 4rem);
   background: var(--color-ink);
 }
 
@@ -162,10 +164,6 @@
 .footerUtility {
   width: min(100%, var(--container));
   margin-inline: auto;
-}
-
-.sectionHeader {
-  padding-bottom: 0;
 }
 
 .footerBooking h2,
@@ -182,7 +180,6 @@
   grid-template-columns: minmax(0, 1.9fr) minmax(18rem, 0.9fr);
   gap: clamp(2rem, 3vw, 3rem);
   align-items: start;
-  margin-top: 1.75rem;
 }
 
 .videoStage,
@@ -397,24 +394,34 @@
 
 .photographs {
   position: relative;
-  padding: clamp(3rem, 5vw, 4.75rem) clamp(1rem, 4vw, 4rem);
+  padding: clamp(1.5rem, 2.5vw, 2.375rem) clamp(1rem, 4vw, 4rem);
   background: var(--color-ink);
 }
 
 .photoGallery {
+  display: grid;
   width: min(100%, var(--container));
+  gap: clamp(1.75rem, 3vw, 2.75rem);
   margin-inline: auto;
 }
 
 .photoHeader {
-  display: grid;
+  display: flex;
+  align-items: center;
   gap: 0.85rem;
 }
 
+.photoHeading {
+  min-width: 0;
+  flex: 1;
+}
+
 .photoOpenButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   border: 0;
-  border-bottom: 1px solid var(--color-gold);
-  padding: 0 0 0.45rem;
+  padding: 0;
   color: var(--color-paper);
   background: transparent;
   font-family: var(--font-display), sans-serif;
@@ -422,15 +429,11 @@
   letter-spacing: 0.13em;
   text-align: left;
   text-transform: uppercase;
-  transition:
-    border-color 160ms ease,
-    color 160ms ease;
-  justify-self: end;
+  transition: color 160ms ease;
 }
 
 .photoOpenButton:hover,
 .photoOpenButton:focus-visible {
-  border-color: var(--color-paper);
   color: var(--color-gold);
 }
 
@@ -441,7 +444,6 @@
   grid-template-rows: repeat(2, minmax(0, 1fr));
   aspect-ratio: 6 / 5;
   gap: clamp(0.65rem, 1.3vw, 1.15rem);
-  margin-top: clamp(1.75rem, 3vw, 2.75rem);
 }
 
 .photoPreview {
@@ -1164,13 +1166,12 @@
   }
 
   .performances,
-  .photographs,
-  .forHire {
-    padding-block: 3rem;
+  .photographs {
+    padding-block: 1.5rem;
   }
 
-  .videoExperience {
-    margin-top: 1.6rem;
+  .performances {
+    gap: 1.6rem;
   }
 
   .featuredMedia {

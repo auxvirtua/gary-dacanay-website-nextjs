@@ -1,11 +1,13 @@
 .music {
   position: relative;
-  padding: clamp(3rem, 5vw, 4.75rem) clamp(1rem, 4vw, 4rem);
+  padding: clamp(1.5rem, 2.5vw, 2.375rem) clamp(1rem, 4vw, 4rem);
   background: var(--color-ink);
 }
 
 .shell {
+  display: grid;
   width: min(100%, var(--container));
+  gap: 2.25rem;
   margin-inline: auto;
 }
 
@@ -21,7 +23,6 @@
   display: grid;
   grid-template-columns: 1fr;
   width: min(100%, 23rem);
-  margin-top: 2.25rem;
   border-radius: 0;
   padding: 0.65rem;
   background: var(--color-ink-soft);
@@ -107,7 +108,7 @@
 
 @media (max-width: 640px) {
   .music {
-    padding-block: 3rem;
+    padding-block: 1.5rem;
   }
 
   .release {
