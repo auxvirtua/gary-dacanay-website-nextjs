@@ -1,14 +1,11 @@
 import Image from "next/image";
 import type { Video } from "./Performances";
+import { SectionHeading } from "./SectionHeading";
 import styles from "./HomePage.module.css";
-
-const watchHref = (video: Video) =>
-  `/?watch=${encodeURIComponent(video.id)}#videos`;
 
 export function PerformancesSkeleton({ videos }: { videos: Video[] }) {
   return (
     <section
-      id="videos"
       className={styles.performances}
       aria-labelledby="performances-title"
       aria-busy="true"
@@ -18,7 +15,7 @@ export function PerformancesSkeleton({ videos }: { videos: Video[] }) {
       </span>
 
       <div className={styles.sectionHeader}>
-        <h2 id="performances-title">Videos</h2>
+        <SectionHeading id="performances-title">Videos</SectionHeading>
       </div>
 
       <div className={styles.videoExperience}>
@@ -38,26 +35,23 @@ export function PerformancesSkeleton({ videos }: { videos: Video[] }) {
         </div>
 
         <ol className={styles.videoPlaylist} aria-label="Performance videos">
-          {videos.map((video, index) => (
+          {videos.map((video) => (
             <li key={video.id}>
-              <a
-                href={watchHref(video)}
+              <div
                 className={styles.playlistItem}
                 aria-label={`Play ${video.title}`}
+                aria-hidden="true"
               >
                 <span className={styles.playlistThumbnail}>
                   <Image
                     src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
                     alt=""
                     fill
-                    sizes="(max-width: 560px) 35vw, (max-width: 899px) 18vw, 10rem"
+                    sizes="(max-width: 560px) 35vw, (max-width: 899px) 42vw, 7rem"
                   />
                 </span>
-                <span className={styles.playlistNumber} aria-hidden="true">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
                 <strong>{video.title}</strong>
-              </a>
+              </div>
             </li>
           ))}
         </ol>

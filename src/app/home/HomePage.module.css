@@ -20,37 +20,23 @@
   mix-blend-mode: soft-light;
 }
 
-.nav {
-  position: fixed;
-  inset: 0 0 auto;
-  z-index: 50;
-  display: flex;
-  min-height: 4.8rem;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.9rem clamp(1rem, 4vw, 4rem);
-  border-bottom: 1px solid transparent;
-  transition:
-    background-color 180ms ease,
-    border-color 180ms ease,
-    backdrop-filter 180ms ease;
+.heroGrid {
+  width: min(var(--container), calc(100% - clamp(2rem, 8vw, 8rem)));
+  margin-inline: auto;
 }
 
-.navScrolled {
-  border-color: var(--color-rule);
-  background: rgb(11 10 9 / 0.9);
-  backdrop-filter: blur(18px);
-}
-
-.brand,
-.desktopNavigation,
-.menuButton,
-.mobileNavigation {
-  position: relative;
-  z-index: 2;
+.masthead {
+  position: absolute;
+  top: clamp(1.25rem, 2vw, 2rem);
+  left: 50%;
+  z-index: 3;
+  width: min(var(--container), calc(100% - clamp(2rem, 8vw, 8rem)));
+  padding-inline: clamp(1rem, 4vw, 4rem);
+  transform: translateX(-50%);
 }
 
 .brand {
+  display: inline-block;
   color: var(--color-gold);
   font-family: var(--font-display), sans-serif;
   font-size: clamp(1.45rem, 2vw, 2rem);
@@ -59,73 +45,14 @@
   text-transform: uppercase;
 }
 
-.desktopNavigation {
-  display: flex;
-  align-items: center;
-  gap: clamp(1.4rem, 2.4vw, 2.6rem);
-  font-family: var(--font-display), sans-serif;
-  font-size: 0.875rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-.desktopNavigation a {
-  border-bottom: 1px solid transparent;
-  padding-block: 0.4rem;
-  transition:
-    color 160ms ease,
-    border-color 160ms ease;
-}
-
-.desktopNavigation a:hover,
-.desktopNavigation a:focus-visible {
-  border-color: var(--color-gold);
-  color: var(--color-gold);
-}
-
-.desktopNavigation .navBooking:hover,
-.desktopNavigation .navBooking:focus-visible {
-  border-color: var(--color-gold);
-  color: var(--color-ink);
-  background: var(--color-gold);
-}
-
-.navBooking {
-  color: var(--color-ink);
-  background: var(--color-gold);
-  padding: 0.65rem 1rem !important;
-}
-
-.menuButton {
-  display: none;
-  width: 2.75rem;
-  height: 2.75rem;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--color-rule);
-  border-radius: 0;
-  color: var(--color-paper);
-  background: transparent;
-}
-
-.mobileNavigation {
-  display: none;
-}
-
-.mobileNavigationLinks {
-  display: contents;
-}
-
 .hero {
   position: relative;
   min-height: 100svh;
-  padding: 4.8rem 0 0;
 }
 
 .heroGrid {
   display: grid;
-  width: 100%;
-  min-height: calc(100svh - 4.8rem);
+  min-height: calc(100svh);
   grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
 }
 
@@ -134,7 +61,7 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   padding: clamp(2.5rem, 5vw, 5.5rem) clamp(1rem, 4vw, 4rem);
 }
 
@@ -142,7 +69,7 @@
   max-width: 7ch;
   margin: 0;
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(4.75rem, 6.6vw, 7.75rem);
+  font-size: 10rem;
   font-weight: 400;
   line-height: 0.79;
   letter-spacing: -0.025em;
@@ -157,20 +84,11 @@
   max-width: 30rem;
   margin: 1.45rem 0 0;
   font-family: var(--font-serif), Georgia, serif;
-  font-size: clamp(1.15rem, 1.6vw, 1.55rem);
+  font-size: 2rem;
   font-style: italic;
   line-height: 1.2;
 }
 
-.heroActions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-  margin-top: 1.5rem;
-}
-
-.primaryButton,
-.secondaryButton,
 .darkButton {
   display: inline-flex;
   min-height: 3.1rem;
@@ -189,25 +107,8 @@
     transform 160ms ease;
 }
 
-.primaryButton {
-  color: var(--color-ink);
-  background: var(--color-gold);
-}
-
-.secondaryButton {
-  color: var(--color-paper);
-  background: transparent;
-}
-
-.primaryButton:hover,
-.secondaryButton:hover,
 .darkButton:hover {
   transform: translateY(-2px);
-}
-
-.secondaryButton:hover {
-  color: var(--color-ink);
-  background: var(--color-paper);
 }
 
 .heroArtwork {
@@ -223,8 +124,23 @@
   z-index: 1;
   content: "";
   background:
-    linear-gradient(90deg, var(--color-ink) 0, transparent 20%, transparent 88%, var(--color-ink) 100%),
-    linear-gradient(0deg, var(--color-ink) 0, transparent 16%);
+    linear-gradient(
+      90deg,
+      var(--color-ink) 0,
+      #0b0a09db 16%,
+      #0b0a0980 26%,
+      #0b0a0924 50%,
+      transparent 78%,
+      var(--color-ink) 100%
+    ),
+    linear-gradient(
+      0deg,
+      var(--color-ink) 0,
+      #0b0a09db 7%,
+      #0b0a0980 13%,
+      #0b0a0924 18%,
+      transparent 24%
+    );
   pointer-events: none;
 }
 
@@ -235,26 +151,21 @@
 
 .performances {
   position: relative;
-  padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 4rem);
-  border-top: 1px solid var(--color-rule);
+  display: grid;
+  gap: 1.75rem;
+  padding: clamp(1.5rem, 2.5vw, 2.375rem) clamp(1rem, 4vw, 4rem);
   background: var(--color-ink);
-  scroll-margin-top: 4.8rem;
 }
 
 .sectionHeader,
 .videoExperience,
 .forHireShell,
 .footerMain,
-.footerBottom {
+.footerUtility {
   width: min(100%, var(--container));
   margin-inline: auto;
 }
 
-.sectionHeader {
-  padding-bottom: 0;
-}
-
-.sectionHeader h2,
 .footerBooking h2,
 .newsletter h2 {
   margin: 0;
@@ -264,25 +175,16 @@
   text-transform: uppercase;
 }
 
-.sectionHeader h2 {
-  font-size: clamp(3rem, 4.2vw, 4.5rem);
-}
-
 .videoExperience {
   display: grid;
-  grid-template-columns: minmax(0, 1.75fr) minmax(20rem, 1fr);
-  gap: clamp(2rem, 4vw, 4rem);
+  grid-template-columns: minmax(0, 1.9fr) minmax(18rem, 0.9fr);
+  gap: clamp(2rem, 3vw, 3rem);
   align-items: start;
-  margin-top: 1.75rem;
 }
 
 .videoStage,
 .videoPlaylist {
   min-width: 0;
-}
-
-.videoStage {
-  scroll-margin-top: 5.5rem;
 }
 
 .featuredMedia {
@@ -368,10 +270,10 @@
 
 .activeVideoTitle {
   max-width: 16ch;
-  min-height: 1.8em;
+  min-height: 1.85em;
   margin: 1rem 0 0;
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(2.25rem, 3.2vw, 3.6rem);
+  font-size: clamp(2rem, 2.8vw, 3.1rem);
   font-weight: 400;
   line-height: 0.9;
   letter-spacing: 0.02em;
@@ -426,8 +328,8 @@
 
 .videoPlaylist {
   display: grid;
-  gap: 0.4rem;
-  margin: -0.45rem 0 0;
+  gap: 0.25rem;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -439,12 +341,12 @@
 .playlistItem {
   display: grid;
   width: 100%;
-  grid-template-columns: minmax(7rem, 9.25rem) auto minmax(0, 1fr);
+  grid-template-columns: minmax(5.5rem, 6.5rem) minmax(0, 1fr);
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.75rem;
   border: 0;
   border-radius: 0;
-  padding: 0.45rem;
+  padding: 0.25rem 0.5rem;
   color: var(--color-paper);
   background: transparent;
   text-align: left;
@@ -478,58 +380,48 @@
   filter: saturate(0.82) contrast(1.06) sepia(0.08);
 }
 
-.playlistNumber,
 .playlistItem strong {
   font-family: var(--font-display), sans-serif;
   font-weight: 400;
   text-transform: uppercase;
 }
 
-.playlistNumber {
-  color: var(--color-rust);
-  font-size: 1rem;
-  letter-spacing: 0.06em;
-}
-
 .playlistItem strong {
-  font-size: clamp(1.05rem, 1.25vw, 1.4rem);
-  line-height: 0.95;
+  font-size: clamp(0.95rem, 1.1vw, 1.15rem);
+  line-height: 1;
   letter-spacing: 0.025em;
 }
 
 .photographs {
   position: relative;
-  padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 4rem);
-  border-top: 1px solid var(--color-rule);
-  background: var(--color-ink-soft);
-  scroll-margin-top: 4.8rem;
+  padding: clamp(1.5rem, 2.5vw, 2.375rem) clamp(1rem, 4vw, 4rem);
+  background: var(--color-ink);
 }
 
 .photoGallery {
+  display: grid;
   width: min(100%, var(--container));
+  gap: clamp(1.75rem, 3vw, 2.75rem);
   margin-inline: auto;
 }
 
 .photoHeader {
   display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 0.85rem;
 }
 
-.photoHeader h2 {
-  margin: 0;
-  font-family: var(--font-display), sans-serif;
-  font-size: clamp(3rem, 4.2vw, 4.5rem);
-  font-weight: 400;
-  line-height: 0.9;
-  text-transform: uppercase;
+.photoHeading {
+  min-width: 0;
+  flex: 1;
 }
 
 .photoOpenButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   border: 0;
-  border-bottom: 1px solid var(--color-gold);
-  padding: 0 0 0.45rem;
+  padding: 0;
   color: var(--color-paper);
   background: transparent;
   font-family: var(--font-display), sans-serif;
@@ -537,25 +429,21 @@
   letter-spacing: 0.13em;
   text-align: left;
   text-transform: uppercase;
-  transition:
-    border-color 160ms ease,
-    color 160ms ease;
+  transition: color 160ms ease;
 }
 
 .photoOpenButton:hover,
 .photoOpenButton:focus-visible {
-  border-color: var(--color-paper);
   color: var(--color-gold);
 }
 
 .photoSpread {
   display: grid;
-  width: min(100%, 76rem);
+  width: 100%;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   grid-template-rows: repeat(2, minmax(0, 1fr));
   aspect-ratio: 6 / 5;
   gap: clamp(0.65rem, 1.3vw, 1.15rem);
-  margin-top: clamp(1.75rem, 3vw, 2.75rem);
 }
 
 .photoPreview {
@@ -686,14 +574,7 @@
 }
 
 .forHire {
-  padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 4rem);
-  color: var(--color-ink);
-  background: var(--color-gold);
-  scroll-margin-top: 4.8rem;
-}
-
-.forHire ::selection {
-  color: var(--color-paper);
+  padding: clamp(3rem, 5vw, 4.75rem) clamp(1rem, 4vw, 4rem);
   background: var(--color-ink);
 }
 
@@ -701,24 +582,22 @@
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   gap: clamp(3rem, 7vw, 8rem);
+  padding: clamp(1.5rem, 3vw, 3rem);
+  color: var(--color-ink);
+  background: var(--color-gold);
 }
 
-.forHireIntro h2 {
-  max-width: 8ch;
-  margin: 0;
-  font-family: var(--font-display), sans-serif;
-  font-size: clamp(3.5rem, 5.4vw, 5.75rem);
-  font-weight: 400;
-  line-height: 0.84;
-  text-transform: uppercase;
+.forHireShell ::selection {
+  color: var(--color-gold);
+  background: var(--color-ink);
 }
 
 .forHireIntro > p {
   max-width: 35rem;
   margin: 1.25rem 0 0;
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 1.15rem;
-  line-height: 1.42;
+  font-size: clamp(1.35rem, 1.7vw, 1.65rem);
+  line-height: 1.32;
 }
 
 .darkButton {
@@ -742,14 +621,8 @@
   border-bottom: 1px solid rgb(11 10 9 / 0.45);
 }
 
-.service > span {
-  font-family: var(--font-display), sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-}
-
 .service h3 {
-  margin: 1.5rem 0 0;
+  margin: 0;
   font-family: var(--font-display), sans-serif;
   font-size: clamp(1.7rem, 2.35vw, 2.6rem);
   font-weight: 400;
@@ -764,16 +637,6 @@
   line-height: 1.55;
 }
 
-.socialLinks img {
-  object-fit: contain;
-}
-
-.footer {
-  border-top: 1px solid var(--color-rule);
-  background: var(--color-ink-soft);
-  scroll-margin-top: 4.8rem;
-}
-
 .footerMain {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -782,40 +645,54 @@
 }
 
 .footerBooking h2 {
-  font-size: clamp(3.1rem, 4.3vw, 4.75rem);
-}
-
-.newsletter h2 {
-  font-size: clamp(2.4rem, 3.3vw, 3.6rem);
+  font-size: clamp(2.75rem, 3.75vw, 4rem);
 }
 
 .footerBooking > p,
-.newsletter > p,
-.socialBlock > p {
+.newsletter > p {
   max-width: 34rem;
   margin: 1rem 0 0;
   color: var(--color-paper-muted);
   line-height: 1.65;
 }
 
-.footerBooking .primaryButton {
+.footerBookingButton {
+  display: inline-flex;
+  min-height: 3.1rem;
+  align-items: center;
+  justify-content: center;
   margin-top: 1.4rem;
+  padding: 0.85rem 1.35rem;
+  color: var(--color-ink);
+  background: var(--color-gold);
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease;
 }
 
-.emailLink {
-  display: block;
-  width: fit-content;
-  margin-top: 1rem;
-  color: var(--color-gold);
-  font-size: 0.9rem;
+.footerBookingButton:hover,
+.footerBookingButton:focus-visible {
+  color: var(--color-ink);
+  background: var(--color-paper);
+  transform: translateY(-2px);
+}
+
+.newsletter h2 {
+  font-size: clamp(2.25rem, 3vw, 3.15rem);
 }
 
 .newsletter {
-  border-bottom: 1px solid var(--color-rule);
-  padding-bottom: 2rem;
+  max-width: 38rem;
 }
 
 .newsletterForm {
+  max-width: 34rem;
   margin-top: 1.4rem;
 }
 
@@ -880,31 +757,56 @@
   color: #e49a83 !important;
 }
 
+.footer {
+  background: var(--color-ink);
+}
+
+.footerRuleFrame {
+  padding-inline: clamp(1rem, 4vw, 4rem);
+}
+
+.footerRule {
+  width: min(100%, var(--container));
+  height: 1px;
+  margin-inline: auto;
+  background: var(--color-rule);
+}
+
+.footerUtility {
+  padding-inline: clamp(1rem, 4vw, 4rem);
+}
+
 .socialBlock {
-  margin-top: 2rem;
+  margin: 0;
 }
 
 .socialLinks {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem 1.3rem;
-  margin-top: 1rem;
+  gap: 0.5rem;
 }
 
 .socialLinks a {
   display: inline-flex;
+  width: 2.75rem;
+  height: 2.75rem;
   align-items: center;
-  gap: 0.55rem;
-  padding-block: 0.4rem;
+  justify-content: center;
   color: var(--color-paper-muted);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  transition: color 160ms ease;
 }
 
-.socialLinks a:hover {
+.socialLinks a:hover,
+.socialLinks a:focus-visible {
   color: var(--color-gold);
+}
+
+.socialIcon {
+  width: 1.4rem;
+  height: 1.4rem;
+  background: currentColor;
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
 }
 
 .footerBottom {
@@ -912,19 +814,13 @@
   min-height: 5rem;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.5rem;
   border-top: 1px solid var(--color-rule);
-  padding: 1rem clamp(1rem, 4vw, 4rem);
+  padding-block: 1rem;
   color: var(--color-paper-muted);
   font-size: 0.68rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-}
-
-.footerBottom span:first-child {
-  color: var(--color-gold);
-  font-family: var(--font-display), sans-serif;
-  font-size: 1.45rem;
 }
 
 @media (max-width: 1100px) {
@@ -933,132 +829,54 @@
   }
 
   .heroTitle {
-    font-size: clamp(4.25rem, 6.8vw, 6rem);
+    font-size: 7rem;
+  }
+
+  .heroSupporting {
+    font-size: 1.5rem;
   }
 
   .videoExperience {
-    grid-template-columns: minmax(0, 1.55fr) minmax(19rem, 1fr);
-    gap: 2rem;
+    grid-template-columns: minmax(0, 1.65fr) minmax(17.5rem, 0.85fr);
+    gap: clamp(1.5rem, 3vw, 2rem);
   }
 
   .playlistItem {
-    grid-template-columns: 6.5rem auto minmax(0, 1fr);
+    grid-template-columns: 5.5rem minmax(0, 1fr);
     gap: 0.65rem;
+    padding-block: 0.2rem;
   }
 
   .playlistItem strong {
-    font-size: 1.05rem;
+    font-size: 0.98rem;
   }
 
-  .forHireShell,
-  .footerMain {
+  .forHireShell {
     gap: 4rem;
   }
 }
 
-@media (max-width: 899px) {
-  .navScrolled {
-    backdrop-filter: none;
-  }
-
-  .desktopNavigation {
-    display: none;
-  }
-
-  .menuButton {
-    display: inline-flex;
-  }
-
-  .mobileNavigation {
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    display: flex;
-    visibility: hidden;
-    flex-direction: column;
-    padding: 7.75rem clamp(1.5rem, 7vw, 2.5rem) max(1.5rem, env(safe-area-inset-bottom));
-    overflow-y: auto;
-    background: rgb(8 7 6 / 0.88);
-    -webkit-backdrop-filter: blur(18px);
-    backdrop-filter: blur(18px);
-    opacity: 0;
-    transform: translateY(-1rem);
-    transition:
-      visibility 0s linear 200ms,
-      opacity 200ms ease,
-      transform 200ms ease;
-  }
-
-  .mobileNavigationOpen {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0s;
-  }
-
-  .mobileNavigationLinks {
-    position: relative;
-    display: flex;
-    align-self: start;
-    flex-direction: column;
-    gap: clamp(1.15rem, 3.2svh, 1.65rem);
-    padding-top: clamp(0.75rem, 5svh, 3rem);
-  }
-
-  .mobileNavigation a {
-    display: block;
-    padding: 0.18rem 0;
-    font-family: var(--font-display), sans-serif;
-    font-size: clamp(3.25rem, 13vw, 4.25rem);
-    line-height: 0.82;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-    transition: color 160ms ease;
-  }
-
-  .mobileNavigationLinks a:hover,
-  .mobileNavigationLinks a:focus-visible {
-    color: var(--color-gold);
-  }
-
-  @media (max-height: 44rem) {
-    .mobileNavigation {
-      padding-top: 5.9rem;
-    }
-
-    .mobileNavigationLinks {
-      gap: 0.8rem;
-      padding-top: 0.4rem;
-    }
-
-    .mobileNavigation a {
-      font-size: clamp(3rem, 12vw, 3.7rem);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .mobileNavigation {
-      transition: none;
-    }
-  }
-
-  .hero {
-    padding-inline: 0;
+@media (min-width: 900px) and (max-width: 1100px) and (orientation: portrait) {
+  .masthead {
+    width: 100%;
+    padding-inline: clamp(2rem, 4vw, 3rem);
   }
 
   .heroGrid {
-    min-height: calc(100svh - 4.8rem);
+    position: relative;
+    width: 100%;
+    min-height: calc(100svh);
     grid-template-columns: 1fr;
   }
 
   .heroCopy {
-    min-height: 36rem;
-    justify-content: start;
-    padding: 3rem 1.25rem 1rem;
+    min-height: calc(100svh);
+    justify-content: flex-end;
+    padding: 3rem clamp(2rem, 4vw, 3rem) 6.5rem;
   }
 
   .heroTitle {
-    font-size: clamp(4.25rem, 16vw, 6rem);
+    font-size: 6rem;
   }
 
   .heroSupporting {
@@ -1066,39 +884,135 @@
   }
 
   .heroArtwork {
-    min-height: 40rem;
-    margin-top: -6rem;
+    position: absolute;
+    inset: 0;
+    min-height: 0;
+    width: auto;
+    margin: 0;
   }
 
   .heroArtwork::after {
     background:
-      linear-gradient(180deg, var(--color-ink) 0, transparent 18%, transparent 88%, var(--color-ink) 100%),
-      linear-gradient(90deg, var(--color-ink) 0, transparent 12%, transparent 88%, var(--color-ink) 100%);
+      linear-gradient(
+        0deg,
+        var(--color-ink) 0,
+        #0b0a09db 7%,
+        #0b0a0980 13%,
+        #0b0a0924 18%,
+        transparent 24%
+      ),
+      radial-gradient(
+        ellipse 110% 56% at 18% 50%,
+        rgb(11 10 9 / 0.48) 0,
+        rgb(11 10 9 / 0.38) 42%,
+        rgb(11 10 9 / 0.16) 70%,
+        transparent 100%
+      ),
+      linear-gradient(
+        180deg,
+        transparent 0,
+        rgb(11 10 9 / 0.04) 14%,
+        rgb(11 10 9 / 0.16) 35%,
+        rgb(11 10 9 / 0.24) 52%,
+        rgb(11 10 9 / 0.16) 70%,
+        rgb(11 10 9 / 0.04) 88%,
+        transparent 100%
+      );
   }
 
   .heroImage {
-    object-position: 50% 13%;
+    object-position: 50% 18%;
+  }
+}
+
+@media (max-width: 899px) {
+  .masthead {
+    width: 100%;
+    padding-inline: 1.25rem;
+  }
+
+  .heroGrid {
+    position: relative;
+    width: 100%;
+    min-height: calc(100svh);
+    grid-template-columns: 1fr;
+  }
+
+  .heroCopy {
+    min-height: calc(100svh);
+    justify-content: flex-end;
+    padding: 3rem 1.25rem 6.5rem;
+  }
+
+  .heroTitle {
+    font-size: 6rem;
+  }
+
+  .heroSupporting {
+    max-width: 22rem;
+    font-size: 1.5rem;
+  }
+
+  .heroArtwork {
+    position: absolute;
+    inset: 0;
+    min-height: 0;
+    width: auto;
+    margin: 0;
+  }
+
+  .heroArtwork::after {
+    background:
+      linear-gradient(
+        0deg,
+        var(--color-ink) 0,
+        #0b0a09db 7%,
+        #0b0a0980 13%,
+        #0b0a0924 18%,
+        transparent 24%
+      ),
+      radial-gradient(
+        ellipse 110% 56% at 18% 50%,
+        rgb(11 10 9 / 0.48) 0,
+        rgb(11 10 9 / 0.38) 42%,
+        rgb(11 10 9 / 0.16) 70%,
+        transparent 100%
+      ),
+      linear-gradient(
+        180deg,
+        transparent 0,
+        rgb(11 10 9 / 0.04) 14%,
+        rgb(11 10 9 / 0.16) 35%,
+        rgb(11 10 9 / 0.24) 52%,
+        rgb(11 10 9 / 0.16) 70%,
+        rgb(11 10 9 / 0.04) 88%,
+        transparent 100%
+      );
+  }
+
+  .heroImage {
+    object-position: 50% 18%;
   }
 
   .videoExperience {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.25rem;
   }
 
   .videoPlaylist {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem clamp(1rem, 3vw, 1.5rem);
+    gap: 1.75rem clamp(1rem, 3vw, 1.25rem);
     margin: 0;
     padding: 0;
   }
 
   .playlistItem {
     height: 100%;
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     align-items: start;
-    gap: 0.75rem 0.65rem;
-    padding: 0.5rem;
+    gap: 0.65rem;
+    padding: 0.45rem;
   }
 
   .playlistThumbnail {
@@ -1107,8 +1021,7 @@
   }
 
   .playlistItem strong {
-    overflow-wrap: anywhere;
-    font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+    font-size: clamp(1.05rem, 2.1vw, 1.2rem);
     line-height: 1.05;
   }
 
@@ -1131,12 +1044,18 @@
     grid-column: auto;
   }
 
-  .forHireShell,
-  .footerMain {
+  .forHireShell {
     grid-template-columns: 1fr;
   }
 
-  .footerConnect {
+  .footerMain {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding-block: 3.75rem;
+  }
+
+  .newsletter {
+    max-width: none;
     border-top: 1px solid var(--color-rule);
     padding-top: 3rem;
   }
@@ -1144,48 +1063,40 @@
 
 @media (max-width: 640px) {
   .videoExperience {
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
   .activeVideoTitle {
     max-width: 20ch;
-    min-height: 1.9em;
+    min-height: 1.85em;
     font-size: clamp(1.8rem, 7vw, 2.6rem);
     line-height: 0.95;
   }
 
   .videoPlaylist {
     grid-template-columns: 1fr;
-    gap: 0.6rem;
+    gap: 0.45rem;
   }
 
   .playlistItem {
-    grid-template-columns: minmax(7rem, 38%) auto minmax(0, 1fr);
+    grid-template-columns: minmax(5.75rem, 30%) minmax(0, 1fr);
     grid-template-rows: auto;
     align-items: center;
-    gap: 0.7rem;
-    padding: 0.45rem;
+    gap: 0.65rem;
+    padding: 0.4rem 0.5rem;
   }
 
   .playlistThumbnail {
     grid-column: auto;
   }
 
-  .playlistNumber {
-    font-size: 1rem;
-  }
-
   .playlistItem strong {
-    font-size: clamp(1rem, 4.4vw, 1.2rem);
+    font-size: clamp(1rem, 4.1vw, 1.15rem);
     line-height: 1.05;
   }
 
-  .photoHeader {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
   .photoOpenButton {
+    justify-self: start;
     font-size: 0.85rem;
   }
 
@@ -1223,43 +1134,27 @@
 }
 
 @media (max-width: 560px) {
-  .nav {
-    min-height: 4.4rem;
-  }
-
   .brand {
     font-size: 1.45rem;
   }
 
-  .hero {
-    padding-top: 4.4rem;
-  }
-
   .heroGrid {
-    min-height: calc(100svh - 4.4rem);
+    min-height: 100svh;
   }
 
   .heroCopy {
-    min-height: 34rem;
     padding-top: 3rem;
   }
 
   .heroTitle {
-    font-size: clamp(3.75rem, 18vw, 5rem);
+    font-size: 5.5rem;
   }
 
   .heroSupporting {
     margin-top: 1.1rem;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
   }
 
-  .heroActions {
-    gap: 0.55rem;
-    margin-top: 1.3rem;
-  }
-
-  .primaryButton,
-  .secondaryButton,
   .darkButton {
     min-height: 3rem;
     padding: 0.8rem 1rem;
@@ -1267,31 +1162,16 @@
   }
 
   .heroArtwork {
-    min-height: 34rem;
-    margin-top: -4rem;
+    min-height: 0;
   }
 
   .performances,
-  .photographs,
-  .forHire {
-    padding-block: 3.75rem;
+  .photographs {
+    padding-block: 1.5rem;
   }
 
-  .sectionHeader h2 {
-    font-size: clamp(2.8rem, 13vw, 4rem);
-  }
-
-  .forHireIntro h2,
-  .footerBooking h2 {
-    font-size: clamp(3rem, 14vw, 4.25rem);
-  }
-
-  .newsletter h2 {
-    font-size: clamp(2.5rem, 12vw, 3.5rem);
-  }
-
-  .videoExperience {
-    margin-top: 1.6rem;
+  .performances {
+    gap: 1.6rem;
   }
 
   .featuredMedia {
@@ -1315,10 +1195,6 @@
     min-height: 13rem;
   }
 
-  .footerMain {
-    padding-block: 3.75rem;
-  }
-
   .newsletterForm > div {
     flex-direction: column;
     gap: 0.6rem;
@@ -1329,7 +1205,10 @@
   }
 
   .footerBottom {
+    min-height: 0;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
+    padding-block: 1.5rem;
   }
 }

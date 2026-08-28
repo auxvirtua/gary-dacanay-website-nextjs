@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SectionHeading } from "./SectionHeading";
 import styles from "./MusicSection.module.css";
 
 type MusicRelease = {
@@ -19,9 +20,9 @@ export function MusicSection({ releases }: { releases: MusicRelease[] }) {
   }
 
   return (
-    <section id="music" className={styles.music} aria-labelledby="music-title">
+    <section className={styles.music} aria-labelledby="music-title">
       <div className={styles.shell}>
-        <h2 id="music-title" className={styles.title}>Music</h2>
+        <SectionHeading id="music-title">Music</SectionHeading>
 
         <article className={styles.release}>
           <div className={styles.artworkFrame}>
@@ -48,7 +49,10 @@ export function MusicSection({ releases }: { releases: MusicRelease[] }) {
                       rel="noopener noreferrer"
                       aria-label={`Listen to ${release.title} on Spotify`}
                     >
-                      <Image src="/spotify.svg" alt="" width={20} height={20} />
+                      <span
+                        aria-hidden="true"
+                        className={`${styles.platformIcon} ${styles.spotifyIcon}`}
+                      />
                       Spotify
                     </a>
                   ) : null}
@@ -60,7 +64,10 @@ export function MusicSection({ releases }: { releases: MusicRelease[] }) {
                       rel="noopener noreferrer"
                       aria-label={`Listen to ${release.title} on Apple Music`}
                     >
-                      <Image src="/apple_music.svg" alt="" width={20} height={20} />
+                      <span
+                        aria-hidden="true"
+                        className={`${styles.platformIcon} ${styles.appleMusicIcon}`}
+                      />
                       Apple Music
                     </a>
                   ) : null}

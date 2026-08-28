@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { SectionHeading } from "./SectionHeading";
 import styles from "./HomePage.module.css";
 
 type PhotoLayout = "featured" | "supporting" | "portrait" | "landscape" | "square";
@@ -51,20 +52,6 @@ const photos: Photo[] = [
   {
     src: "/images/photos/web/city-guitar-1.webp",
     alt: "Gary Dacanay smiling with his guitar outside a downtown venue.",
-    width: 1467,
-    height: 2200,
-    layout: "portrait",
-  },
-  {
-    src: "/images/photos/web/city-guitar-2.webp",
-    alt: "Gary Dacanay holding his guitar upright on a city street.",
-    width: 1467,
-    height: 2200,
-    layout: "portrait",
-  },
-  {
-    src: "/images/photos/web/city-guitar-3.webp",
-    alt: "Gary Dacanay holding his guitar in front of downtown buildings and string lights.",
     width: 1467,
     height: 2200,
     layout: "portrait",
@@ -137,19 +124,21 @@ export function PhotoGallery() {
 
   return (
     <section
-      id="photographs"
       className={styles.photographs}
       aria-labelledby="photographs-title"
     >
       <div className={styles.photoGallery}>
         <div className={styles.photoHeader}>
-          <h2 id="photographs-title">Photos</h2>
+          <SectionHeading className={styles.photoHeading} id="photographs-title">
+            Photos
+          </SectionHeading>
           <button
             type="button"
             className={styles.photoOpenButton}
             onClick={(event) => openGallery(0, event.currentTarget)}
           >
-            View all photographs
+            See More
+            <ArrowRight aria-hidden="true" size={16} strokeWidth={1.7} />
           </button>
         </div>
 

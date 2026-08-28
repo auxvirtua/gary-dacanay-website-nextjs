@@ -40,7 +40,7 @@ export function NewsletterForm() {
 
   return (
     <div className={styles.newsletter}>
-      <h2>Stay in the Loop</h2>
+      <h2 id="newsletter-title">Stay in the loop</h2>
       <p>Occasional messages about upcoming performances, recordings, and new music.</p>
       <form onSubmit={handleSubmit} className={styles.newsletterForm}>
         <label htmlFor="newsletter-email">Email address</label>
