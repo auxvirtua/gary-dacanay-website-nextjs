@@ -35,18 +35,18 @@ const photos: Photo[] = [
     objectPosition: "50% 44%",
   },
   {
-    src: "/images/photos/web/city-1.webp",
-    alt: "Gary Dacanay smiling with his guitar outside a downtown venue.",
-    width: 1467,
-    height: 2200,
-    layout: "portrait",
-  },
-  {
     src: "/images/photos/web/city-2.webp",
     alt: "Gary Dacanay holding a sunburst hollow-body guitar outside a live music venue.",
     width: 1467,
     height: 2200,
     layout: "supporting",
+  },
+  {
+    src: "/images/photos/web/city-1.webp",
+    alt: "Gary Dacanay smiling with his guitar outside a downtown venue.",
+    width: 1467,
+    height: 2200,
+    layout: "portrait",
   },
 ];
 
