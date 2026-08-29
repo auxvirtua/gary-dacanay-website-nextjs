@@ -269,7 +269,6 @@
 }
 
 .activeVideoTitle {
-  max-width: 16ch;
   min-height: 1.85em;
   margin: 1rem 0 0;
   font-family: var(--font-display), sans-serif;
@@ -1067,7 +1066,6 @@
   }
 
   .activeVideoTitle {
-    max-width: 20ch;
     min-height: 1.85em;
     font-size: clamp(1.8rem, 7vw, 2.6rem);
     line-height: 0.95;
