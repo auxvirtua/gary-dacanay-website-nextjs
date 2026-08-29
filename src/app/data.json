@@ -1,29 +1,62 @@
 {
-    "name": "Gary Dacanay",
-    "description": "Playing Jazz Standards from The Great American Songbook at your private corporate events, weddings, dinners and parties in Northeast Ohio.",
-    "subdescription": "Jazz Vocalist and Guitarist",
-    "email": "info@garydacanay.com",
-    "videos": [
-        [
-            "Stella by Starlight",
-            "SRjt5HgpgRM"
-        ],
-        [
-            "You Stepped Out Of A Dream",
-            "ee68onP0OHg"
-        ],
-        [
-            "Medley: The Way You Look Tonight",
-            "aBUiJQaLWgs"
-        ]
-    ],
-    "social": {
-        "youtube": "https://www.youtube.com/user/GaryDacanay",
-        "instagram": "https://www.instagram.com/gary_dacanay",
-        "facebook": "https://www.facebook.com/profile.php?id=100083527954006"
+  "name": "Gary Dacanay",
+  "description": "Live jazz standards and Great American Songbook favorites for weddings, dinners, concerts, corporate receptions, and private events in Northeast Ohio.",
+  "email": "info@garydacanay.com",
+  "hero": {
+    "headline": "The Great American Songbook, Live",
+    "supportingCopy": "Timeless jazz for concerts, weddings, dinners, and private events."
+  },
+  "booking": {
+    "subject": "Booking inquiry for Gary Dacanay",
+    "body": "Hi Gary,\n\nI'm interested in booking you for an event.\n\nEvent type:\nDate:\nLocation:\nApproximate guest count:\n\nAdditional details:\n\nThank you,"
+  },
+  "services": [
+    {
+      "name": "Weddings",
+      "description": "Ceremonies, cocktail hours, dinners, and receptions with a warm, elegant atmosphere."
     },
-    "music": {
-        "spotify": "https://open.spotify.com/artist/3oPJs0JJuqfXPv4VEkPlAz",
-        "apple_music": "https://music.apple.com/us/artist/gary-dacanay/448384631"
+    {
+      "name": "Private Dinners",
+      "description": "Intimate vocal-and-guitar performances that complement the room."
+    },
+    {
+      "name": "Corporate Events",
+      "description": "Polished live jazz for receptions, client gatherings, celebrations, and hospitality."
+    },
+    {
+      "name": "Concerts & Parties",
+      "description": "A focused performance of beloved standards for audiences ready to listen and celebrate."
     }
+  ],
+  "videos": [
+    ["In a Sentimental Mood", "6_HX6vTfS-4"],
+    ["Beyond the Sea", "rtxGXTqMXdw"],
+    ["My Funny Valentine", "HTHvkNXp8G4"],
+    ["Stella by Starlight", "SRjt5HgpgRM"],
+    ["You Stepped Out of a Dream", "ee68onP0OHg"],
+    ["The Way You Look Tonight", "aBUiJQaLWgs"],
+    ["Haven’t We Met", "EuolPrEogoc"]
+  ],
+  "social": {
+    "youtube": "https://www.youtube.com/user/GaryDacanay",
+    "instagram": "https://www.instagram.com/gary_dacanay",
+    "facebook": "https://www.facebook.com/profile.php?id=100083527954006",
+    "spotify": "https://open.spotify.com/artist/3oPJs0JJuqfXPv4VEkPlAz",
+    "apple_music": "https://music.apple.com/us/artist/gary-dacanay/448384631"
+  },
+  "music": {
+    "spotify": "https://open.spotify.com/artist/3oPJs0JJuqfXPv4VEkPlAz",
+    "apple_music": "https://music.apple.com/us/artist/gary-dacanay/448384631",
+    "releases": [
+      {
+        "slug": "i-fall-in-love-too-easily",
+        "title": "I Fall In Love Too Easily",
+        "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e021589ff3a3c093be46da9f39f",
+        "status": "released",
+        "spotifyUrl": "https://open.spotify.com/track/0hVgBYKeDdVtdoeqMDM7dm",
+        "appleMusicUrl": "https://music.apple.com/us/album/i-fall-in-love-too-easily/6765926775?i=6765926776",
+        "featured": true
+      }
+    ]
+  }
 }

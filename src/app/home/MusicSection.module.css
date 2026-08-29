@@ -1,0 +1,158 @@
+.music {
+  position: relative;
+  padding: clamp(1.5rem, 2.5vw, 2.375rem) clamp(1rem, 4vw, 4rem);
+  background: var(--color-ink);
+}
+
+.shell {
+  display: grid;
+  width: min(100%, var(--container));
+  gap: 2.25rem;
+  margin-inline: auto;
+}
+
+.release h3 {
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 400;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+.release {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: min(100%, 23rem);
+  border-radius: 0;
+  padding: 0.65rem;
+  background: var(--color-ink-soft);
+}
+
+.artworkFrame {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 0;
+  background: var(--color-ink);
+}
+
+.artwork {
+  object-fit: cover;
+}
+
+.releaseDetails {
+  padding: 1.2rem 0.25rem 0.4rem;
+  text-align: center;
+}
+
+.release h3 {
+  max-width: none;
+  font-size: clamp(1.9rem, 2.4vw, 2.25rem);
+}
+
+.listenOn {
+  margin-top: 0;
+}
+
+.platformLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 0;
+}
+
+.platformLink {
+  display: inline-flex;
+  min-height: 2.6rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.3rem 0;
+  color: var(--color-paper);
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.platformLink:hover,
+.platformLink:focus-visible {
+  color: var(--color-gold);
+}
+
+.platformIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: none;
+  background: currentColor;
+  -webkit-mask: center / contain no-repeat;
+  mask: center / contain no-repeat;
+}
+
+.spotifyIcon {
+  -webkit-mask-image: url("/spotify.svg");
+  mask-image: url("/spotify.svg");
+}
+
+.appleMusicIcon {
+  -webkit-mask-image: url("/apple_music.svg");
+  mask-image: url("/apple_music.svg");
+}
+
+@media (max-width: 640px) {
+  .music {
+    padding-block: 1.5rem;
+  }
+
+  .release {
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: center;
+    width: 100%;
+    padding: 0.65rem;
+  }
+
+  .artworkFrame {
+    width: 5.5rem;
+  }
+
+  .releaseDetails {
+    min-width: 0;
+    align-self: center;
+    padding: 0;
+    text-align: left;
+  }
+
+  .release h3 {
+    font-size: clamp(1.65rem, 6.5vw, 1.9rem);
+  }
+
+  .listenOn {
+    margin-top: 0.5rem;
+  }
+
+  .platformLinks {
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+
+  .platformLink {
+    min-height: auto;
+    padding: 0.2rem 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.09em;
+    white-space: nowrap;
+  }
+
+  .platformIcon {
+    width: 1rem;
+    height: 1rem;
+  }
+}
