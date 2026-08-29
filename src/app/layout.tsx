@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Instrument_Serif, Inter } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./styles.css";
 import data from "./data.json";
 import { siteUrl } from "./content";
@@ -58,6 +59,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${display.variable} ${serif.variable} ${sans.variable}`}>
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
