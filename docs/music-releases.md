@@ -1,7 +1,8 @@
 # Music releases
 
-This document records the music-release experience for the website. Phase 1 is
-live; later phases are guidance for future implementation.
+This document records the music-release experience for the website. Phase 3 is
+live in a simplified form (see below); later phases are guidance for future
+implementation.
 
 ## Decision
 
@@ -40,10 +41,20 @@ availability behavior to the listening services.
 - Change the release to `released` and add the available platform URLs when it
   becomes available.
 
-### Phase 3: multiple released singles
+### Phase 3: multiple released singles (live)
+
+Current implementation:
+
+- Every released single renders as the same full-size card, newest first by
+  `releaseDate`. Cards wrap into rows on desktop and stack as compact rows on
+  small screens.
+- Release dates are used for ordering only and are not shown on the cards.
+- No release is visually featured yet, so the `featured` flag is not used.
+
+Later, once the catalog grows:
 
 - Keep the newest or editorially selected release featured.
-- Present the remaining releases as website-native cards.
+- Present the remaining releases as smaller website-native cards.
 - Prefer a small grid for a short catalog; revisit navigation only after the
   collection becomes large enough to require it.
 
@@ -110,6 +121,9 @@ content structure during implementation. Preserve these behaviors:
 - Keep release names, dates, descriptions, and actions in regular HTML.
 - Give each available platform equal visual weight.
 - Use artwork supplied or approved by the artist for website-native cards.
+- Store artwork in the repository under `public/images/music/<slug>.jpg`
+  rather than hotlinking platform image CDNs. The 640×640 platform cover is a
+  suitable source size.
 - Do not imitate platform controls or host platform audio directly.
 
 ## Analytics
@@ -134,7 +148,8 @@ properties. Do not block listening if analytics fails or is declined.
 
 ### On release day
 
-- Change the status to `released`.
+- Change the status to `released` and set `releaseDate`.
+- Save the cover to `public/images/music/<slug>.jpg`.
 - Add and test the canonical Spotify and Apple Music track or album URLs.
 - Decide whether the new release should be featured.
 - Add the release to each discography playlist when it exists.
