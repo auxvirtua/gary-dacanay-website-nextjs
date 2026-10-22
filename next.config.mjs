@@ -5,9 +5,6 @@ const nextConfig = {
       {
         hostname: "img.youtube.com",
       },
-      {
-        hostname: "image-cdn-fa.spotifycdn.com",
-      },
     ],
   },
 };

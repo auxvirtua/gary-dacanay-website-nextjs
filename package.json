@@ -16,20 +16,20 @@
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@vercel/speed-insights": "^2.0.0",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.6.1",
     "lucide-react": "^0.577.0",
     "next": "16.2.0",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
-    "@types/mailchimp__mailchimp_marketing": "^3.0.20",
-    "@types/node": "^20",
+    "@types/mailchimp__mailchimp_marketing": "^3.0.22",
+    "@types/node": "^20.19.43",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "eslint": "^9.38.0",
+    "eslint": "^9.39.5",
     "eslint-config-next": "16.2.0",
-    "prettier": "^3.2.5",
-    "typescript": "^5"
+    "prettier": "^3.9.6",
+    "typescript": "^5.9.3"
   }
 }
