@@ -49,13 +49,22 @@
     "apple_music": "https://music.apple.com/us/artist/gary-dacanay/448384631",
     "releases": [
       {
+        "slug": "the-best-is-yet-to-come",
+        "title": "The Best Is Yet to Come",
+        "artwork": "/images/music/the-best-is-yet-to-come.jpg",
+        "releaseDate": "2026-10-13",
+        "status": "released",
+        "spotifyUrl": "https://open.spotify.com/track/0uMpMuNb4XOc6nUelKwi12",
+        "appleMusicUrl": "https://music.apple.com/us/album/the-best-is-yet-to-come-single/6823437856"
+      },
+      {
         "slug": "i-fall-in-love-too-easily",
         "title": "I Fall In Love Too Easily",
-        "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e021589ff3a3c093be46da9f39f",
+        "artwork": "/images/music/i-fall-in-love-too-easily.jpg",
+        "releaseDate": "2026-04-27",
         "status": "released",
         "spotifyUrl": "https://open.spotify.com/track/0hVgBYKeDdVtdoeqMDM7dm",
-        "appleMusicUrl": "https://music.apple.com/us/album/i-fall-in-love-too-easily/6765926775?i=6765926776",
-        "featured": true
+        "appleMusicUrl": "https://music.apple.com/us/album/i-fall-in-love-too-easily/6765926775?i=6765926776"
       }
     ]
   }
